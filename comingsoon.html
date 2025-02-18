@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En contruccion</title>
+</head>
+
+<style>
+    /* ==================== */
+/* Estilos Generales */
+/* ==================== */
+body {
+    font-family: Arial, sans-serif;
+    background: url('./img/fondo-p.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden; /* Elimina la barra de desplazamiento horizontal */
+}
+
+/* Capa semitransparente para mejorar la legibilidad */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.721);
+    z-index: -1;
+}
+
+h1::before {
+    content: "🚧";
+    margin-right: 10px;
+}
+
+h2::before {
+    content: "🚧";
+    margin-right: 10px;
+}
+
+/* ==================== */
+p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    background: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+</style>
+
+<body>
+    <h1>Este sitio web esta en construcción</h1>
+    <h2>🛸⚙️🛠️👷🏽‍♂️🧑🏽‍💻🤖💭📲🫡</h2>
+    <p>Por favor, intente volver a visitar más tarde. </p>
+    <a href="./index.html">Volver al inicio</a>
+</body>
+
+</html>

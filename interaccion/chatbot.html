@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente virtual</title>
+    <link rel="icon" type="image/x-icon" href="./img/imagen.PNG">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+            <!-- Banner Dinámico -->
+
+            <div class="banner">
+                <div class="banner-text">
+                     Bienvenidos 🫡 "Esto es un asistente virtual...",
+                    "Te brinda información del clima en Cúcuta ☀️🌡️",
+                    "Consulta noticias en tiempo real 📰",
+                    "Puedes enviar mensajes como: Hola, Ayuda, Gracias, Adiós 👋"
+                </div>
+            </div>
+
+
+
+
+    <!-- Chatbot Icono -->
+    <div class="chatbot-image" id="chatbotIcon" onclick="openModal()">
+        <img src="./img/imagen.PNG" alt="Icono del chatbot" class="img-fluid"/>
+    </div>
+
+    <!-- Modal del chatbot -->
+    <div class="modal" id="chatbotModal">
+        <div class="modal-header">
+            <h2>Asistente📲🛸</h2>
+            <button class="close-btn" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="message-container" id="messageContainer"></div>
+            <textarea id="message" rows="4" placeholder="Escribe un mensaje..."></textarea>
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- Sonido de respuesta -->
+    <audio id="botSound" src="./audio/confirmacion.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

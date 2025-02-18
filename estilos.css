@@ -1,0 +1,284 @@
+/* ==================== */
+/* Estilos Generales */
+/* ==================== */
+body {
+    font-family: Arial, sans-serif;
+    background: url('./img/fondo-p.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden; /* Elimina la barra de desplazamiento horizontal */
+}
+
+/* Capa semitransparente para mejorar la legibilidad */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.721);
+    z-index: -1;
+}
+
+/* ==================== */
+/* Sidebar */
+/* ==================== */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #201f1f00;
+    padding-top: 25px;
+    color: #e0e0e0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar a:hover {
+    background-color: #030322;
+    color: #ffffff;
+}
+
+/* ==================== */
+/* Contenido Principal */
+/* ==================== */
+.content {
+    margin-left: 250px;
+    padding: 50px;
+}
+
+/* ==================== */
+/* Secciones */
+/* ==================== */
+#hero {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+#about,
+#projects,
+#contact,
+#profile {
+    padding: 4rem 0;
+}
+
+#about {
+    background-color: #00000000;
+    text-align: justify;
+}
+
+#projects {
+    background-color: #0f0f0f00;
+
+}
+
+#contact {
+    background-color: #0f0f0f00;
+}
+
+/* ==================== */
+/* Tarjetas de Proyectos */
+/* ==================== */
+.card{
+    background-color: #0f0f0fd0;
+    color: #e0e0e0;
+    transition: transform 0.3s;
+    font: 0.8em sans-serif;
+    text-align: justify;
+    
+    
+   
+}
+
+.card-text {
+    font-size: 0.8em; /* Tamaño de la fuente del texto */
+    color: #e0e0e0; /* Color del texto */
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+    margin-bottom: 15px; /* Espaciado debajo del texto */
+    display: -webkit-box; /* Cambia a un contenedor flexible */
+    -webkit-box-orient: vertical; /* Establece la dirección de las líneas del texto */
+    -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
+    line-clamp: 3; /* También defines la propiedad estándar */
+    overflow: hidden; /* Oculta el texto que excede el contenedor */
+    text-overflow: ellipsis; /* Aplica puntos suspensivos al final del texto */
+}
+
+
+
+
+
+
+.card:hover {
+    transform: scale(1.05);
+    
+}
+
+.card-img-top {
+    transition: transform 0.3s, filter 0.3s;
+    
+}
+
+.card-img-top:hover {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+   
+
+}
+
+
+
+
+
+
+/* ==================== */
+/* Botones */
+/* ==================== */
+.btn-primary {
+    background-color: #4604d4fa;
+    border-color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #33c113;
+    border-color: #000000;
+}
+
+/* ==================== */
+/* Pie de Página */
+/* ==================== */
+footer {
+    background-color: #0f0f0f00;
+    color: #c4cf22;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 10px;
+}
+
+/* ==================== */
+/* Perfil */
+/* ==================== */
+.profile-img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 1px solid #01053a2f;
+    background-color: #007bff00;
+    object-fit: cover;
+}
+
+/* ==================== */
+/* Enlaces Sociales */
+/* ==================== */
+.social-links a {
+    color: #c4cf22;
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    text-decoration: none !important;
+}
+
+.social-links a:hover {
+    color: #2b0187fa;
+}
+
+/* ==================== */
+/* Barra de Progreso */
+/* ==================== */
+.progress {
+    height: 10px;
+    background-color: #333;
+}
+
+
+/* ==================== */
+/* Chatbot */
+/* ==================== */
+.chatbot-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 25px;
+    right: 9px;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.chatbot-image img:hover {
+    transform: scale(1.1);
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* ==================== */
+/* Notificaciones */
+/* ==================== */
+.mensaje-exito {
+    display: none;
+    color: green;
+    margin-top: 10px;
+}
+
+/* ==================== */
+/* Media Queries */
+/* ==================== */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none !important;
+    }
+
+    .sidebar a {
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #757575;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    #hero {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #projects .card {
+        margin-bottom: 1.5rem;
+    }
+}
+
