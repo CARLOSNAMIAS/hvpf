@@ -2,7 +2,7 @@
 /* Estilos Generales */
 /* ==================== */
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     background: url('./img/fondo-p.webp') no-repeat center center fixed;
     background-size: cover;
     color: white;

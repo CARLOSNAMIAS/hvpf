@@ -1,46 +1,42 @@
-/* ==================== */
+/* Variables CSS para colores repetidos */
+:root {
+    --primary-bg: rgba(0, 0, 0, 0.5);
+    --modal-bg: rgb(13, 6, 31);
+    --button-bg: #2b0187fa;
+    --button-hover: #31c510ef;
+    --user-message-bg: #444;
+    --bot-message-bg: #064180;
+    --text-color: #fff;
+}
+
 /* Estilos Generales */
-/* ==================== */
 body {
-    font-family: Arial, sans-serif;
-    background: url('./img/fondo-p.webp') no-repeat center center fixed; /* Imagen de fondo */
-    background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
-    color: white;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: url('./img/fondo-p.webp') no-repeat center/cover fixed;
+    color: var(--text-color);
     margin: 0;
-    padding: 0;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     min-height: 100vh;
-    padding: 20px;
 }
 
-/* Opcional: Agregar una capa semitransparente para mejorar la legibilidad */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para que el texto resalte */
+    inset: 0;
+    background: var(--primary-bg);
     z-index: -1;
 }
 
 body.modal-open {
     overflow: hidden;
-    /* Bloquear el desplazamiento */
     height: 100%;
-    /* Asegurarse de que el contenido quede bloqueado */
-    background-color: #0a0a0b;
+    background: #0a0a0b;
 }
 
-
-
-/* ==================== */
 /* Chatbot */
-/* ==================== */
 .chatbot-image img {
     width: 60px;
     height: 60px;
@@ -50,7 +46,7 @@ body.modal-open {
     right: 10px;
     cursor: pointer;
     animation: float 3s ease-in-out infinite;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
 }
 
 .chatbot-image img:hover {
@@ -58,62 +54,42 @@ body.modal-open {
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+    50% { transform: translateY(-20px); }
 }
 
-/* ==================== */
 /* Modal del Chatbot */
-/* ==================== */
 .modal {
-    position: absolute;
+    position: fixed;
     bottom: 150px;
     right: 50px;
     width: 250px;
-    background-color: rgb(13, 6, 31);
+    background: var(--modal-bg);
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0px 4px 10px rgba(81, 230, 44, 0.413);
+    box-shadow: 0 4px 10px rgba(81, 230, 44, 0.413);
     z-index: 1000;
-
-    /* Inicialmente oculto */
     opacity: 0;
     transform: scale(0.8);
     visibility: hidden;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0s linear 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
 }
 
 .modal.active {
     opacity: 1;
     transform: scale(1);
     visibility: visible;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
-    cursor: pointer;
+    color: var(--text-color);
 }
 
 .modal-header h2 {
     margin: 0;
     font-size: 18px;
-}
-
-.modal-body {
-    margin-top: 10px;
 }
 
 .modal-body textarea {
@@ -126,8 +102,8 @@ body.modal-open {
 }
 
 .modal-body button {
-    background-color: #2b0187fa;
-    color: white;
+    background: var(--button-bg);
+    color: var(--text-color);
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -136,10 +112,9 @@ body.modal-open {
 }
 
 .modal-body button:hover {
-    background-color: #31c510ef;
+    background: var(--button-hover);
 }
 
-/* Contenedor de mensajes */
 .message-container {
     max-height: 200px;
     overflow-y: auto;
@@ -148,27 +123,25 @@ body.modal-open {
 
 .message-container .user-message,
 .message-container .bot-message {
-    background-color: #444;
-    color: white;
+    background: var(--user-message-bg);
+    color: var(--text-color);
     border-radius: 10px;
     padding: 8px;
     margin-bottom: 5px;
 }
 
 .message-container .bot-message {
-    background-color: #064180;
+    background: var(--bot-message-bg);
 }
 
 .close-btn {
-    background: transparent;
+    background: none;
     color: rgb(250, 46, 46);
     border: none;
     font-size: 30px;
     cursor: pointer;
 }
 
-
-/* Estilo para el mensaje de carga */
 .thinking-message {
     font-style: italic;
     color: gray;
@@ -176,41 +149,34 @@ body.modal-open {
     margin-top: 10px;
 }
 
-
-
-
-/* Contenedor del banner */
+/* Banner */
 .banner {
-    position: relative;
-    overflow: hidden;
     width: 100%;
-    /* Ocupa todo el ancho */
-    background-color: #002f5d00;
-    /* Fondo semitransparente */
-    color: rgb(255, 255, 255);
+    background: #002f5d00;
+    color: var(--text-color);
     font-size: 1rem;
     padding: 0.5px 0;
     display: flex;
-    /* Activamos Flexbox */
     justify-content: center;
-    /* Centramos horizontalmente */
     align-items: center;
-    /* Centramos verticalmente */
 }
 
 .banner-text {
     white-space: nowrap;
     animation: scrollText 30s linear infinite;
+    will-change: transform;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 
-/* Animación de desplazamiento */
-@keyframes scrollText {
-    0% {
-        transform: translateX(100%);
-    }
 
-    100% {
-        transform: translateX(-100%);
+
+@media (max-width: 768px) {
+    body {
+        background-image: url('./img/fondo-p.webp');
     }
 }
