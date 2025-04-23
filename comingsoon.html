@@ -4,74 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En contruccion</title>
+    <title>En construcción</title>
+    <!-- Bootstrap desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.min.css"> <!-- Archivo CSS minificado -->
 </head>
-
-<style>
-    /* ==================== */
-/* Estilos Generales */
-/* ==================== */
-body {
-    font-family: Arial, sans-serif;
-    background: url('./img/fondo-p.webp') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 20px;
-    overflow-x: hidden; /* Elimina la barra de desplazamiento horizontal */
-}
-
-/* Capa semitransparente para mejorar la legibilidad */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.721);
-    z-index: -1;
-}
-
-h1::before {
-    content: "🚧";
-    margin-right: 10px;
-}
-
-h2::before {
-    content: "🚧";
-    margin-right: 10px;
-}
-
-/* ==================== */
-p {
-    font-size: 1.5em;
-    margin: 20px 0;
-}
-
-a {
-    color: white;
-    text-decoration: none;
-    background: #007bff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
+<style> 
+/* ==================== */body{font-family:Arial,sans-serif;background:url('./img/fondo-p.webp') no-repeat center center fixed;background-size:cover;color:white;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:100vh;padding:20px;overflow-x:hidden}body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.721);z-index:-1}h1::before,h2::before{content:"🚧";margin-right:10px}p{font-size:1.5em;margin:20px 0}a{color:white;text-decoration:none;background:#007bff;padding:10px 20px;border-radius:5px;font-weight:bold}.sidebar{height:100%;width:250px;position:fixed;top:0;left:0;background-color:#201f1f00;padding-top:25px;color:#e0e0e0}.sidebar a{display:block;padding:10px;color:#e0e0e0;text-decoration:none}.sidebar a i{margin-right:10px}.sidebar a:hover{background-color:#030322;color:#fff}.content{margin-left:250px;padding:50px}.card{background-color:#0f0f0fd0;color:#e0e0e0;transition:transform .3s;font:.8em sans-serif;text-align:justify}.card-text{font-size:.8em;color:#e0e0e0;line-height:1.5;margin-bottom:15px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;text-overflow:ellipsis}.card:hover{transform:scale(1.05)}.card-img-top{transition:transform .3s,filter .3s}.card-img-top:hover{transform:scale(1.05);filter:brightness(.8)}.btn-primary{background-color:#4604d4fa;border-color:#000}.btn-primary:hover{background-color:#33c113;border-color:#000}footer{background-color:#0f0f0f00;color:#c4cf22;text-align:center;padding:1rem 0;border-radius:10px}.profile-img{width:140px;height:140px;border-radius:10%;margin-bottom:1rem;border:1px solid #01053a2f;background-color:#007bff00;object-fit:cover}.social-links a{color:#c4cf22;font-size:1.5rem;margin:0 .5rem;text-decoration:none}.social-links a:hover{color:#2b0187fa}.chatbot-image img{width:60px;height:60px;border-radius:50%;position:fixed;bottom:25px;right:9px;cursor:pointer;animation:float 3s ease-in-out infinite;transition:transform .3s}.chatbot-image img:hover{transform:scale(1.1)}@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}.mensaje-exito{display:none;color:green;margin-top:10px}@media(max-width:768px){.sidebar{display:none}.sidebar a{text-align:center;padding:15px;border-bottom:1px solid #757575}.content{margin-left:0}#hero{padding:2rem 1rem;text-align:center}#hero h1{font-size:2rem}#projects .card{margin-bottom:1.5rem}}
 
 </style>
-
 <body>
-    <h1>Este sitio web esta en construcción</h1>
+    <h1>Este sitio web está en construcción</h1>
     <h2>🛸⚙️🛠️👷🏽‍♂️🧑🏽‍💻🤖💭📲🫡</h2>
-    <p>Por favor, intente volver a visitar más tarde. </p>
+    <p>Por favor, intente volver a visitar más tarde.</p>
     <a href="./index.html">Volver al inicio</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
