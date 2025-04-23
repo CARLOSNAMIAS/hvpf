@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistente virtual</title>
-    <link rel="icon" type="image/x-icon" href="./img/imagen.PNG">
+    <title>Asistente/Virtual</title>
+    <link rel="icon" type="image/webp" href="./img/imagen.PNG">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-            <!-- Banner Dinámico -->
-
-            <div class="banner">
-                <div class="banner-text">
-                     Bienvenidos 🫡 "Esto es un asistente virtual...",
-                    "Te brinda información del clima en Cúcuta ☀️🌡️",
-                    "Consulta noticias en tiempo real 📰",
-                    "Puedes enviar mensajes como: Hola, Ayuda, Gracias, Adiós 👋"
-                </div>
-            </div>
-
+    <!-- Banner Dinámico -->
+    <div class="banner">
+        <div class="banner-text">
+            Bienvenidos 🫡 "Esto es un asistente virtual...",
+            "Te brinda información del clima en Cúcuta ☀️🌡️",
+            "Consulta noticias en tiempo real 📰",
+            "Puedes enviar mensajes como: Hola, Ayuda, Gracias, Adiós 👋"
+        </div>
+    </div>
 
     <!-- Chatbot Icono -->
-    <div class="chatbot-image" id="chatbotIcon" onclick="openModal()">
-        <img src="./img/imagen.PNG" alt="Icono del chatbot" loading="lazy"/>
+    <div class="chatbot-image" id="chatbotIcon" role="button" aria-label="Abrir asistente virtual" onclick="openModal()">
+        <img src="./img/imagen.PNG" alt="Ícono del asistente virtual" loading="lazy"/>
     </div>
 
     <!-- Modal del chatbot -->
-    <div class="modal" id="chatbotModal">
+    <div class="modal" id="chatbotModal" role="dialog" aria-labelledby="chatbotTitle">
         <div class="modal-header">
-            <h2>Asistente📲🛸</h2>
-            <button class="close-btn" onclick="closeModal()">×</button>
+            <h2 id="chatbotTitle">Asistente 📲🛸</h2>
+            <button class="close-btn" onclick="closeModal()" aria-label="Cerrar asistente">×</button>
         </div>
         <div class="modal-body">
-            <div class="message-container" id="messageContainer"></div>
-            <textarea id="message" rows="4" placeholder="Escribe un mensaje..."></textarea>
-            <button onclick="sendMessage()">Enviar</button>
+            <div class="message-container" id="messageContainer" aria-live="polite"></div>
+            <textarea id="message" rows="4" placeholder="Escribe un mensaje..." aria-label="Escribe tu mensaje"></textarea>
+            <button onclick="sendMessage()" aria-label="Enviar mensaje">Enviar</button>
         </div>
     </div>
 
     <!-- Sonido de respuesta -->
-    <audio id="botSound" src="./audio/confirmacion.mp3" preload="auto"></audio>
+    <audio id="botSound" src="./audio/confirmacion.mp3" preload="none"></audio>
 
     <script src="script.js"></script>
 </body>

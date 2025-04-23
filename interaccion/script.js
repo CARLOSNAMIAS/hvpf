@@ -1,147 +1,172 @@
-const apiKey = "db602d829b90280d24129b8db657a96c"; // Reemplaza con tu API Key
-const newsApiKey = "5731e3b25f2146619ba5d1ded36c10d4"; // API Key de noticias
+
+// Configuración de APIs
+const OPENWEATHERMAP_API_KEY = 'db602d829b90280d24129b8db657a96c'; // Tu clave
+const NEWS_API_KEY = '5731e3b25f2146619ba5d1ded36c10d4'; // Tu clave
+
+// Elementos del DOM
 const modal = document.getElementById('chatbotModal');
 const messageInput = document.getElementById('message');
 const messageContainer = document.getElementById('messageContainer');
 const chatbotIcon = document.getElementById('chatbotIcon');
-const botSound = document.getElementById('botSound');  // Sonido de respuesta
+const botSound = document.getElementById('botSound');
 
+// Abrir modal
 function openModal() {
-    modal.style.visibility = 'visible'; // Asegurarse de que el modal se vea
     modal.classList.add('active');
     chatbotIcon.style.display = 'none';
-    document.body.classList.add('modal-open');  // Bloquear el scroll del body
+    document.body.classList.add('modal-open');
+    messageInput.focus();
 }
 
+// Cerrar modal
 function closeModal() {
-    modal.style.visibility = 'hidden'; // Ocultar el modal
     modal.classList.remove('active');
     chatbotIcon.style.display = 'block';
-    document.body.classList.remove('modal-open'); // Restaurar el scroll del body
+    document.body.classList.remove('modal-open');
 }
 
-function sendMessage() {
-    let userMessage = messageInput.value.trim();
-    if (userMessage) {
-        displayMessage(userMessage, 'user');
-        messageInput.value = '';
-
-        // Si el usuario pregunta por el clima
-        if (userMessage.toLowerCase().includes("clima")) {
-            getWeather(); // Llamar a la API del clima
-        }
-        // Si el usuario pregunta por noticias
-        else if (userMessage.toLowerCase().includes("noticias")) {
-            getNews(); // Llamar a la API de noticias
-        } else {
-            // Responder con un mensaje del bot
-            let botResponse = getBotResponse(userMessage);
-            setTimeout(() => {
-                displayMessage(botResponse, 'bot');
-                botSound.play();  // Reproducir sonido cuando el bot responde
-            }, 1000);
-        }
-    } else {
-        alert("Por favor, escribe un mensaje antes de enviar.");
-    }
-}
-
-function displayMessage(message, sender) {
+// Mostrar mensaje en el chat
+function displayMessage(message, sender, imgSrc = null) {
     const messageElement = document.createElement('div');
     messageElement.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
     messageElement.textContent = message;
     messageContainer.appendChild(messageElement);
+
+    if (imgSrc) {
+        const imgElement = document.createElement('img');
+        imgElement.src = imgSrc;
+        imgElement.alt = 'Ícono del clima';
+        imgElement.style.width = '50px';
+        imgElement.style.height = '50px';
+        messageContainer.appendChild(imgElement);
+    }
+
     messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
-function getBotResponse(userMessage) {
-    const responses = {
-        'hola': '¡Hola! ¿En qué puedo ayudarte?',
-        '¿cómo estás?': 'Estoy bien, gracias por preguntar. ¿Y tú?',
-        'adiós': '¡Hasta luego! Que tengas un buen día.',
-        'gracias': '¡De nada! 😊',
-        'default': 'Lo siento, no entendí eso. ¿Puedes intentar otra vez?',
-        'clima': 'Para consultar el clima, introduce el nombre de la ciudad, por ejemplo, "Clima en Cúcuta"',
-        'noticias': 'Te puedo contar las últimas noticias. Solo pregunta, por ejemplo, "dame las noticias".',
-        
-        // Añadir más respuestas para diferentes preguntas y contextos
-        'qué tal tu día': 'Siempre estoy aquí, listo para ayudarte.',
-        'cúcuta': 'Cúcuta es una ciudad colombiana ubicada en la frontera con Venezuela.',
+// Enviar mensaje
+function sendMessage() {
+    const userMessage = messageInput.value.trim();
+    if (!userMessage) {
+        displayMessage('Por favor, escribe un mensaje.', 'bot');
+        botSound.play();
+        return;
+    }
 
-        // Otros casos...
-    };
+    // Mostrar mensaje del usuario
+    displayMessage(userMessage, 'user');
+    messageInput.value = '';
 
-    return responses[userMessage.toLowerCase()] || responses['default'];
+    // Procesar mensaje
+    const lowerMessage = userMessage.toLowerCase();
+    if (lowerMessage.includes('clima') || lowerMessage.includes('tiempo') || lowerMessage.includes('pronóstico')) {
+        getWeather();
+    } else if (lowerMessage.includes('noticias') || lowerMessage.includes('news')) {
+        getNews();
+    } else {
+        const botResponse = getBotResponse(lowerMessage);
+        setTimeout(() => {
+            displayMessage(botResponse, 'bot');
+            botSound.play();
+        }, 1000);
+    }
 }
 
+// Mejorar respuestas predefinidas
+function getBotResponse(userMessage) {
+    const responses = [
+        {
+            patterns: ['hola', 'buenas', 'hey', 'saludos'],
+            response: '¡Hola! Soy el asistente virtual de Carlos, ¿cómo te ayudo hoy?'
+        },
+        {
+            patterns: ['cómo estás', 'qué tal', 'cómo vas'],
+            response: 'Estoy bien, gracias por preguntar. ¿Y tú?'
+        },
+        {
+            patterns: ['adiós', 'chao', 'hasta luego', 'nos vemos'],
+            response: '¡Hasta pronto! Que tengas un buen día. 👋'
+        },
+        {
+            patterns: ['gracias', 'muchas gracias', 'agradecido'],
+            response: '¡De nada! 😊'
+        },
+        {
+            patterns: ['ayuda', 'qué puedes hacer', 'qué haces', 'info'],
+            response: 'Puedo darte el clima en Cúcuta, noticias, o charlar. Prueba decir "clima" o "noticias".'
+        },
+        {
+            patterns: ['cúcuta', 'info de cúcuta', 'sobre cúcuta'],
+            response: 'Cúcuta es una ciudad colombiana en la frontera con Venezuela, conocida por su comercio y cultura.'
+        }
+    ];
+
+    // Buscar coincidencia
+    for (const { patterns, response } of responses) {
+        if (patterns.some(pattern => userMessage.includes(pattern))) {
+            return response;
+        }
+    }
+
+    // Respuesta por defecto
+    return 'Lo siento, no entendí eso. Prueba con "hola", "clima", "noticias" o "ayuda".';
+}
+
+// Obtener clima (OpenWeatherMap)
 function getWeather() {
-    const ciudad = "Cúcuta"; // Puedes cambiarlo o hacer que el usuario lo indique
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric&lang=es`;
+    const ciudad = 'Cúcuta';
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${OPENWEATHERMAP_API_KEY}&units=metric&lang=es`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
             const temp = data.main.temp;
             const desc = data.weather[0].description;
-            const windSpeed = data.wind.speed * 3.6; // Convertir la velocidad del viento de m/s a km/h
-            const humidity = data.main.humidity; // Humedad
-            const iconCode = data.weather[0].icon; // Código del icono del clima
-
-            // Crear la URL para la imagen del clima
+            const windSpeed = data.wind.speed * 3.6; // Convertir a km/h
+            const humidity = data.main.humidity;
+            const iconCode = data.wxAIeather[0].icon;
             const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
-            // Crear el mensaje con los detalles del clima
-            const climaMensaje = `El clima en ${ciudad} es de ${temp}°C con ${desc}. 
-                                          La velocidad del viento es de ${windSpeed.toFixed(2)} km/h y la humedad es del ${humidity}%.`;
-
-            // Mostrar el mensaje
-            displayMessage(climaMensaje, 'bot');
-
-            // Mostrar la imagen del clima
-            const imgElement = document.createElement('img');
-            imgElement.src = iconUrl;
-            imgElement.alt = desc;
-            imgElement.style.width = "50px";  // Tamaño de la imagen
-            imgElement.style.height = "50px"; // Tamaño de la imagen
-
-            // Agregar la imagen al chat
-            messageContainer.appendChild(imgElement);
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-
-            // Reproducir el sonido
-            botSound.play();  // Reproducir sonido cuando el bot responde
+            const climaMensaje = `El clima en ${ciudad} es de ${temp}°C con ${desc}. La velocidad del viento es de ${windSpeed.toFixed(2)} km/h y la humedad es del ${humidity}%.`;
+            displayMessage(climaMensaje, 'bot', iconUrl);
+            botSound.play();
         })
         .catch(error => {
-            displayMessage("No pude obtener el clima en este momento. Inténtalo más tarde.", 'bot');
-            console.error("Error obteniendo el clima", error);
-            botSound.play();  // Reproducir sonido si hay un error
+            displayMessage('No pude obtener el clima en este momento. Inténtalo más tarde.', 'bot');
+            console.error('Error obteniendo el clima:', error);
+            botSound.play();
         });
 }
 
-
-// Llamar a las funciones cuando se carga la página
+// Obtener noticias (NewsAPI)
 function getNews() {
-    const query = "Cúcuta"; // Término de búsqueda para noticias de Cúcuta
-    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${newsApiKey}`;
+    const query = 'Cúcuta';
+    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${NEWS_API_KEY}`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
             if (data.articles && data.articles.length > 0) {
                 const newsMessage = data.articles.slice(0, 5).map(article => {
-                    return `${article.title}\n${article.description}\nLeer más: ${article.url}\n\n`;
+                    return `${article.title}\n${article.description || 'Sin descripción'}\nLeer más: ${article.url}\n`;
                 }).join('');
-                displayMessage(`Últimas noticias sobre ${query}:\n` + newsMessage, 'bot');
+                displayMessage(`Últimas noticias sobre ${query}:\n${newsMessage}`, 'bot');
             } else {
                 displayMessage(`No se encontraron noticias sobre ${query} en este momento.`, 'bot');
             }
             botSound.play();
         })
         .catch(error => {
-            displayMessage("No pude obtener las noticias en este momento. Inténtalo más tarde.", 'bot');
-            console.error("Error obteniendo las noticias", error);
+            displayMessage('No pude obtener las noticias en este momento. Inténtalo más tarde.', 'bot');
+            console.error('Error obteniendo las noticias:', error);
             botSound.play();
         });
 }
- 
 
+// Soporte para tecla Enter
+messageInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+});

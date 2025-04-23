@@ -163,9 +163,10 @@ body.modal-open {
 
 .banner-text {
     white-space: nowrap;
-    animation: scrollText 30s linear infinite;
+    animation: scrollText 20s linear infinite;
     will-change: transform;
 }
+
 
 @keyframes scrollText {
     0% { transform: translateX(100%); }
@@ -175,8 +176,3 @@ body.modal-open {
 
 
 
-@media (max-width: 768px) {
-    body {
-        background-image: url('./img/fondo-p.webp');
-    }
-}
