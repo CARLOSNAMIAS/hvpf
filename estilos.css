@@ -186,9 +186,9 @@ footer {
 /* Perfil */
 /* ==================== */
 .profile-img {
-    width: 140px;
-    height: 140px;
-    border-radius: 10%;
+    width: 130px;
+    height: 130px;
+    border-radius: 5%;
     margin-bottom: 1rem;
     border: 1px solid #01053a2f;
     background-color: #007bff00;
