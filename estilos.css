@@ -14,7 +14,8 @@ body {
     justify-content: flex-start;
     min-height: 100vh;
     padding: 20px;
-    overflow-x: hidden; /* Elimina la barra de desplazamiento horizontal */
+    overflow-x: hidden;
+    /* Elimina la barra de desplazamiento horizontal */
 }
 
 /* Capa semitransparente para mejorar la legibilidad */
@@ -95,49 +96,56 @@ body::before {
 #contact {
     background-color: #0f0f0f00;
 }
-
 /* ==================== */
 /* Tarjetas de Proyectos */
 /* ==================== */
-.card{
+.card {
     background-color: #0f0f0fd0;
     color: #e0e0e0;
     transition: transform 0.3s;
     font: 0.8em sans-serif;
     text-align: justify;
-    
-    
-   
-}
-
-.card-text {
-    font-size: 0.8em; /* Tamaño de la fuente del texto */
-    color: #e0e0e0; /* Color del texto */
-    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
-    margin-bottom: 15px; /* Espaciado debajo del texto */
-    display: -webkit-box; /* Cambia a un contenedor flexible */
-    -webkit-box-orient: vertical; /* Establece la dirección de las líneas del texto */
-    -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
-    line-clamp: 3; /* También defines la propiedad estándar */
-    overflow: hidden; /* Oculta el texto que excede el contenedor */
-    text-overflow: ellipsis; /* Aplica puntos suspensivos al final del texto */
-}
-
-.card:hover {
-    transform: scale(1.05);
-    
+    height: 100%; /* Asegura que la tarjeta ocupe todo el espacio disponible */
+    display: flex; /* Usamos flexbox para controlar el contenido */
+    flex-direction: column; /* Organiza el contenido en columna */
+    min-height: 400px; /* Altura mínima para todas las tarjetas */
 }
 
 .card-img-top {
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
     transition: transform 0.3s, filter 0.3s;
-    
 }
 
 .card-img-top:hover {
     transform: scale(1.05);
     filter: brightness(0.8);
-   
+}
 
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el contenido uniformemente */
+    flex-grow: 1; /* El cuerpo ocupa el espacio restante */
+    padding: 15px; /* Asegura un padding consistente */
+}
+
+.card-text {
+    font-size: 0.8em;
+    color: #e0e0e0;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 /* ==================== */
@@ -146,6 +154,7 @@ body::before {
 .btn-primary {
     background-color: #4604d4fa;
     border-color: #000000;
+    align-self: flex-start; /* Evita que el botón se estire */
 }
 
 .btn-primary:hover {
@@ -153,6 +162,15 @@ body::before {
     border-color: #000000;
 }
 
+/* Asegura que las columnas tengan la misma altura */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4 {
+    display: flex; /* Hace que las columnas se comporten como contenedores flex */
+}
 /* ==================== */
 /* Pie de Página */
 /* ==================== */
@@ -223,9 +241,11 @@ footer {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-20px);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -262,7 +282,7 @@ footer {
         padding: 2rem 1rem;
         text-align: center;
     }
-
+    
     #hero h1 {
         font-size: 2rem;
     }
@@ -271,4 +291,3 @@ footer {
         margin-bottom: 1.5rem;
     }
 }
-
