@@ -213,3 +213,18 @@ footer {
         margin-bottom: 1.5rem;
     }
 }
+
+
+@media (max-width: 768px) {
+    .btn-primary {
+      width: 100%;         /* El botón ocupa todo el ancho */
+      font-size: 1rem;     /* Tamaño de texto legible */
+      padding: 12px;       /* Más fácil de tocar */
+      text-align: center;
+    }
+  
+    .content {
+      padding: 20px 10px;  /* Menos padding lateral en móviles */
+    }
+  }
+  
