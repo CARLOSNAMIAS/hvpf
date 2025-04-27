@@ -22,6 +22,10 @@ body::before {
 }
 
 
+
+
+
+  
 .sidebar {
     height: 100%;
     width: 250px;
@@ -93,7 +97,7 @@ body::before {
 }
 
 .card-text {
-    font-size: 0.8em;
+    font-size: 1em;
     color: #e0e0e0;
     line-height: 1.5;
     margin-bottom: 15px;
@@ -109,13 +113,37 @@ body::before {
     transform: scale(1.05);
 }
 
-.btn-primary {
+
+
+.btn-custom-primary {
+    background-color: #c4cf22;; /* Verde personalizado */
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-custom-primary:hover {
+    background-color: #4604d4fa; /* Color al pasar el mouse */
+  }
+  
+
+
+.btn-card {
+    color:#fff;
     background-color: #4604d4fa;
     border-color: #000;
     align-self: flex-start;
+    padding: 10px 20px;
+  border-radius: 6px;
+  
+  display: inline-block;
 }
 
-.btn-primary:hover {
+
+.btn-card:hover {
     background-color: #33c113;
     border-color: #000;
 }
@@ -184,6 +212,25 @@ footer {
     50% { transform: translateY(-20px); }
 }
 
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  
+  .chatbox-style {
+    height: 300px;
+    overflow-y: auto;
+    background: #282828d0;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  /*formulario de contacto*/
 .mensaje-exito {
     display: none;
     color: green;
@@ -228,3 +275,81 @@ footer {
     }
   }
   
+
+  /* estilo modal */
+
+
+ .btn-close {
+    cursor: pointer;
+    background-color: #d10c0c;
+    font-size: 0.4rem;
+    }
+
+
+
+
+    /* Estilo general del modal oscuro */
+.modal-content {
+    background-color: #1e1e2f; /* Fondo oscuro azul-violáceo */
+    color: #f1f1f1; /* Texto claro */
+    border-radius: 12px;
+    border: none;
+  }
+  
+  /* Header del modal */
+  .modal-header {
+    border-bottom: 1px solid #333;
+    background-color: #2a2a3b;
+    color: #f1f1f1;
+  }
+  
+  /* Título del modal */
+  .modal-title {
+    font-weight: bold;
+  }
+  
+  /* Botón de cerrar */
+  .btn-close {
+    filter: invert(1);
+  }
+  
+  /* Cuerpo del modal */
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Estilo del chatbox */
+  .chatbox-style {
+    background-color: #292940;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  /* Estilo de los botones del chatbot */
+  .chatbox-style .btn {
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  
+  /* Input del usuario */
+  .input-group input {
+    background-color: #2e2e3e;
+    color: #f1f1f1;
+    border: 1px solid #444;
+  }
+  
+  /* Botón enviar */
+  .input-group .btn-primary {
+    background-color: #4a4aff;
+    border-color: #4a4aff;
+  }
+  
+  .input-group .btn-primary:hover {
+    background-color: #3333ff;
+    border-color: #3333ff;
+  }
+  
+
+
