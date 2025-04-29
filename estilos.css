@@ -12,7 +12,8 @@ body {
 /* Capa oscura semitransparente */
 body::before {
     content: "";
-    position: fixed; /* Cambiado de absolute a fixed */
+    position: fixed;
+    /* Cambiado de absolute a fixed */
     top: 0;
     left: 0;
     width: 150%;
@@ -21,16 +22,13 @@ body::before {
     z-index: -1;
 }
 
-
-
-
-
-  
+/* Estilo del encabezado */
 .sidebar {
     height: 100%;
     width: 250px;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     padding-top: 25px;
     color: #e0e0e0;
 }
@@ -56,15 +54,89 @@ body::before {
     padding: 50px;
 }
 
-#hero, #about, #projects, #contact, #profile {
+#hero,
+#about,
+#projects,
+#contact,
+#profile {
     padding: 4rem 0;
 }
 
-#about, #projects, #contact {
+#about,
+#projects,
+#contact {
     background-color: transparent;
     text-align: justify;
 }
 
+/* Estilo del encabezado */
+
+#certificaciones {
+    padding: 40px 15px;
+    background: #00000000;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 35px;
+    color: #fffefe;
+  }
+  
+  .cert-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    
+  }
+  
+  .cert-card {
+    background: #ffffff00;
+    border-radius: none;
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.571);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+
+  .cert-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+  
+  .cert-title {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  
+  .cert-organization {
+    font-size: 1rem;
+    color: #55555500;
+    margin-bottom: 20px;
+  }
+  
+  .cert-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4f46e5; /* color violeta-azul */
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cert-button:hover {
+    background-color: #4338ca; /* tono más oscuro al pasar el mouse */
+  }
+  
+
+
+/* card projects */
 .card {
     background-color: rgba(15, 15, 15, 0.82);
     color: #e0e0e0;
@@ -103,7 +175,7 @@ body::before {
     margin-bottom: 15px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    
+
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
@@ -113,38 +185,40 @@ body::before {
     transform: scale(1.05);
 }
 
-
+/* Estilo del botón formulario */
 
 .btn-custom-primary {
-    background-color: #c4cf22;; /* Verde personalizado */
+    background-color: #c4cf22;
     color: rgb(0, 0, 0);
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
-  }
-  
-  .btn-custom-primary:hover {
-    background-color: #4604d4fa; /* Color al pasar el mouse */
-  }
-  
+}
+
+.btn-custom-primary:hover {
+    background-color: #4604d4fa;
+    /* Color al pasar el mouse */
+}
+
 
 
 .btn-card {
-    color:#fff;
+    color: #fff;
     background-color: #4604d4fa;
     border-color: #000;
     align-self: flex-start;
     padding: 10px 20px;
-  border-radius: 6px;
-  
-  display: inline-block;
+    border-radius: 6px;
+
+    display: inline-block;
 }
 
 
 .btn-card:hover {
-    background-color: #33c113;
+    background-color: #c4cf22;
+
     border-color: #000;
 }
 
@@ -156,6 +230,7 @@ body::before {
 .col-md-4 {
     display: flex;
 }
+
 
 footer {
     background-color: transparent;
@@ -208,8 +283,15 @@ footer {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 
@@ -219,18 +301,38 @@ footer {
     right: 20px;
     cursor: pointer;
     z-index: 1000;
-  }
-  
-  
-  .chatbox-style {
+}
+
+
+.chatbox-style {
     height: 300px;
     overflow-y: auto;
     background: #282828d0;
     padding: 15px;
     border-radius: 10px;
-  }
+}
+
+
+/* botón formulario */
+
+.btn-form {
+    background-color:#4604d4fa;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
   
-  /*formulario de contacto*/
+}
+
+
+.btn-form:hover {
+    background-color: #c4cf22;
+    color: #000;
+   
+    
+}
+
+
+/*formulario de contacto*/
 .mensaje-exito {
     display: none;
     color: green;
@@ -264,92 +366,90 @@ footer {
 
 @media (max-width: 768px) {
     .btn-primary {
-      width: 100%;         /* El botón ocupa todo el ancho */
-      font-size: 1rem;     /* Tamaño de texto legible */
-      padding: 12px;       /* Más fácil de tocar */
-      text-align: center;
+        width: 100%;
+        /* El botón ocupa todo el ancho */
+        font-size: 1rem;
+        /* Tamaño de texto legible */
+        padding: 12px;
+        /* Más fácil de tocar */
+        text-align: center;
     }
-  
+
     .content {
-      padding: 20px 10px;  /* Menos padding lateral en móviles */
+        padding: 20px 10px;
+        /* Menos padding lateral en móviles */
     }
-  }
-  
-
-  /* estilo modal */
+}
 
 
- .btn-close {
+/* estilo modal */
+
+
+.btn-close {
     cursor: pointer;
-    background-color: #d10c0c;
-    font-size: 0.4rem;
-    }
+    background-color: #fefefe00;
+    font-size: 0.8rem;
+}
 
-
-
-
-    /* Estilo general del modal oscuro */
+/* Estilo general del modal oscuro */
 .modal-content {
-    background-color: #1e1e2f; /* Fondo oscuro azul-violáceo */
-    color: #f1f1f1; /* Texto claro */
+    background-color: #2c2c2d;
+    /* Fondo oscuro azul-violáceo */
+    color: #ffffffdc;
+    /* Texto claro */
     border-radius: 12px;
     border: none;
-  }
-  
-  /* Header del modal */
-  .modal-header {
-    border-bottom: 1px solid #333;
-    background-color: #2a2a3b;
-    color: #f1f1f1;
-  }
-  
-  /* Título del modal */
-  .modal-title {
+}
+
+/* Header del modal */
+.modal-header {
+    border-bottom: 1px solid #2c2c2d;
+    background-color: #2c2c2d
+    
+}
+
+/* Título del modal */
+.modal-title {
     font-weight: bold;
-  }
-  
-  /* Botón de cerrar */
-  .btn-close {
-    filter: invert(1);
-  }
-  
-  /* Cuerpo del modal */
-  .modal-body {
-    padding: 20px;
-  }
-  
-  /* Estilo del chatbox */
-  .chatbox-style {
-    background-color: #292940;
+    color: #ffffff;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 15px;
+}
+
+/* Estilo del chatbox */
+.chatbox-style {
+    background-color: #000000fa;
     padding: 15px;
     border-radius: 8px;
-    max-height: 300px;
+    max-height: 200px;
     overflow-y: auto;
-  }
-  
-  /* Estilo de los botones del chatbot */
-  .chatbox-style .btn {
+}
+
+/* Estilo de los botones del chatbot */
+.chatbox-style .btn {
     border-radius: 20px;
     font-weight: 500;
-  }
-  
-  /* Input del usuario */
-  .input-group input {
-    background-color: #2e2e3e;
+}
+
+/* Input del usuario */
+.input-group input {
+    background-color: #ffffff;
     color: #f1f1f1;
     border: 1px solid #444;
-  }
-  
-  /* Botón enviar */
-  .input-group .btn-primary {
+}
+
+/* Botón enviar */
+.input-group .btn-primary {
     background-color: #4a4aff;
     border-color: #4a4aff;
-  }
-  
-  .input-group .btn-primary:hover {
+}
+
+.input-group .btn-primary:hover {
     background-color: #3333ff;
     border-color: #3333ff;
-  }
-  
+}
 
 

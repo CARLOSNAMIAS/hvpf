@@ -74,6 +74,7 @@
             </div>
         </section>
 
+
         <!-- About Section -->
         <section id="about" data-aos="fade-left">
             <div class="container">
@@ -86,6 +87,29 @@
                     expandir mis habilidades y afrontar nuevos desafíos en el mundo de la tecnología.</p>
             </div>
         </section>
+
+        <!-- certificaciones Section -->
+        <section id="certificaciones">
+            <h2 class="section-title">Certificaciones</h2>
+            <div class="cert-container">
+              <div class="cert-card">
+                <img src="./img/logoSena.png" alt="SENA Logo" class="cert-logo">
+                <h3 class="cert-title">Programación Web</h3>
+                <p class="cert-organization">SENA - 2024</p>
+                <a href="#" target="_blank" class="cert-button">Ver Certificado</a>
+              </div>
+          
+              <div class="cert-card">
+                <img src="./img/logoSena.png" alt="Google Logo" class="cert-logo">
+                <h3 class="cert-title">Fundamentos de Cloud Computing</h3>
+                <p class="cert-organization">Google - 2025</p>
+                <a href="#" target="_blank" class="cert-button">Ver Certificado</a>
+              </div>
+          
+              <!-- Puedes agregar más certificaciones -->
+            </div>
+          </section>
+          
 
         <!-- Projects Section -->
         <section id="projects" data-aos="fade-up">
@@ -223,7 +247,7 @@
                     </div>
                     <!-- Token opcional para seguridad -->
                     <input type="hidden" name="_captcha" value="true">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-form">Enviar</button>
                 </form>
 
                 <!-- Mensaje de éxito oculto -->
@@ -271,7 +295,7 @@
                         <div class="input-group mt-3">
                             <input type="text" id="userInput" class="form-control"
                                 placeholder="Escribe tu mensaje aquí...">
-                            <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
+                            <button class="btn btn-custom-primary" onclick="sendMessage()">Enviar</button>
                         </div>
                     </div>
 
@@ -300,78 +324,8 @@
     </script>
     <script src="script.js"></script>
 
-    <!-- JavaScript para chatbot -->
-    <script>
-        function appendMessage(sender, text) {
-            const chatbox = document.getElementById('chatbox');
-            const message = document.createElement('div');
-            message.innerHTML = `<strong>${sender}:</strong> ${text}`;
-            chatbox.appendChild(message);
-            chatbox.scrollTop = chatbox.scrollHeight;
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('userInput');
-            const text = input.value.trim();
-            if (text !== '') {
-                appendMessage('Tú', text);
-                const response = chatbot(text);
-                setTimeout(() => appendMessage('Chatbot', response), 500);
-                input.value = '';
-            }
-        }
-
-        function handleOption(option) {
-            appendMessage('Tú', option);
-            const response = chatbot(option);
-            setTimeout(() => appendMessage('Chatbot', response), 500);
-        }
-
-        function chatbot(message) {
-            message = message.toLowerCase();
-
-            if (message.includes("ver proyectos")) {
-                return "¿Qué tipo de proyecto te interesa? <br><button class='btn btn-outline-primary btn-sm mt-2' onclick=\"handleOption('aplicaciones web')\">Aplicaciones Web</button> <button class='btn btn-outline-primary btn-sm mt-2' onclick=\"handleOption('aplicaciones móviles')\">Aplicaciones Móviles</button> <button class='btn btn-outline-primary btn-sm mt-2' onclick=\"handleOption('hackathons')\">Hackathons</button>";
-            }
-
-            if (message.includes("aplicaciones web")) {
-                return "En web, he trabajado en 'SENA Connect' (una red social educativa) y una app de música tipo Spotify. ¿Te gustaría ver una demo o leer más?";
-            }
-
-            if (message.includes("red social") || message.includes("sena connect")) {
-                return "'SENA Connect' conecta estudiantes, instructores y empresas. ¡Un proyecto lleno de innovación!";
-            }
-
-            if (message.includes("saber más")) {
-                return "Soy un desarrollador apasionado de React, Firebase y tecnologías en la nube. ¿Quieres ver mi trayectoria o mis habilidades?";
-            }
-
-            if (message.includes("contactarlo") || message.includes("contacto")) {
-                return "¡Puedes escribirme directamente a carlos.dev@email.com o completar un formulario!";
-            }
-
-            if (message.includes("ayuda")) {
-                return "Opciones disponibles: Ver proyectos / Saber más sobre Carlos / Contactarlo.";
-            }
-
-            return "¡Ups! No entendí eso. ¿Puedes intentar otra vez o escribir 'ayuda' para ver las opciones?";
-        }
-    </script>
-
-    <!-- Script para abrir el modal al hacer clic en el icono -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.getElementById('chatbotIcon').addEventListener('click', function (event) {
-            event.preventDefault();
-            const chatbotModal = new bootstrap.Modal(document.getElementById('chatbotModal'));
-            chatbotModal.show();
-        });
-    </script>
-
-
-
     
-
 </body>
 
 </html>
