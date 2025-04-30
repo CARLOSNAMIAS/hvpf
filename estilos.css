@@ -75,68 +75,73 @@ body::before {
     padding: 40px 15px;
     background: #00000000;
     text-align: center;
-  }
-  
-  .section-title {
+
+}
+
+.section-title {
     font-size: 2rem;
     margin-bottom: 35px;
     color: #fffefe;
-  }
-  
-  .cert-container {
+}
+
+.cert-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     max-width: 1100px;
     margin: 0 auto;
-    
-  }
-  
-  .cert-card {
+
+
+}
+
+.cert-card {
     background: #ffffff00;
     border-radius: none;
     padding: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.571);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
 
-  .cert-logo {
+}
+
+.cert-logo {
     width: 80px;
     height: 80px;
     object-fit: contain;
     margin-bottom: 15px;
-  }
-  
-  .cert-title {
+}
+
+.cert-title {
     font-size: 1.4rem;
     color: #ffffff;
     margin-bottom: 8px;
-  }
-  
-  .cert-organization {
+}
+
+.cert-organization {
     font-size: 1rem;
     color: #55555500;
     margin-bottom: 20px;
-  }
-  
-  .cert-button {
+}
+
+.cert-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4f46e5; /* color violeta-azul */
+    background-color: #4f46e5;
+    /* color violeta-azul */
     color: #fff;
     border-radius: 25px;
     text-decoration: none;
     transition: background-color 0.3s ease;
-  }
-  
-  .cert-button:hover {
-    background-color: #4338ca; /* tono más oscuro al pasar el mouse */
-  }
-  
+}
+
+.cert-button:hover {
+    background-color: #4338ca;
+    /* tono más oscuro al pasar el mouse */
+}
+
 
 
 /* card projects */
+
 .card {
     background-color: rgba(15, 15, 15, 0.82);
     color: #e0e0e0;
@@ -169,21 +174,102 @@ body::before {
 }
 
 .card-text {
-    font-size: 1em;
-    color: #e0e0e0;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-
+    max-height: 100px;  /* Puedes ajustar la altura */
     overflow: hidden;
-    text-overflow: ellipsis;
-    flex-grow: 1;
-}
+    position: relative;
+    transition: max-height 0.3s ease;
+  }
+  
+  /* Al hacer hover sobre la tarjeta, el texto puede desplazarse */
+  .card:hover .card-text {
+    overflow-y: auto;
+  }
+  
 
-.card:hover {
-    transform: scale(1.05);
-}
+
+  .scroll-text {
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    scroll-behavior: smooth; /* 👈 efecto de desplazamiento suave */
+  }
+  
+  .card:hover .scroll-text {
+    overflow-y: auto;
+  }
+  
+  /* Personalización de la barra de scroll */
+  
+  .scroll-text {
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    scroll-behavior: smooth;
+  }
+  
+  .card:hover .scroll-text {
+    overflow-y: auto;
+  }
+  
+  /* Barra de scroll moderna tipo glassmorphism */
+  .scroll-text::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scroll-text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* track transparente */
+    border-radius: 10px;
+  }
+  
+  .scroll-text::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(2px); /* para Safari */
+    backdrop-filter: blur(2px);         /* para otros navegadores */
+  }
+  
+  .scroll-text::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Estilo del botón formulario */
 
@@ -210,7 +296,7 @@ body::before {
     border-color: #000;
     align-self: flex-start;
     padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 8px;
 
     display: inline-block;
 }
@@ -316,19 +402,19 @@ footer {
 /* botón formulario */
 
 .btn-form {
-    background-color:#4604d4fa;
+    background-color: #4604d4fa;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
-  
+
 }
 
 
 .btn-form:hover {
     background-color: #c4cf22;
     color: #000;
-   
-    
+
+
 }
 
 
@@ -387,25 +473,24 @@ footer {
 
 .btn-close {
     cursor: pointer;
-    background-color: #fefefe00;
-    font-size: 0.8rem;
+    background-color: #eff70029;
+    font-size: 1rem;
+
 }
 
 /* Estilo general del modal oscuro */
 .modal-content {
-    background-color: #2c2c2d;
-    /* Fondo oscuro azul-violáceo */
+    background-color: #07011cfa;
     color: #ffffffdc;
-    /* Texto claro */
     border-radius: 12px;
     border: none;
 }
 
 /* Header del modal */
 .modal-header {
-    border-bottom: 1px solid #2c2c2d;
-    background-color: #2c2c2d
-    
+    border-bottom: 1px solid #07011cfa;
+    background-color: #07011cfa;
+
 }
 
 /* Título del modal */
@@ -416,22 +501,22 @@ footer {
 
 /* Cuerpo del modal */
 .modal-body {
-    padding: 15px;
+    padding: 5px;
 }
 
 /* Estilo del chatbox */
 .chatbox-style {
     background-color: #000000fa;
-    padding: 15px;
+    padding: 30px;
     border-radius: 8px;
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
 }
 
 /* Estilo de los botones del chatbot */
 .chatbox-style .btn {
-    border-radius: 20px;
-    font-weight: 500;
+    border-radius: 10px;
+    font-weight: 400;
 }
 
 /* Input del usuario */
@@ -451,5 +536,3 @@ footer {
     background-color: #3333ff;
     border-color: #3333ff;
 }
-
-
