@@ -138,12 +138,10 @@ body::before {
     /* tono más oscuro al pasar el mouse */
 }
 
-
-
 /* card projects */
 
 .card {
-    background-color: rgba(15, 15, 15, 0.82);
+    background-color: rgba(25, 25, 25, 0.603);
     color: #e0e0e0;
     transition: transform 0.3s;
     font: 0.8em sans-serif;
@@ -234,41 +232,6 @@ body::before {
     background: rgba(0, 0, 0, 0.5);
   }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Estilo del botón formulario */
