@@ -170,16 +170,16 @@ body::before {
 
 .btn-custom-primary {
     background-color: #c4cf22;
-    color: rgb(0, 0, 0);
+    color: #000;
     border: none;
     padding: 10px 10px;
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 .btn-custom-primary:hover {
-    background-color: #4604d4fa;
+    background-color: #1e0561;
     /* Color al pasar el mouse */
 }
 
@@ -187,8 +187,8 @@ body::before {
 
 .btn-card {
     color: #fff;
-    background-color: #4604d4fa;
-    border-color: #000;
+    background-color: #1e0561;
+    border-color: #000000ac;
     align-self: flex-start;
     padding: 10px 10px;
     border-radius: 8px;
@@ -240,7 +240,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: #2b0187fa;
+    color: #1e0561;
 }
 
 .progress {
@@ -298,7 +298,7 @@ footer {
 /* botón formulario */
 
 .btn-form {
-    background-color: #4604d4fa;
+    background-color: #1e0561;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
@@ -386,13 +386,14 @@ footer {
 .modal-header {
     border-bottom: 1px solid #07011cfa;
     background-color: #07011cfa;
-
+    
 }
 
 /* Título del modal */
 .modal-title {
     font-weight: bold;
     color: #ffffff;
+   
 }
 
 /* Cuerpo del modal */
@@ -400,18 +401,23 @@ footer {
     padding: 5px;
 }
 
-/* Estilo del chatbox */
-.chatbox-style {
-    background-color: #000000fa;
-    padding: 30px;
-    border-radius: 8px;
-    max-height: 250px;
-    overflow-y: auto;
+.chatbox-style div {
+  background-color: #000000a1;
+  border-radius: 15px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  max-width: 80%;
+}
+
+.chatbox-style div.user {
+  background-color: #ffffff;
+  align-self: flex-end;
+  text-align: right;
 }
 
 /* Estilo de los botones del chatbot */
 .chatbox-style .btn {
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 400;
 }
 
@@ -424,11 +430,11 @@ footer {
 
 /* Botón enviar */
 .input-group .btn-primary {
-    background-color: #4a4aff;
-    border-color: #4a4aff;
+    background-color: #1e0561;
+    border-color: #1e0561;
 }
 
 .input-group .btn-primary:hover {
-    background-color: #3333ff;
-    border-color: #3333ff;
+    background-color:#1e0561;
+    border-color: #000032;
 }
