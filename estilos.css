@@ -298,7 +298,7 @@ footer {
 /* botón formulario */
 
 .btn-form {
-    background-color: #1e0561;
+    background-color: #280257;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
@@ -376,7 +376,7 @@ footer {
 
 /* Estilo general del modal oscuro */
 .modal-content {
-    background-color: #07011cfa;
+    background-color: #1e076efa;
     color: #ffffffdc;
     border-radius: 12px;
     border: none;
@@ -384,8 +384,8 @@ footer {
 
 /* Header del modal */
 .modal-header {
-    border-bottom: 1px solid #07011cfa;
-    background-color: #07011cfa;
+    border-bottom: 1px solid #15054efa;
+    background-color: #0d052bfa;
     
 }
 
