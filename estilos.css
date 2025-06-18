@@ -108,8 +108,36 @@ body::before {
     overflow: hidden;
     position: relative;
     transition: max-height 0.3s ease;
+    
   }
   
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 50;
+  color: #f2f2f2;
+  text-align: center;
+  margin: 1rem auto;
+  padding: 0.3rem 0;
+  letter-spacing: 1.2px;
+  border-bottom: 2px solid #23015a;
+  width: max-content;
+  background: transparent;
+  text-shadow: 0 1px 3px #1e0561;
+  transition: letter-spacing 0.3s ease;
+  
+}
+
+.card-title:hover {
+  letter-spacing: 4px;
+}
+
+
+
+
+
+
+
   /* Al hacer hover sobre la tarjeta, el texto puede desplazarse */
   .card:hover .card-text {
     overflow-y: auto;
