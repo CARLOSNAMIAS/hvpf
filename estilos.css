@@ -13,7 +13,6 @@ body {
 body::before {
     content: "";
     position: fixed;
-    /* Cambiado de absolute a fixed */
     top: 0;
     left: 0;
     width: 150%;
@@ -104,61 +103,20 @@ body::before {
 }
 
 .card-text {
-    max-height: 100px;  /* Puedes ajustar la altura */
+    max-height: 100px;
     overflow: hidden;
     position: relative;
     transition: max-height 0.3s ease;
-    
   }
-  
-
-.card-title {
-  font-size: 1rem;
-  font-weight: 50;
-  color: #f2f2f2;
-  text-align: center;
-  margin: 1rem auto;
-  padding: 0.3rem 0;
-  letter-spacing: 1.2px;
-  border-bottom: 2px solid #23015a;
-  width: max-content;
-  background: transparent;
-  text-shadow: 0 1px 3px #1e0561;
-  transition: letter-spacing 0.3s ease;
-  
-}
 
 .card-title:hover {
   letter-spacing: 4px;
 }
 
-
-
-
-
-
-
-  /* Al hacer hover sobre la tarjeta, el texto puede desplazarse */
   .card:hover .card-text {
     overflow-y: auto;
   }
-  
 
-
-  .scroll-text {
-    max-height: 100px;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s ease;
-    scroll-behavior: smooth; /* 👈 efecto de desplazamiento suave */
-  }
-  
-  .card:hover .scroll-text {
-    overflow-y: auto;
-  }
-  
-  /* Personalización de la barra de scroll */
-  
   .scroll-text {
     max-height: 100px;
     overflow: hidden;
@@ -166,35 +124,30 @@ body::before {
     transition: all 0.3s ease;
     scroll-behavior: smooth;
   }
-  
+
   .card:hover .scroll-text {
     overflow-y: auto;
   }
-  
-  /* Barra de scroll moderna tipo glassmorphism */
+
   .scroll-text::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   .scroll-text::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* track transparente */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
   }
-  
+
   .scroll-text::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    -webkit-backdrop-filter: blur(2px); /* para Safari */
-    backdrop-filter: blur(2px);         /* para otros navegadores */
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
   }
-  
+
   .scroll-text::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.5);
   }
-  
-
-
-/* Estilo del botón formulario */
 
 .btn-custom-primary {
     background-color: #c4cf22;
@@ -208,10 +161,7 @@ body::before {
 
 .btn-custom-primary:hover {
     background-color: #1e0561;
-    /* Color al pasar el mouse */
 }
-
-
 
 .btn-card {
     color: #fff;
@@ -221,14 +171,11 @@ body::before {
     padding: 10px 10px;
     border-radius: 8px;
     font-size: 12px;
-
     display: inline-block;
 }
 
-
 .btn-card:hover {
     background-color: #c4cf22;
-
     border-color: #000;
 }
 
@@ -240,7 +187,6 @@ body::before {
 .col-md-4 {
     display: flex;
 }
-
 
 footer {
     background-color: transparent;
@@ -293,17 +239,9 @@ footer {
 }
 
 @keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
-
 
 .chatbot-icon {
     position: fixed;
@@ -313,96 +251,50 @@ footer {
     z-index: 1000;
 }
 
-
 .chatbox-style {
-    height: 300px;
+    height: 350px;
     overflow-y: auto;
-    background: #282828d0;
+    background: rgba(10, 10, 10, 0.5);
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
-
-
-/* botón formulario */
 
 .btn-form {
     background-color: #280257;
     color: #fff;
     padding: 10px 20px;
     border-radius: 8px;
-
 }
-
 
 .btn-form:hover {
     background-color: #c4cf22;
     color: #000;
-
-
 }
 
-
-/*formulario de contacto*/
 .mensaje-exito {
     display: none;
     color: green;
     margin-top: 10px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    .sidebar {
-        display: none !important;
-    }
-
-    .content {
-        margin-left: 0;
-    }
-
-    #hero {
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    #projects .card {
-        margin-bottom: 1.5rem;
-    }
+    .sidebar { display: none !important; }
+    .content { margin-left: 0; }
+    #hero { padding: 2rem 1rem; text-align: center; }
+    #hero h1 { font-size: 2rem; }
+    #projects .card { margin-bottom: 1.5rem; }
+    .btn-primary { width: 100%; font-size: 1rem; padding: 12px; text-align: center; }
+    .content { padding: 20px 10px; }
 }
-
-
-@media (max-width: 768px) {
-    .btn-primary {
-        width: 100%;
-        /* El botón ocupa todo el ancho */
-        font-size: 1rem;
-        /* Tamaño de texto legible */
-        padding: 12px;
-        /* Más fácil de tocar */
-        text-align: center;
-    }
-
-    .content {
-        padding: 20px 10px;
-        /* Menos padding lateral en móviles */
-    }
-}
-
-
-/* estilo modal */
-
 
 .btn-close {
     cursor: pointer;
     background-color: #eff70029;
     font-size: 1rem;
-
 }
 
-/* Estilo general del modal oscuro */
 .modal-content {
     background-color: #1e076efa;
     color: #ffffffdc;
@@ -410,59 +302,125 @@ footer {
     border: none;
 }
 
-/* Header del modal */
 .modal-header {
     border-bottom: 1px solid #15054efa;
     background-color: #0d052bfa;
-    
 }
 
-/* Título del modal */
 .modal-title {
     font-weight: bold;
     color: #ffffff;
-   
 }
 
-/* Cuerpo del modal */
-.modal-body {
-    padding: 5px;
+.modal-body { padding: 5px; }
+
+/* --- ESTILOS MEJORADOS DEL CHATBOT --- */
+
+.message-wrapper {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-end;
 }
 
-.chatbox-style div {
-  background-color: #000000a1;
-  border-radius: 15px;
-  padding: 8px 12px;
-  margin: 6px 0;
-  max-width: 80%;
+.chatbot-message {
+    justify-content: flex-start;
 }
 
-.chatbox-style div.user {
-  background-color: #ffffff;
-  align-self: flex-end;
-  text-align: right;
+.user-message {
+    justify-content: flex-end;
 }
 
-/* Estilo de los botones del chatbot */
-.chatbox-style .btn {
-    border-radius: 8px;
-    font-weight: 400;
+.chatbot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url('./img/imagen.webp');
+    background-size: cover;
+    flex-shrink: 0;
 }
 
-/* Input del usuario */
-.input-group input {
-    background-color: #ffffff;
+.message-content {
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 20px;
     color: #f1f1f1;
-    border: 1px solid #444;
+    line-height: 1.5;
 }
 
-/* Botón enviar */
+.chatbot-message .message-content {
+    background-color: rgba(40, 40, 40, 0.9);
+}
+
+.user-message .message-content {
+    background-color: #c4cf22;
+    color: #1e0561;
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 50px; 
+    margin-top: -5px;
+}
+
+.options-container .btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f1f1f1;
+    border-radius: 15px;
+    padding: 8px 15px;
+    margin: 5px;
+    transition: background 0.3s, transform 0.2s;
+    backdrop-filter: blur(5px);
+}
+
+.options-container .btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #c4cf22;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typing {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.input-group input {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px 0 0 10px;
+}
+
+.input-group input:focus {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f1f1f1;
+    border-color: #c4cf22;
+    box-shadow: none;
+}
+
 .input-group .btn-primary {
-    background-color: #1e0561;
-    border-color: #1e0561;
+    background: #c4cf22;
+    border-color: #c4cf22;
+    color: #1e0561;
+    border-radius: 0 10px 10px 0;
+    transition: background-color 0.3s;
 }
 
 .input-group .btn-primary:hover {
-    background-color:#1e0561;
-    border-color: #000032;
+    background-color: #a8b01e;
+    border-color: #a8b01e;
 }
