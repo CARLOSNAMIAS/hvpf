@@ -2,33 +2,48 @@
 <html lang="es">
 
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO y metadatos -->
     <meta name="description" content="Portafolio de Carlos, desarrollador web y cloud.">
     <meta name="author" content="Carlos">
     <title>Portafolio/Carlos</title>
     <link rel="icon" type="image/x-icon" href="./img/favicom.png">
-    <!-- Bootstrap CSS -->
+    
+    <!-- Estilos CSS externos -->
+    <!-- Bootstrap CSS para diseño responsivo y componentes -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    
+    <!-- AOS (Animate On Scroll) para animaciones al hacer scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    
+    <!-- Hoja de estilos personalizada -->
     <link rel="stylesheet" href="estilos.css">
 
-
+    <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    
+    <!-- Open Graph meta tags para redes sociales -->
     <meta property="og:title" content="Portafolio de Carlos">
     <meta property="og:description" content="Explora mis proyectos de desarrollo web y tecnologías Cloud.">
     <meta property="og:image" content="./img/favicom.png">
     <meta property="og:url" content="https://carlosnamias.github.io/myportafolio/">
+    
+    <!-- Twitter Card meta tag -->
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Color del tema para navegadores móviles -->
     <meta name="theme-color" content="#1e0561">
 </head>
 
 <body class="bg-light">
-    <!-- Sidebar -->
+    <!-- BARRA DE NAVEGACIÓN LATERAL -->
+    <!-- Sidebar fija con navegación entre secciones -->
     <nav class="sidebar">
         <h2 class="text-center">Contenido</h2>
+        <!-- Enlaces de navegación interna con iconos -->
         <a href="#hero"><i class="bi bi-house"></i> Inicio</a>
         <a href="#profile"><i class="bi bi-person"></i> Perfil</a>
         <a href="#about"><i class="bi bi-info-circle"></i> Sobre mí</a>
@@ -36,37 +51,46 @@
         <a href="#contact"><i class="bi bi-envelope"></i> Contacto</a>
     </nav>
 
-    <!-- Main Content -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="content">
-        <!-- Hero Section -->
-
+        <!-- SECCIÓN HERO/PRESENTACIÓN -->
+        <!-- Sección de bienvenida con animación fade-up -->
         <section id="hero" data-aos="fade-up">
             <h1>¡Hola, soy Carlos!</h1>
             <p>Diseñador Frontend especializado en el desarrollo de aplicaciones y servicios para la nube.
                 Desarrollo soluciones web utilizando HTML, CSS, JavaScript y Bootstrap, con enfoque en la creación
                 de interfaces responsivas y funcionales que optimizan la experiencia del usuario.</p>
+            <!-- Botón call-to-action que navega a la sección de proyectos -->
             <a href="#projects" class="btn btn-custom-primary">Ver Proyectos</a>
         </section>
 
-        <!-- Profile Section -->
+        <!-- SECCIÓN PERFIL -->
+        <!-- Información personal con foto y enlaces sociales -->
         <section id="profile" data-aos="fade-right">
             <div class="container text-center">
+                <!-- Imagen de perfil con alt descriptivo -->
                 <img src="./img/carlosjose.PNG" alt="Foto de perfil de Carlos" class="profile-img">
                 <h2>Carlos Gómez</h2>
                 <p>Desarrollador Frontend y Servicios en la Nube</p>
+                
+                <!-- Enlaces a redes sociales -->
                 <div class="social-links">
+                    <!-- GitHub - enlace funcional -->
                     <a href="https://github.com/CARLOSNAMIAS" target="_blank" rel="noopener noreferrer"
                         aria-label="Visita mi perfil de GitHub" title="GitHub">
                         <i class="bi bi-github"></i>
                     </a>
+                    <!-- LinkedIn - placeholder -->
                     <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Visita mi perfil de LinkedIn"
                         title="LinkedIn">
                         <i class="bi bi-linkedin"></i>
                     </a>
+                    <!-- X (Twitter) - placeholder -->
                     <a href="#" target="_blank" rel="noopener noreferrer"
                         aria-label="Visita mi perfil de X (antes Twitter)" title="X (antes Twitter)">
                         <i class="bi bi-twitter-x"></i>
                     </a>
+                    <!-- Enlace a sección de contacto -->
                     <a href="#contact" aria-label="Envíame un correo electrónico" title="Contacto">
                         <i class="bi bi-envelope"></i>
                     </a>
@@ -74,7 +98,8 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- SECCIÓN SOBRE MÍ -->
+        <!-- Descripción personal y profesional -->
         <section id="about" data-aos="fade-left">
             <div class="container">
                 <h2>Sobre mí</h2>
@@ -84,19 +109,23 @@
             </div>
         </section>
 
-
-
-        <!-- Projects Section -->
+        <!-- SECCIÓN PROYECTOS -->
+        <!-- Galería de proyectos organizados en tarjetas -->
         <section id="projects" data-aos="fade-up">
             <div class="container">
                 <h2>Proyectos</h2>
+                
+                <!-- Primera fila de proyectos -->
                 <div class="row g-4">
-                    <div class="col-md-4 mb-4">
+                    <!-- PROYECTO 1: Video juegos Nintendo -->
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
-                            <img src="./img/portada-mario.png" class="card-img-top"
+                            <!-- Imagen con lazy loading para optimización -->
+                            <img src="./img/card1.png" class="card-img-top"
                                 alt="Imagen de un proyecto en desarrollo." loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">Video juegos</h5>
+                                <!-- Descripción con clase para scroll personalizado -->
                                 <p class="card-text scroll-text">Este proyecto es una página web inspirada en el
                                     universo de Nintendo. Incluye un carrito de compras funcional y una galería de
                                     tarjetas de personajes diseñadas con Bootstrap, ofreciendo un diseño moderno, limpio
@@ -105,14 +134,16 @@
                                     integra animaciones, sonidos y una interfaz intuitiva que combina la estética
                                     clásica de Nintendo con un estilo web actual, demostrando cómo se pueden aplicar
                                     HTML, CSS, JavaScript y Bootstrap para crear sitios dinámicos y atractivos..</p>
+                                <!-- Enlace al demo en vivo -->
                                 <a href="https://carlosnamias.github.io/Nintendo/" class="btn btn-card">Ver demo</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <!-- PROYECTO 2: Clon El Corral -->
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
-                            <img src="./img/corrral.png" class="card-img-top"
+                            <img src="./img/card2.png" class="card-img-top"
                                 alt="Página de inicio del clon de El Corral, mostrando hamburguesas y el menú."
                                 loading="lazy">
                             <div class="card-body">
@@ -130,9 +161,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <!-- PROYECTO 3: Clon TikTok -->
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
-                            <img src="./img/portada-tk.png" class="card-img-top"
+                            <img src="./img/card3.png" class="card-img-top"
                                 alt="Interfaz del clon de TikTok, mostrando un feed de videos en un teléfono móvil.">
                             <div class="card-body">
                                 <h5 class="card-title">Clon-Tiktok</h5>
@@ -152,11 +184,14 @@
                 </div>
             </div>
 
+            <!-- Separador visual -->
             <br>
 
+            <!-- Segunda fila de proyectos -->
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-md-4 mb-4">
+                    <!-- PROYECTO 4: App Music -->
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
                             <img src="./img/app-music.png" class="card-img-top"
                                 alt="Aplicación de música con una lista de canciones y controles de reproducción."
@@ -176,7 +211,8 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <!-- PROYECTO 5: Gestión de comandas -->
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
                             <img src="./img/garisu.png" class="card-img-top"
                                 alt="Interfaz de una aplicación para gestionar comandas de un restaurante."
@@ -194,12 +230,14 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <!-- PROYECTO 6: En construcción -->
+                    <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
                             <img src="./img/farma.webp" class="card-img-top" alt="Imagen de un proyecto en desarrollo."
                                 loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">En construcción</h5>
+                                <!-- Texto placeholder Lorem ipsum -->
                                 <p class="card-text scroll-text">Lorem ipsum dolor sit amet consectetur adipisicing
                                     elit.
                                     Voluptas, placeat? Laborum molestiae omnis perferendis incidunt obcaecati quos
@@ -207,6 +245,7 @@
                                     mollitia a!
                                     Perspiciatis.jfoasfoasjfosajfojsafojasofjasofjoasjfoasjfojasfojasofjoasjfosajfoasjfoasjfosajfoajsfoasjfojasofjasofjosajfosajfoasjfosjfojsofjasofjasofjaosfjoasjfoasjfoasjfoasjfoasjfoasjfoajsofjas
                                 </p>
+                                <!-- Enlace a página de "próximamente" -->
                                 <a href="./comingsoon.html" class="btn btn-card">Ver demo</a>
                             </div>
                         </div>
@@ -215,65 +254,83 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- SECCIÓN CONTACTO -->
+        <!-- Formulario de contacto funcional -->
         <section id="contact" data-aos="fade-right">
             <div class="container">
                 <h2>Contacto</h2>
+                <!-- Formulario que usa FormSubmit para envío de emails -->
                 <form action="https://formsubmit.co/carlosjose13975@gmail.com" method="POST" id="contactForm">
+                    <!-- Campo nombre -->
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required
                             placeholder="Escribe tu nombre">
                     </div>
+                    
+                    <!-- Campo email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" name="email" required
                             placeholder="ejemplo@gmail.com">
                     </div>
+                    
+                    <!-- Campo mensaje con límite de caracteres -->
                     <div class="mb-3">
                         <label for="mensaje" class="form-label">Mensaje</label>
                         <textarea class="form-control" id="mensaje" name="mensaje" maxlength="200" required
                             placeholder="Escribe tu mensaje aquí"></textarea>
                     </div>
-                    <!-- Token opcional para seguridad -->
+                    
+                    <!-- Campo oculto para habilitar captcha de FormSubmit -->
                     <input type="hidden" name="_captcha" value="true">
+                    
+                    <!-- Botón de envío -->
                     <button type="submit" class="btn btn-form">Enviar</button>
                 </form>
 
-                <!-- Mensaje de éxito oculto -->
+                <!-- Mensaje de confirmación (inicialmente oculto) -->
                 <div id="mensaje-exito" class="mensaje-exito">
                     ✅ ¡Tu mensaje ha sido enviado con éxito!
                 </div>
             </div>
         </section>
 
-
-        <!-- ICONO del chatbot -->
+        <!-- CHATBOT FLOTANTE -->
+        <!-- Icono del chatbot (botón flotante) -->
         <div class="chatbot-image chatbot-icon" id="chatbotIcon">
-
             <a href="#">
                 <img src="./img/imagen.webp" alt="Icono del chatbot" loading="lazy" width="80" />
             </a>
         </div>
-        <!-- Modal del Chatbot -->
+        
+        <!-- MODAL DEL CHATBOT -->
+        <!-- Modal de Bootstrap para el chatbot interactivo -->
         <div class="modal fade" id="chatbotModal" tabindex="-1" aria-labelledby="chatbotModalLabel" aria-hidden="true"
             data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content glass-effect">
-
+                    
+                    <!-- Encabezado del modal -->
                     <div class="modal-header bg-transparent border-0">
                         <h5 class="modal-title text-white" id="chatbotModalLabel">chatbot</h5>
+                        <!-- Botón para cerrar el modal -->
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                             aria-label="Cerrar"></button>
                     </div>
 
+                    <!-- Cuerpo del modal -->
                     <div class="modal-body">
+                        <!-- Área de conversación del chatbot -->
                         <div id="chatbox" class="chatbox-style">
+                            <!-- Mensaje inicial del chatbot -->
                             <div>
                                 <div class="chatbot-avatar"></div>
                                 <div class="message-content"><strong>Chatbot:</strong> ¡Hola! Soy el asistente de
                                     Carlos. ¿En qué puedo ayudarte?</div>
                             </div>
+                            
+                            <!-- Botones de opciones predefinidas -->
                             <div class="mt-2">
                                 <button class="btn btn-outline-primary btn-sm me-2 mt-1"
                                     onclick="handleOption('ver proyectos')">Ver proyectos</button>
@@ -284,34 +341,39 @@
                             </div>
                         </div>
 
+                        <!-- Campo de entrada para mensajes del usuario -->
                         <div class="input-group mt-3">
                             <input type="text" id="userInput" class="form-control" placeholder="Escribe tu mensaje...">
                             <button class="btn btn-primary" onclick="sendMessage()">Enviar</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
 
-
-        <!-- Footer -->
-
+        <!-- PIE DE PÁGINA -->
         <footer>
             <p>&copy; 2025 Carlos. Todos los derechos reservados.</p>
         </footer>
 
     </main>
 
-    <!-- Bootstrap JS -->
+    <!-- SCRIPTS -->
+    <!-- Bootstrap JS para funcionalidad de componentes -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS (Animate On Scroll) para animaciones -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Inicialización de AOS -->
     <script>
         AOS.init();
     </script>
+    
+    <!-- Script personalizado (funcionalidad del chatbot y otros) -->
     <script src="script.js"></script>
 
-    <!-- 100% privacy-first analytics -->
+    <!-- Simple Analytics para estadísticas (respeta la privacidad) -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
 </body>

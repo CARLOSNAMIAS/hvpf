@@ -1,426 +1,599 @@
+/* ===================================== */
+/* ESTILOS PRINCIPALES DEL PORTAFOLIO   */
+/* ===================================== */
+
+/* ==================== */
+/* CONFIGURACIÓN GLOBAL */
+/* ==================== */
+
+/* Estilos base del body con fondo y tipografía */
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    background: url('./img/fondo-p.webp') no-repeat center center;
-    background-size: cover;
-    color: white;
+    font-family: system-ui, -apple-system, sans-serif; /* Fuente del sistema para mejor rendimiento */
+    background: url('./img/fondo-p.webp') no-repeat center center; /* Imagen de fondo centrada */
+    background-size: cover; /* Fondo cubre toda la pantalla */
+    color: white; /* Color de texto principal */
     margin: 0;
     padding: 20px;
-    overflow-x: hidden;
-    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    min-height: 100vh; /* Altura mínima de toda la ventana */
 }
 
-/* Capa oscura semitransparente */
+/* Capa oscura semitransparente sobre el fondo */
+/* Se usa ::before para crear una superposición sin afectar el contenido */
 body::before {
-    content: "";
-    position: fixed;
+    content: ""; /* Elemento pseudo requerido */
+    position: fixed; /* Fijo en la ventana */
     top: 0;
     left: 0;
-    width: 150%;
-    height: 150%;
-    background: rgba(0, 0, 0, 0.849);
-    z-index: -1;
+    width: 150%; /* Más ancho para cubrir completamente */
+    height: 150%; /* Más alto para cubrir completamente */
+    background: rgba(0, 0, 0, 0.849); /* Negro semitransparente (84.9% opacidad) */
+    z-index: -1; /* Detrás de todo el contenido */
 }
 
-/* Estilo del encabezado */
+/* ======================== */
+/* NAVEGACIÓN LATERAL       */
+/* ======================== */
+
+/* Sidebar fija en el lado izquierdo */
 .sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
+    height: 100%; /* Altura completa de la ventana */
+    width: 250px; /* Ancho fijo de la barra lateral */
+    position: fixed; /* Posición fija */
     top: 0;
     left: 0;
-    padding-top: 25px;
-    color: #e0e0e0;
+    padding-top: 25px; /* Espaciado superior */
+    color: #e0e0e0; /* Color gris claro para el texto */
 }
 
+/* Enlaces dentro de la sidebar */
 .sidebar a {
-    display: block;
-    padding: 10px;
-    color: #e0e0e0;
-    text-decoration: none;
+    display: block; /* Cada enlace ocupa toda la línea */
+    padding: 10px; /* Espaciado interno */
+    color: #e0e0e0; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
 }
 
+/* Iconos dentro de los enlaces de la sidebar */
 .sidebar a i {
-    margin-right: 10px;
+    margin-right: 10px; /* Espacio entre icono y texto */
 }
 
+/* Efecto hover en los enlaces de la sidebar */
 .sidebar a:hover {
-    background-color: #030322;
-    color: #fff;
+    background-color: #030322; /* Fondo azul oscuro al pasar el mouse */
+    color: #fff; /* Texto blanco en hover */
 }
 
+/* ======================== */
+/* CONTENIDO PRINCIPAL      */
+/* ======================== */
+
+/* Área de contenido principal (desplazada por la sidebar) */
 .content {
-    margin-left: 250px;
-    padding: 50px;
+    margin-left: 250px; /* Margen igual al ancho de la sidebar */
+    padding: 50px; /* Espaciado interno */
 }
 
+/* Espaciado uniforme para todas las secciones principales */
 #hero,
 #about,
 #projects,
 #contact,
 #profile {
-    padding: 4rem 0;
+    padding: 4rem 0; /* 4rem arriba y abajo, 0 a los lados */
 }
 
+/* Configuración específica para secciones de contenido */
 #about,
 #projects,
 #contact {
-    background-color: transparent;
-    text-align: justify;
+    background-color: transparent; /* Fondo transparente */
+    text-align: justify; /* Texto justificado */
 }
 
+/* ======================== */
+/* TARJETAS DE PROYECTOS    */
+/* ======================== */
 
-/* card projects */
-
+/* Estilo base de las tarjetas */
 .card {
-    background-color: rgba(25, 25, 25, 0.603);
-    color: #e0e0e0;
-    transition: transform 0.3s;
-    font: 0.8em sans-serif;
-    text-align: justify;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    background-color: rgba(25, 25, 25, 0.603); /* Fondo gris oscuro semitransparente */
+    color: #e0e0e0; /* Texto gris claro */
+    transition: transform 0.3s; /* Animación suave para transformaciones */
+    font: 0.8em sans-serif; /* Tamaño de fuente más pequeño */
+    text-align: justify; /* Texto justificado */
+    min-height: 400px; /* Altura mínima uniforme */
+    display: flex; /* Flexbox para layout */
+    flex-direction: column; /* Elementos apilados verticalmente */
+    height: 100%; /* Altura completa del contenedor padre */
 }
 
+/* Imágenes superiores de las tarjetas */
 .card-img-top {
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s, filter 0.3s;
+    height: 200px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Mantiene proporciones recortando si es necesario */
+    transition: transform 0.3s, filter 0.3s; /* Animaciones suaves */
 }
 
+/* Efecto hover en las imágenes de las tarjetas */
 .card-img-top:hover {
-    transform: scale(1.05);
-    filter: brightness(0.8);
+    transform: scale(1.05); /* Agranda ligeramente la imagen */
+    filter: brightness(0.8); /* Oscurece la imagen */
 }
 
+/* Cuerpo de las tarjetas */
 .card-body {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
-    padding: 15px;
+    flex-direction: column; /* Elementos apilados verticalmente */
+    display: flex; /* Flexbox para layout */
+    justify-content: space-between; /* Espaciado uniforme entre elementos */
+    flex-grow: 1; /* Crece para llenar el espacio disponible */
+    padding: 15px; /* Espaciado interno */
 }
 
+/* Texto descriptivo de las tarjetas con scroll personalizado */
 .card-text {
-    max-height: 100px;
-    overflow: hidden;
-    position: relative;
-    transition: max-height 0.3s ease;
-  }
+    max-height: 100px; /* Altura máxima antes de mostrar scroll */
+    overflow: hidden; /* Oculta contenido que excede la altura */
+    position: relative; /* Para posicionamiento de elementos hijos */
+    transition: max-height 0.3s ease; /* Animación suave del cambio de altura */
+}
 
+/* Efecto de espaciado en letras del título al hacer hover */
 .card-title:hover {
-  letter-spacing: 4px;
+    letter-spacing: 4px; /* Aumenta el espaciado entre letras */
 }
 
-  .card:hover .card-text {
-    overflow-y: auto;
-  }
+/* Activación del scroll al hacer hover en la tarjeta */
+.card:hover .card-text {
+    overflow-y: auto; /* Permite scroll vertical */
+}
 
-  .scroll-text {
-    max-height: 100px;
-    overflow: hidden;
+/* Clase específica para textos con scroll personalizado */
+.scroll-text {
+    max-height: 100px; /* Altura máxima */
+    overflow: hidden; /* Contenido oculto inicialmente */
     position: relative;
-    transition: all 0.3s ease;
-    scroll-behavior: smooth;
-  }
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    scroll-behavior: smooth; /* Scroll suave */
+}
 
-  .card:hover .scroll-text {
-    overflow-y: auto;
-  }
+/* Activación del scroll en hover */
+.card:hover .scroll-text {
+    overflow-y: auto; /* Permite scroll vertical */
+}
 
-  .scroll-text::-webkit-scrollbar {
-    width: 6px;
-  }
+/* Personalización de la barra de scroll - Webkit browsers */
+.scroll-text::-webkit-scrollbar {
+    width: 6px; /* Ancho de la barra de scroll */
+}
 
-  .scroll-text::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-  }
+/* Track (fondo) de la barra de scroll */
+.scroll-text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+}
 
-  .scroll-text::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-  }
+/* Thumb (parte móvil) de la barra de scroll */
+.scroll-text::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3); /* Color semi-transparente */
+    border-radius: 10px; /* Bordes redondeados */
+    -webkit-backdrop-filter: blur(2px); /* Efecto de desenfoque */
+    backdrop-filter: blur(2px); /* Efecto de desenfoque estándar */
+}
 
-  .scroll-text::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5);
-  }
+/* Hover effect en la barra de scroll */
+.scroll-text::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5); /* Más opaco en hover */
+}
 
+/* ======================== */
+/* BOTONES                  */
+/* ======================== */
+
+/* Botón primario personalizado (usado en la sección hero) */
 .btn-custom-primary {
-    background-color: #c4cf22;
-    color: #000;
-    border: none;
-    padding: 10px 10px;
-    font-size: 14px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    background-color: #c4cf22; /* Verde lima */
+    color: #000; /* Texto negro */
+    border: none; /* Sin borde */
+    padding: 10px 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave del color */
 }
 
+/* Hover effect del botón primario */
 .btn-custom-primary:hover {
-    background-color: #1e0561;
+    background-color: #1e0561; /* Cambia a morado oscuro */
 }
 
+/* Botones de las tarjetas de proyectos */
 .btn-card {
-    color: #fff;
-    background-color: #1e0561;
-    border-color: #000000ac;
-    align-self: flex-start;
-    padding: 10px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    display: inline-block;
+    color: #fff; /* Texto blanco */
+    background-color: #1e0561; /* Fondo morado oscuro */
+    border-color: #000000ac; /* Borde negro semi-transparente */
+    align-self: flex-start; /* Alineado al inicio del contenedor flex */
+    padding: 10px 10px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 12px; /* Tamaño de fuente pequeño */
+    display: inline-block; /* Comportamiento de bloque en línea */
 }
 
+/* Hover effect de los botones de tarjetas */
 .btn-card:hover {
-    background-color: #c4cf22;
-    border-color: #000;
+    background-color: #c4cf22; /* Cambia a verde lima */
+    border-color: #000; /* Borde negro sólido */
 }
 
+/* ======================== */
+/* LAYOUT FLEXBOX           */
+/* ======================== */
+
+/* Contenedor de filas con flexbox */
 .row {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Flexbox para layout horizontal */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
 }
 
+/* Columnas individuales */
 .col-md-4 {
-    display: flex;
+    display: flex; /* Cada columna es un contenedor flex */
 }
 
+/* ======================== */
+/* PIE DE PÁGINA            */
+/* ======================== */
+
+/* Estilo del footer */
 footer {
-    background-color: transparent;
-    color: #c4cf22;
-    text-align: center;
-    padding: 1rem 0;
-    border-radius: 10px;
+    background-color: transparent; /* Fondo transparente */
+    color: #c4cf22; /* Texto verde lima */
+    text-align: center; /* Centrado */
+    padding: 1rem 0; /* Espaciado vertical */
+    border-radius: 10px; /* Bordes redondeados */
 }
 
+/* ======================== */
+/* SECCIÓN PERFIL           */
+/* ======================== */
+
+/* Imagen de perfil */
 .profile-img {
-    width: 130px;
-    height: 130px;
-    border-radius: 5%;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(1, 5, 58, 0.18);
-    background-color: transparent;
-    object-fit: cover;
+    width: 130px; /* Ancho fijo */
+    height: 130px; /* Alto fijo (cuadrada) */
+    border-radius: 5%; /* Bordes ligeramente redondeados */
+    margin-bottom: 1rem; /* Margen inferior */
+    border: 1px solid rgba(1, 5, 58, 0.18); /* Borde azul muy sutil */
+    background-color: transparent; /* Fondo transparente */
+    object-fit: cover; /* Mantiene proporciones */
 }
 
+/* Enlaces de redes sociales */
 .social-links a {
-    color: #c4cf22;
-    font-size: 1.5rem;
-    margin: 0 0.5rem;
-    text-decoration: none !important;
+    color: #c4cf22; /* Color verde lima */
+    font-size: 1.5rem; /* Tamaño grande para los iconos */
+    margin: 0 0.5rem; /* Margen horizontal */
+    text-decoration: none !important; /* Sin subrayado (importante) */
 }
 
+/* Hover effect en enlaces sociales */
 .social-links a:hover {
-    color: #1e0561;
+    color: #1e0561; /* Cambia a morado oscuro */
 }
 
+/* ======================== */
+/* BARRA DE PROGRESO        */
+/* ======================== */
+
+/* Configuración de barras de progreso */
 .progress {
-    height: 10px;
-    background-color: #333;
+    height: 10px; /* Altura de la barra */
+    background-color: #333; /* Fondo gris oscuro */
 }
 
+/* ======================== */
+/* CHATBOT FLOTANTE         */
+/* ======================== */
+
+/* Imagen del chatbot flotante */
 .chatbot-image img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    position: fixed;
-    bottom: 25px;
-    right: 9px;
-    cursor: pointer;
-    animation: float 3s ease-in-out infinite;
-    transition: transform 0.3s ease;
+    width: 60px; /* Ancho del icono */
+    height: 60px; /* Alto del icono (circular) */
+    border-radius: 50%; /* Completamente circular */
+    position: fixed; /* Posición fija en la ventana */
+    bottom: 25px; /* Distancia desde abajo */
+    right: 9px; /* Distancia desde la derecha */
+    cursor: pointer; /* Cursor de mano al pasar */
+    animation: float 3s ease-in-out infinite; /* Animación de flotación continua */
+    transition: transform 0.3s ease; /* Transición suave para transformaciones */
 }
 
+/* Efecto hover del icono del chatbot */
 .chatbot-image img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Agranda ligeramente */
 }
 
+/* Animación keyframes para el efecto de flotación */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0); } /* Posición inicial y final */
+    50% { transform: translateY(-20px); } /* Punto medio (flotando hacia arriba) */
 }
 
+/* Contenedor del icono del chatbot */
 .chatbot-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 1000;
+    position: fixed; /* Posición fija */
+    bottom: 20px; /* Distancia desde abajo */
+    right: 20px; /* Distancia desde la derecha */
+    cursor: pointer; /* Cursor de mano */
+    z-index: 1000; /* Nivel alto para estar sobre otros elementos */
 }
 
+/* ======================== */
+/* MODAL DEL CHATBOT        */
+/* ======================== */
+
+/* Estilo del área de conversación del chatbot */
 .chatbox-style {
-    height: 350px;
-    overflow-y: auto;
-    background: rgba(10, 10, 10, 0.5);
-    padding: 15px;
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    height: 350px; /* Altura fija del área de chat */
+    overflow-y: auto; /* Scroll vertical automático */
+    background: rgba(10, 10, 10, 0.5); /* Fondo negro semi-transparente */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes muy redondeados */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde blanco sutil */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
 }
 
+/* ======================== */
+/* FORMULARIO DE CONTACTO   */
+/* ======================== */
+
+/* Botón del formulario de contacto */
 .btn-form {
-    background-color: #280257;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
+    background-color: #280257; /* Morado oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
 }
 
+/* Hover effect del botón del formulario */
 .btn-form:hover {
-    background-color: #c4cf22;
-    color: #000;
+    background-color: #c4cf22; /* Cambia a verde lima */
+    color: #000; /* Texto negro en hover */
 }
 
+/* Mensaje de éxito del formulario (inicialmente oculto) */
 .mensaje-exito {
-    display: none;
-    color: green;
-    margin-top: 10px;
+    display: none; /* Oculto por defecto */
+    color: green; /* Color verde para éxito */
+    margin-top: 10px; /* Margen superior */
 }
 
+/* ======================== */
+/* RESPONSIVE DESIGN        */
+/* ======================== */
+
+/* Estilos para dispositivos móviles y tablets */
 @media (max-width: 768px) {
-    .sidebar { display: none !important; }
-    .content { margin-left: 0; }
-    #hero { padding: 2rem 1rem; text-align: center; }
-    #hero h1 { font-size: 2rem; }
-    #projects .card { margin-bottom: 1.5rem; }
-    .btn-primary { width: 100%; font-size: 1rem; padding: 12px; text-align: center; }
-    .content { padding: 20px 10px; }
+    /* Ocultar sidebar en dispositivos pequeños */
+    .sidebar { 
+        display: none !important; /* Completamente oculta */
+    }
+    
+    /* Ajustar contenido para pantallas sin sidebar */
+    .content { 
+        margin-left: 0; /* Sin margen izquierdo */
+    }
+    
+    /* Ajustes de la sección hero */
+    #hero { 
+        padding: 2rem 1rem; /* Menos padding vertical */
+        text-align: center; /* Centrado */
+    }
+    
+    /* Tamaño de título más pequeño */
+    #hero h1 { 
+        font-size: 2rem; /* Reducir tamaño de fuente */
+    }
+    
+    /* Espaciado entre tarjetas de proyectos */
+    #projects .card { 
+        margin-bottom: 1.5rem; /* Más separación entre tarjetas */
+    }
+    
+    /* Botones primarios en móvil */
+    .btn-primary { 
+        width: 100%; /* Ancho completo */
+        font-size: 1rem; /* Tamaño de fuente estándar */
+        padding: 12px; /* Más padding para touch */
+        text-align: center; /* Centrado */
+    }
+    
+    /* Reducir padding del contenido principal */
+    .content { 
+        padding: 20px 10px; /* Menos espaciado interno */
+    }
 }
 
+/* ======================== */
+/* MODAL PERSONALIZADO      */
+/* ======================== */
+
+/* Botón de cierre del modal */
 .btn-close {
-    cursor: pointer;
-    background-color: #eff70029;
-    font-size: 1rem;
+    cursor: pointer; /* Cursor de mano */
+    background-color: #eff70029; /* Fondo amarillento muy sutil */
+    font-size: 1rem; /* Tamaño de fuente estándar */
 }
 
+/* Contenido principal del modal */
 .modal-content {
-    background-color: #1e076efa;
-    color: #ffffffdc;
-    border-radius: 12px;
-    border: none;
+    background-color: #1e076efa; /* Morado oscuro con alta transparencia */
+    color: #ffffffdc; /* Blanco con ligera transparencia */
+    border-radius: 12px; /* Bordes redondeados */
+    border: none; /* Sin borde */
 }
 
+/* Encabezado del modal */
 .modal-header {
-    border-bottom: 1px solid #15054efa;
-    background-color: #0d052bfa;
+    border-bottom: 1px solid #15054efa; /* Borde inferior morado */
+    background-color: #0d052bfa; /* Fondo morado muy oscuro */
 }
 
+/* Título del modal */
 .modal-title {
-    font-weight: bold;
-    color: #ffffff;
+    font-weight: bold; /* Texto en negrita */
+    color: #ffffff; /* Blanco puro */
 }
 
-.modal-body { padding: 5px; }
+/* Cuerpo del modal */
+.modal-body { 
+    padding: 5px; /* Espaciado interno mínimo */
+}
 
-/* --- ESTILOS MEJORADOS DEL CHATBOT --- */
+/* ======================================= */
+/* ESTILOS AVANZADOS DEL CHATBOT          */
+/* ======================================= */
 
+/* Contenedor wrapper para mensajes */
 .message-wrapper {
-    display: flex;
-    margin-bottom: 15px;
-    align-items: flex-end;
+    display: flex; /* Flexbox para alineación */
+    margin-bottom: 15px; /* Separación entre mensajes */
+    align-items: flex-end; /* Alineación inferior */
 }
 
+/* Mensajes del chatbot (alineados a la izquierda) */
 .chatbot-message {
-    justify-content: flex-start;
+    justify-content: flex-start; /* Alineación al inicio */
 }
 
+/* Mensajes del usuario (alineados a la derecha) */
 .user-message {
-    justify-content: flex-end;
+    justify-content: flex-end; /* Alineación al final */
 }
 
+/* Avatar del chatbot */
 .chatbot-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-    background-image: url('./img/imagen.webp');
-    background-size: cover;
-    flex-shrink: 0;
+    width: 40px; /* Ancho del avatar */
+    height: 40px; /* Alto del avatar */
+    border-radius: 50%; /* Circular */
+    margin-right: 10px; /* Margen derecho */
+    background-image: url('./img/imagen.webp'); /* Imagen del avatar */
+    background-size: cover; /* Imagen cubre todo el avatar */
+    flex-shrink: 0; /* No se encoge en flexbox */
 }
 
+/* Contenido de los mensajes */
 .message-content {
-    max-width: 80%;
-    padding: 12px 18px;
-    border-radius: 20px;
-    color: #f1f1f1;
-    line-height: 1.5;
+    max-width: 80%; /* Máximo 80% del ancho disponible */
+    padding: 12px 18px; /* Espaciado interno generoso */
+    border-radius: 20px; /* Bordes muy redondeados (estilo chat) */
+    color: #f1f1f1; /* Color de texto claro */
+    line-height: 1.5; /* Altura de línea para legibilidad */
 }
 
+/* Estilo específico para mensajes del chatbot */
 .chatbot-message .message-content {
-    background-color: rgba(40, 40, 40, 0.9);
+    background-color: rgba(40, 40, 40, 0.9); /* Fondo gris oscuro */
 }
 
+/* Estilo específico para mensajes del usuario */
 .user-message .message-content {
-    background-color: #c4cf22;
-    color: #1e0561;
+    background-color: #c4cf22; /* Fondo verde lima */
+    color: #1e0561; /* Texto morado oscuro */
 }
 
+/* Contenedor de opciones predefinidas */
 .options-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding-left: 50px; 
-    margin-top: -5px;
+    display: flex; /* Flexbox horizontal */
+    flex-wrap: wrap; /* Permite envolvimiento */
+    justify-content: flex-start; /* Alineación al inicio */
+    padding-left: 50px; /* Espaciado izquierdo para alinear con mensajes */
+    margin-top: -5px; /* Margen negativo para acercar a mensaje anterior */
 }
 
+/* Botones de opciones */
 .options-container .btn {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #f1f1f1;
-    border-radius: 15px;
-    padding: 8px 15px;
-    margin: 5px;
-    transition: background 0.3s, transform 0.2s;
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.1); /* Fondo blanco muy sutil */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco sutil */
+    color: #f1f1f1; /* Texto claro */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 8px 15px; /* Espaciado interno */
+    margin: 5px; /* Margen alrededor */
+    transition: background 0.3s, transform 0.2s; /* Transiciones suaves */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
 }
 
+/* Hover effect en botones de opciones */
 .options-container .btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.25); /* Fondo más opaco */
+    transform: translateY(-2px); /* Elevación sutil */
 }
 
+/* ======================== */
+/* INDICADOR DE ESCRITURA   */
+/* ======================== */
+
+/* Puntos del indicador de que el chatbot está escribiendo */
 .typing-indicator span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #c4cf22;
-    animation: typing 1s infinite;
+    display: inline-block; /* Comportamiento de bloque en línea */
+    width: 8px; /* Ancho del punto */
+    height: 8px; /* Alto del punto */
+    border-radius: 50%; /* Circular */
+    background-color: #c4cf22; /* Color verde lima */
+    animation: typing 1s infinite; /* Animación continua */
 }
 
-.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+/* Retrasos escalonados para los puntos */
+.typing-indicator span:nth-child(2) { 
+    animation-delay: 0.2s; /* Segundo punto con retraso */
+}
+.typing-indicator span:nth-child(3) { 
+    animation-delay: 0.4s; /* Tercer punto con más retraso */
+}
 
+/* Animación keyframes para el indicador de escritura */
 @keyframes typing {
-    0%, 100% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1); }
+    0%, 100% { 
+        opacity: 0.3; /* Opacidad baja al inicio y final */
+        transform: scale(0.8); /* Ligeramente más pequeño */
+    }
+    50% { 
+        opacity: 1; /* Opacidad completa en el medio */
+        transform: scale(1); /* Tamaño normal */
+    }
 }
 
+/* ======================== */
+/* CAMPO DE ENTRADA         */
+/* ======================== */
+
+/* Input de texto del grupo de entrada */
 .input-group input {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px 0 0 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    color: #f1f1f1; /* Texto claro */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco sutil */
+    border-radius: 10px 0 0 10px; /* Redondeado solo en el lado izquierdo */
 }
 
+/* Estado focus del input */
 .input-group input:focus {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #f1f1f1;
-    border-color: #c4cf22;
-    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo más opaco en focus */
+    color: #f1f1f1; /* Mantiene color del texto */
+    border-color: #c4cf22; /* Borde verde lima en focus */
+    box-shadow: none; /* Sin sombra por defecto de Bootstrap */
 }
 
+/* Botón de envío del grupo de entrada */
 .input-group .btn-primary {
-    background: #c4cf22;
-    border-color: #c4cf22;
-    color: #1e0561;
-    border-radius: 0 10px 10px 0;
-    transition: background-color 0.3s;
+    background: #c4cf22; /* Fondo verde lima */
+    border-color: #c4cf22; /* Borde del mismo color */
+    color: #1e0561; /* Texto morado oscuro */
+    border-radius: 0 10px 10px 0; /* Redondeado solo en el lado derecho */
+    transition: background-color 0.3s; /* Transición suave del color */
 }
 
+/* Hover effect del botón de envío */
 .input-group .btn-primary:hover {
-    background-color: #a8b01e;
-    border-color: #a8b01e;
+    background-color: #a8b01e; /* Verde lima más oscuro */
+    border-color: #a8b01e; /* Borde del mismo color */
 }
