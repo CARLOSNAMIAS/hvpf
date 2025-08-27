@@ -5,32 +5,32 @@
     <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- SEO y metadatos -->
     <meta name="description" content="Portafolio de Carlos, desarrollador web y cloud.">
     <meta name="author" content="Carlos">
-    <title>Portafolio/Carlos</title>
+    <title>Carlos Gómez - Desarrollador Frontend y Cloud</title>
     <link rel="icon" type="image/x-icon" href="./img/favicom.png">
-    
+
     <!-- Estilos CSS externos -->
     <!-- Bootstrap CSS para diseño responsivo y componentes -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- AOS (Animate On Scroll) para animaciones al hacer scroll -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    
+
     <!-- Hoja de estilos personalizada -->
     <link rel="stylesheet" href="estilos.css">
 
     <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    
+
     <!-- Open Graph meta tags para redes sociales -->
     <meta property="og:title" content="Portafolio de Carlos">
     <meta property="og:description" content="Explora mis proyectos de desarrollo web y tecnologías Cloud.">
     <meta property="og:image" content="./img/favicom.png">
     <meta property="og:url" content="https://carlosnamias.github.io/myportafolio/">
-    
+
     <!-- Twitter Card meta tag -->
     <meta name="twitter:card" content="summary_large_image">
 
@@ -72,7 +72,7 @@
                 <img src="./img/carlosjose.PNG" alt="Foto de perfil de Carlos" class="profile-img">
                 <h2>Carlos Gómez</h2>
                 <p>Desarrollador Frontend y Servicios en la Nube</p>
-                
+
                 <!-- Enlaces a redes sociales -->
                 <div class="social-links">
                     <!-- GitHub - enlace funcional -->
@@ -114,7 +114,7 @@
         <section id="projects" data-aos="fade-up">
             <div class="container">
                 <h2>Proyectos</h2>
-                
+
                 <!-- Primera fila de proyectos -->
                 <div class="row g-4">
                     <!-- PROYECTO 1: Video juegos Nintendo -->
@@ -122,7 +122,7 @@
                         <div class="card">
                             <!-- Imagen con lazy loading para optimización -->
                             <img src="./img/card1.png" class="card-img-top"
-                                alt="Imagen de un proyecto en desarrollo." loading="lazy">
+                                alt="Página de inicio del proyecto de videojuegos de Nintendo." loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">Video juegos</h5>
                                 <!-- Descripción con clase para scroll personalizado -->
@@ -233,7 +233,7 @@
                     <!-- PROYECTO 6: En construcción -->
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="card">
-                            <img src="./img/farma.webp" class="card-img-top" alt="Imagen de un proyecto en desarrollo."
+                            <img src="./img/farma.webp" class="card-img-top" alt="Proyecto de farmacia en construcción."
                                 loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title">En construcción</h5>
@@ -267,24 +267,24 @@
                         <input type="text" class="form-control" id="nombre" name="nombre" required
                             placeholder="Escribe tu nombre">
                     </div>
-                    
+
                     <!-- Campo email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
                         <input type="email" class="form-control" id="email" name="email" required
                             placeholder="ejemplo@gmail.com">
                     </div>
-                    
+
                     <!-- Campo mensaje con límite de caracteres -->
                     <div class="mb-3">
                         <label for="mensaje" class="form-label">Mensaje</label>
                         <textarea class="form-control" id="mensaje" name="mensaje" maxlength="200" required
                             placeholder="Escribe tu mensaje aquí"></textarea>
                     </div>
-                    
+
                     <!-- Campo oculto para habilitar captcha de FormSubmit -->
                     <input type="hidden" name="_captcha" value="true">
-                    
+
                     <!-- Botón de envío -->
                     <button type="submit" class="btn btn-form">Enviar</button>
                 </form>
@@ -303,14 +303,14 @@
                 <img src="./img/imagen.webp" alt="Icono del chatbot" loading="lazy" width="80" />
             </a>
         </div>
-        
+
         <!-- MODAL DEL CHATBOT -->
         <!-- Modal de Bootstrap para el chatbot interactivo -->
         <div class="modal fade" id="chatbotModal" tabindex="-1" aria-labelledby="chatbotModalLabel" aria-hidden="true"
             data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content glass-effect">
-                    
+
                     <!-- Encabezado del modal -->
                     <div class="modal-header bg-transparent border-0">
                         <h5 class="modal-title text-white" id="chatbotModalLabel">chatbot</h5>
@@ -329,7 +329,7 @@
                                 <div class="message-content"><strong>Chatbot:</strong> ¡Hola! Soy el asistente de
                                     Carlos. ¿En qué puedo ayudarte?</div>
                             </div>
-                            
+
                             <!-- Botones de opciones predefinidas -->
                             <div class="mt-2">
                                 <button class="btn btn-outline-primary btn-sm me-2 mt-1"
@@ -361,17 +361,23 @@
     <!-- SCRIPTS -->
     <!-- Bootstrap JS para funcionalidad de componentes -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- AOS (Animate On Scroll) para animaciones -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+
     <!-- Inicialización de AOS -->
     <script>
         AOS.init();
     </script>
-    
+
     <!-- Script personalizado (funcionalidad del chatbot y otros) -->
-    <script src="script.js"></script>
+   
+
+
+
+    <!-- En tu HTML, incluye ambos archivos -->
+    <script src="contact-form.js"></script>
+    <script src="chatbot.js"></script>
 
     <!-- Simple Analytics para estadísticas (respeta la privacidad) -->
     <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
