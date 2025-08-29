@@ -1,599 +1,714 @@
 /* ===================================== */
 /* ESTILOS PRINCIPALES DEL PORTAFOLIO   */
 /* ===================================== */
-
 /* ==================== */
 /* CONFIGURACIÓN GLOBAL */
 /* ==================== */
 
-/* Estilos base del body con fondo y tipografía */
-body {
-    font-family: system-ui, -apple-system, sans-serif; /* Fuente del sistema para mejor rendimiento */
-    background: url('./img/fondo-p.webp') no-repeat center center; /* Imagen de fondo centrada */
-    background-size: cover; /* Fondo cubre toda la pantalla */
-    color: white; /* Color de texto principal */
-    margin: 0;
-    padding: 20px;
-    overflow-x: hidden; /* Evita scroll horizontal */
-    min-height: 100vh; /* Altura mínima de toda la ventana */
+/* Importar fuente futurística */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+/* Variables CSS para colores consistentes */
+:root {
+    --primary-cyan: #00f5ff;
+    --secondary-purple: #8a2be2;
+    --accent-neon: #00ff41;
+    --dark-bg: #0a0a0f;
+    --card-bg: #1a1a2e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-glow: rgba(0, 245, 255, 0.3);
+    --shadow-neon: rgba(0, 245, 255, 0.2);
 }
 
-/* Capa oscura semitransparente sobre el fondo */
-/* Se usa ::before para crear una superposición sin afectar el contenido */
+/* Estilos base del body con tema AI futurístico */
+body {
+    font-family: 'Rajdhani', 'Orbitron', monospace;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Efecto de partículas animadas en el fondo */
 body::before {
-    content: ""; /* Elemento pseudo requerido */
-    position: fixed; /* Fijo en la ventana */
+    content: "";
+    position: fixed;
     top: 0;
     left: 0;
-    width: 150%; /* Más ancho para cubrir completamente */
-    height: 150%; /* Más alto para cubrir completamente */
-    background: rgba(0, 0, 0, 0.849); /* Negro semitransparente (84.9% opacidad) */
-    z-index: -1; /* Detrás de todo el contenido */
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
+    z-index: -2;
+    animation: pulse-bg 6s ease-in-out infinite alternate;
+}
+
+/* Patrón de líneas de circuito */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    animation: grid-move 20s linear infinite;
+}
+
+/* Animaciones keyframes */
+@keyframes pulse-bg {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+@keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { 
+        box-shadow: 0 0 5px var(--primary-cyan),
+                    0 0 10px var(--primary-cyan),
+                    0 0 15px var(--primary-cyan); 
+    }
+    50% { 
+        box-shadow: 0 0 10px var(--primary-cyan),
+                    0 0 20px var(--primary-cyan),
+                    0 0 30px var(--primary-cyan); 
+    }
+}
+
+@keyframes text-glow {
+    0%, 100% { text-shadow: 0 0 5px var(--primary-cyan); }
+    50% { text-shadow: 0 0 10px var(--primary-cyan), 0 0 15px var(--primary-cyan); }
+}
+
+@keyframes slide-in {
+    from { 
+        opacity: 0; 
+        transform: translateX(-30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0); 
+    }
 }
 
 /* ======================== */
 /* NAVEGACIÓN LATERAL       */
 /* ======================== */
 
-/* Sidebar fija en el lado izquierdo */
 .sidebar {
-    height: 100%; /* Altura completa de la ventana */
-    width: 250px; /* Ancho fijo de la barra lateral */
-    position: fixed; /* Posición fija */
+    height: 100vh;
+    width: 280px;
+    position: fixed;
     top: 0;
     left: 0;
-    padding-top: 25px; /* Espaciado superior */
-    color: #e0e0e0; /* Color gris claro para el texto */
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%, rgba(10, 10, 15, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    border-right: 2px solid var(--border-glow);
+    padding-top: 30px;
+    color: var(--text-primary);
+    box-shadow: 5px 0 20px rgba(0, 245, 255, 0.1);
+    z-index: 1000;
 }
 
-/* Enlaces dentro de la sidebar */
+/* Logo o título en la sidebar */
+.sidebar .logo {
+    text-align: center;
+    padding: 20px;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary-cyan);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: text-glow 3s ease-in-out infinite;
+}
+
+/* Enlaces de navegación */
 .sidebar a {
-    display: block; /* Cada enlace ocupa toda la línea */
-    padding: 10px; /* Espaciado interno */
-    color: #e0e0e0; /* Color del texto */
-    text-decoration: none; /* Sin subrayado */
+    display: block;
+    padding: 15px 25px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    animation: slide-in 0.5s ease-out;
 }
 
-/* Iconos dentro de los enlaces de la sidebar */
 .sidebar a i {
-    margin-right: 10px; /* Espacio entre icono y texto */
+    margin-right: 15px;
+    width: 20px;
+    font-size: 1.2rem;
+    color: var(--primary-cyan);
 }
 
-/* Efecto hover en los enlaces de la sidebar */
 .sidebar a:hover {
-    background-color: #030322; /* Fondo azul oscuro al pasar el mouse */
-    color: #fff; /* Texto blanco en hover */
+    background: linear-gradient(90deg, rgba(0, 245, 255, 0.1) 0%, transparent 100%);
+    color: var(--primary-cyan);
+    border-left: 3px solid var(--primary-cyan);
+    transform: translateX(10px);
+    text-shadow: 0 0 10px var(--primary-cyan);
+}
+
+.sidebar a.active {
+    background: linear-gradient(90deg, rgba(0, 245, 255, 0.2) 0%, rgba(138, 43, 226, 0.1) 100%);
+    color: var(--primary-cyan);
+    border-left: 3px solid var(--primary-cyan);
 }
 
 /* ======================== */
 /* CONTENIDO PRINCIPAL      */
 /* ======================== */
 
-/* Área de contenido principal (desplazada por la sidebar) */
 .content {
-    margin-left: 250px; /* Margen igual al ancho de la sidebar */
-    padding: 50px; /* Espaciado interno */
+    margin-left: 280px;
+    padding: 60px 40px;
+    min-height: 100vh;
 }
 
-/* Espaciado uniforme para todas las secciones principales */
+/* Estilos para secciones principales */
 #hero,
 #about,
 #projects,
 #contact,
 #profile {
-    padding: 4rem 0; /* 4rem arriba y abajo, 0 a los lados */
+    padding: 5rem 0;
+    position: relative;
 }
 
-/* Configuración específica para secciones de contenido */
-#about,
-#projects,
-#contact {
-    background-color: transparent; /* Fondo transparente */
-    text-align: justify; /* Texto justificado */
+/* Títulos principales con efecto futurístico */
+h1, h2, h3 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: var(--primary-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+h1::after, h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--accent-neon) 100%);
+    animation: glow-pulse 2s ease-in-out infinite;
 }
 
 /* ======================== */
 /* TARJETAS DE PROYECTOS    */
 /* ======================== */
 
-/* Estilo base de las tarjetas */
 .card {
-    background-color: rgba(25, 25, 25, 0.603); /* Fondo gris oscuro semitransparente */
-    color: #e0e0e0; /* Texto gris claro */
-    transition: transform 0.3s; /* Animación suave para transformaciones */
-    font: 0.8em sans-serif; /* Tamaño de fuente más pequeño */
-    text-align: justify; /* Texto justificado */
-    min-height: 400px; /* Altura mínima uniforme */
-    display: flex; /* Flexbox para layout */
-    flex-direction: column; /* Elementos apilados verticalmente */
-    height: 100%; /* Altura completa del contenedor padre */
-}
-
-/* Imágenes superiores de las tarjetas */
-.card-img-top {
-    height: 200px; /* Altura fija para uniformidad */
-    object-fit: cover; /* Mantiene proporciones recortando si es necesario */
-    transition: transform 0.3s, filter 0.3s; /* Animaciones suaves */
-}
-
-/* Efecto hover en las imágenes de las tarjetas */
-.card-img-top:hover {
-    transform: scale(1.05); /* Agranda ligeramente la imagen */
-    filter: brightness(0.8); /* Oscurece la imagen */
-}
-
-/* Cuerpo de las tarjetas */
-.card-body {
-    flex-direction: column; /* Elementos apilados verticalmente */
-    display: flex; /* Flexbox para layout */
-    justify-content: space-between; /* Espaciado uniforme entre elementos */
-    flex-grow: 1; /* Crece para llenar el espacio disponible */
-    padding: 15px; /* Espaciado interno */
-}
-
-/* Texto descriptivo de las tarjetas con scroll personalizado */
-.card-text {
-    max-height: 100px; /* Altura máxima antes de mostrar scroll */
-    overflow: hidden; /* Oculta contenido que excede la altura */
-    position: relative; /* Para posicionamiento de elementos hijos */
-    transition: max-height 0.3s ease; /* Animación suave del cambio de altura */
-}
-
-/* Efecto de espaciado en letras del título al hacer hover */
-.card-title:hover {
-    letter-spacing: 4px; /* Aumenta el espaciado entre letras */
-}
-
-/* Activación del scroll al hacer hover en la tarjeta */
-.card:hover .card-text {
-    overflow-y: auto; /* Permite scroll vertical */
-}
-
-/* Clase específica para textos con scroll personalizado */
-.scroll-text {
-    max-height: 100px; /* Altura máxima */
-    overflow: hidden; /* Contenido oculto inicialmente */
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.6) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glow);
+    border-radius: 15px;
+    color: var(--text-primary);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    transition: all 0.3s ease; /* Transición suave para todos los cambios */
-    scroll-behavior: smooth; /* Scroll suave */
+    overflow: hidden;
 }
 
-/* Activación del scroll en hover */
-.card:hover .scroll-text {
-    overflow-y: auto; /* Permite scroll vertical */
+/* Efecto de brillo en las esquinas */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary-cyan) 30%, 
+        var(--accent-neon) 70%, 
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-/* Personalización de la barra de scroll - Webkit browsers */
-.scroll-text::-webkit-scrollbar {
-    width: 6px; /* Ancho de la barra de scroll */
+.card:hover::before {
+    opacity: 1;
 }
 
-/* Track (fondo) de la barra de scroll */
-.scroll-text::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
-    border-radius: 10px; /* Bordes redondeados */
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 245, 255, 0.2),
+        0 0 30px rgba(0, 245, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-cyan);
 }
 
-/* Thumb (parte móvil) de la barra de scroll */
-.scroll-text::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.3); /* Color semi-transparente */
-    border-radius: 10px; /* Bordes redondeados */
-    -webkit-backdrop-filter: blur(2px); /* Efecto de desenfoque */
-    backdrop-filter: blur(2px); /* Efecto de desenfoque estándar */
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    transition: all 0.4s ease;
+    filter: brightness(0.8) contrast(1.2);
 }
 
-/* Hover effect en la barra de scroll */
-.scroll-text::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5); /* Más opaco en hover */
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: brightness(1) contrast(1.3) saturate(1.2);
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+    color: var(--primary-cyan);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.card-title:hover {
+    color: var(--accent-neon);
+    text-shadow: 0 0 10px var(--accent-neon);
+    letter-spacing: 2px;
+}
+
+.card-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-height: 120px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease;
+    font-size: 0.95rem;
+}
+
+.card:hover .card-text {
+    overflow-y: auto;
+    color: var(--text-primary);
+}
+
+/* Scrollbar personalizada para las tarjetas */
+.card-text::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card-text::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.card-text::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    border-radius: 10px;
 }
 
 /* ======================== */
-/* BOTONES                  */
+/* BOTONES FUTURÍSTICOS     */
 /* ======================== */
 
-/* Botón primario personalizado (usado en la sección hero) */
 .btn-custom-primary {
-    background-color: #c4cf22; /* Verde lima */
-    color: #000; /* Texto negro */
-    border: none; /* Sin borde */
-    padding: 10px 10px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente */
-    border-radius: 8px; /* Bordes redondeados */
-    transition: background-color 0.3s ease; /* Transición suave del color */
+    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    color: var(--dark-bg);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Hover effect del botón primario */
+.btn-custom-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-custom-primary:hover::before {
+    left: 100%;
+}
+
 .btn-custom-primary:hover {
-    background-color: #1e0561; /* Cambia a morado oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
 }
 
-/* Botones de las tarjetas de proyectos */
 .btn-card {
-    color: #fff; /* Texto blanco */
-    background-color: #1e0561; /* Fondo morado oscuro */
-    border-color: #000000ac; /* Borde negro semi-transparente */
-    align-self: flex-start; /* Alineado al inicio del contenedor flex */
-    padding: 10px 10px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    font-size: 12px; /* Tamaño de fuente pequeño */
-    display: inline-block; /* Comportamiento de bloque en línea */
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.8) 0%, rgba(0, 245, 255, 0.6) 100%);
+    color: white;
+    border: 1px solid var(--border-glow);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Hover effect de los botones de tarjetas */
 .btn-card:hover {
-    background-color: #c4cf22; /* Cambia a verde lima */
-    border-color: #000; /* Borde negro sólido */
-}
-
-/* ======================== */
-/* LAYOUT FLEXBOX           */
-/* ======================== */
-
-/* Contenedor de filas con flexbox */
-.row {
-    display: flex; /* Flexbox para layout horizontal */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-}
-
-/* Columnas individuales */
-.col-md-4 {
-    display: flex; /* Cada columna es un contenedor flex */
-}
-
-/* ======================== */
-/* PIE DE PÁGINA            */
-/* ======================== */
-
-/* Estilo del footer */
-footer {
-    background-color: transparent; /* Fondo transparente */
-    color: #c4cf22; /* Texto verde lima */
-    text-align: center; /* Centrado */
-    padding: 1rem 0; /* Espaciado vertical */
-    border-radius: 10px; /* Bordes redondeados */
+    background: linear-gradient(135deg, var(--accent-neon) 0%, var(--primary-cyan) 100%);
+    color: var(--dark-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 255, 65, 0.3);
 }
 
 /* ======================== */
 /* SECCIÓN PERFIL           */
 /* ======================== */
 
-/* Imagen de perfil */
 .profile-img {
-    width: 130px; /* Ancho fijo */
-    height: 130px; /* Alto fijo (cuadrada) */
-    border-radius: 5%; /* Bordes ligeramente redondeados */
-    margin-bottom: 1rem; /* Margen inferior */
-    border: 1px solid rgba(1, 5, 58, 0.18); /* Borde azul muy sutil */
-    background-color: transparent; /* Fondo transparente */
-    object-fit: cover; /* Mantiene proporciones */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    border: 3px solid var(--primary-cyan);
+    box-shadow: 
+        0 0 20px var(--shadow-neon),
+        inset 0 0 20px rgba(0, 245, 255, 0.1);
+    transition: all 0.4s ease;
+    object-fit: cover;
 }
 
-/* Enlaces de redes sociales */
+.profile-img:hover {
+    transform: scale(1.1);
+    border-color: var(--accent-neon);
+    box-shadow: 
+        0 0 30px rgba(0, 255, 65, 0.4),
+        inset 0 0 30px rgba(0, 255, 65, 0.1);
+}
+
 .social-links a {
-    color: #c4cf22; /* Color verde lima */
-    font-size: 1.5rem; /* Tamaño grande para los iconos */
-    margin: 0 0.5rem; /* Margen horizontal */
-    text-decoration: none !important; /* Sin subrayado (importante) */
+    color: var(--primary-cyan);
+    font-size: 1.8rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-/* Hover effect en enlaces sociales */
+.social-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-neon);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
 .social-links a:hover {
-    color: #1e0561; /* Cambia a morado oscuro */
+    color: var(--accent-neon);
+    text-shadow: 0 0 15px var(--accent-neon);
+    transform: translateY(-3px);
+}
+
+.social-links a:hover::after {
+    width: 100%;
 }
 
 /* ======================== */
-/* BARRA DE PROGRESO        */
+/* CHATBOT FLOTANTE AI      */
 /* ======================== */
 
-/* Configuración de barras de progreso */
-.progress {
-    height: 10px; /* Altura de la barra */
-    background-color: #333; /* Fondo gris oscuro */
-}
-
-/* ======================== */
-/* CHATBOT FLOTANTE         */
-/* ======================== */
-
-/* Imagen del chatbot flotante */
 .chatbot-image img {
-    width: 60px; /* Ancho del icono */
-    height: 60px; /* Alto del icono (circular) */
-    border-radius: 50%; /* Completamente circular */
-    position: fixed; /* Posición fija en la ventana */
-    bottom: 25px; /* Distancia desde abajo */
-    right: 9px; /* Distancia desde la derecha */
-    cursor: pointer; /* Cursor de mano al pasar */
-    animation: float 3s ease-in-out infinite; /* Animación de flotación continua */
-    transition: transform 0.3s ease; /* Transición suave para transformaciones */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+   
+    animation: ai-float 4s ease-in-out infinite;
+    transition: all 0.3s ease;
 }
 
-/* Efecto hover del icono del chatbot */
 .chatbot-image img:hover {
-    transform: scale(1.1); /* Agranda ligeramente */
+    transform: scale(1.2);
+    box-shadow: 
+        0 0 30px var(--accent-neon),
+        0 0 60px rgba(0, 255, 65, 0.4);
+    border-color: var(--accent-neon);
 }
 
-/* Animación keyframes para el efecto de flotación */
-@keyframes float {
-    0%, 100% { transform: translateY(0); } /* Posición inicial y final */
-    50% { transform: translateY(-20px); } /* Punto medio (flotando hacia arriba) */
-}
-
-/* Contenedor del icono del chatbot */
-.chatbot-icon {
-    position: fixed; /* Posición fija */
-    bottom: 20px; /* Distancia desde abajo */
-    right: 20px; /* Distancia desde la derecha */
-    cursor: pointer; /* Cursor de mano */
-    z-index: 1000; /* Nivel alto para estar sobre otros elementos */
-}
-
-/* ======================== */
-/* MODAL DEL CHATBOT        */
-/* ======================== */
-
-/* Estilo del área de conversación del chatbot */
-.chatbox-style {
-    height: 350px; /* Altura fija del área de chat */
-    overflow-y: auto; /* Scroll vertical automático */
-    background: rgba(10, 10, 10, 0.5); /* Fondo negro semi-transparente */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 15px; /* Bordes muy redondeados */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde blanco sutil */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
-}
-
-/* ======================== */
-/* FORMULARIO DE CONTACTO   */
-/* ======================== */
-
-/* Botón del formulario de contacto */
-.btn-form {
-    background-color: #280257; /* Morado oscuro */
-    color: #fff; /* Texto blanco */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-}
-
-/* Hover effect del botón del formulario */
-.btn-form:hover {
-    background-color: #c4cf22; /* Cambia a verde lima */
-    color: #000; /* Texto negro en hover */
-}
-
-/* Mensaje de éxito del formulario (inicialmente oculto) */
-.mensaje-exito {
-    display: none; /* Oculto por defecto */
-    color: green; /* Color verde para éxito */
-    margin-top: 10px; /* Margen superior */
-}
-
-/* ======================== */
-/* RESPONSIVE DESIGN        */
-/* ======================== */
-
-/* Estilos para dispositivos móviles y tablets */
-@media (max-width: 768px) {
-    /* Ocultar sidebar en dispositivos pequeños */
-    .sidebar { 
-        display: none !important; /* Completamente oculta */
-    }
-    
-    /* Ajustar contenido para pantallas sin sidebar */
-    .content { 
-        margin-left: 0; /* Sin margen izquierdo */
-    }
-    
-    /* Ajustes de la sección hero */
-    #hero { 
-        padding: 2rem 1rem; /* Menos padding vertical */
-        text-align: center; /* Centrado */
-    }
-    
-    /* Tamaño de título más pequeño */
-    #hero h1 { 
-        font-size: 2rem; /* Reducir tamaño de fuente */
-    }
-    
-    /* Espaciado entre tarjetas de proyectos */
-    #projects .card { 
-        margin-bottom: 1.5rem; /* Más separación entre tarjetas */
-    }
-    
-    /* Botones primarios en móvil */
-    .btn-primary { 
-        width: 100%; /* Ancho completo */
-        font-size: 1rem; /* Tamaño de fuente estándar */
-        padding: 12px; /* Más padding para touch */
-        text-align: center; /* Centrado */
-    }
-    
-    /* Reducir padding del contenido principal */
-    .content { 
-        padding: 20px 10px; /* Menos espaciado interno */
-    }
-}
-
-/* ======================== */
-/* MODAL PERSONALIZADO      */
-/* ======================== */
-
-/* Botón de cierre del modal */
-.btn-close {
-    cursor: pointer; /* Cursor de mano */
-    background-color: #eff70029; /* Fondo amarillento muy sutil */
-    font-size: 1rem; /* Tamaño de fuente estándar */
-}
-
-/* Contenido principal del modal */
-.modal-content {
-    background-color: #1e076efa; /* Morado oscuro con alta transparencia */
-    color: #ffffffdc; /* Blanco con ligera transparencia */
-    border-radius: 12px; /* Bordes redondeados */
-    border: none; /* Sin borde */
-}
-
-/* Encabezado del modal */
-.modal-header {
-    border-bottom: 1px solid #15054efa; /* Borde inferior morado */
-    background-color: #0d052bfa; /* Fondo morado muy oscuro */
-}
-
-/* Título del modal */
-.modal-title {
-    font-weight: bold; /* Texto en negrita */
-    color: #ffffff; /* Blanco puro */
-}
-
-/* Cuerpo del modal */
-.modal-body { 
-    padding: 5px; /* Espaciado interno mínimo */
-}
-
-/* ======================================= */
-/* ESTILOS AVANZADOS DEL CHATBOT          */
-/* ======================================= */
-
-/* Contenedor wrapper para mensajes */
-.message-wrapper {
-    display: flex; /* Flexbox para alineación */
-    margin-bottom: 15px; /* Separación entre mensajes */
-    align-items: flex-end; /* Alineación inferior */
-}
-
-/* Mensajes del chatbot (alineados a la izquierda) */
-.chatbot-message {
-    justify-content: flex-start; /* Alineación al inicio */
-}
-
-/* Mensajes del usuario (alineados a la derecha) */
-.user-message {
-    justify-content: flex-end; /* Alineación al final */
-}
-
-/* Avatar del chatbot */
-.chatbot-avatar {
-    width: 40px; /* Ancho del avatar */
-    height: 40px; /* Alto del avatar */
-    border-radius: 50%; /* Circular */
-    margin-right: 10px; /* Margen derecho */
-    background-image: url('./img/imagen.webp'); /* Imagen del avatar */
-    background-size: cover; /* Imagen cubre todo el avatar */
-    flex-shrink: 0; /* No se encoge en flexbox */
-}
-
-/* Contenido de los mensajes */
-.message-content {
-    max-width: 80%; /* Máximo 80% del ancho disponible */
-    padding: 12px 18px; /* Espaciado interno generoso */
-    border-radius: 20px; /* Bordes muy redondeados (estilo chat) */
-    color: #f1f1f1; /* Color de texto claro */
-    line-height: 1.5; /* Altura de línea para legibilidad */
-}
-
-/* Estilo específico para mensajes del chatbot */
-.chatbot-message .message-content {
-    background-color: rgba(40, 40, 40, 0.9); /* Fondo gris oscuro */
-}
-
-/* Estilo específico para mensajes del usuario */
-.user-message .message-content {
-    background-color: #c4cf22; /* Fondo verde lima */
-    color: #1e0561; /* Texto morado oscuro */
-}
-
-/* Contenedor de opciones predefinidas */
-.options-container {
-    display: flex; /* Flexbox horizontal */
-    flex-wrap: wrap; /* Permite envolvimiento */
-    justify-content: flex-start; /* Alineación al inicio */
-    padding-left: 50px; /* Espaciado izquierdo para alinear con mensajes */
-    margin-top: -5px; /* Margen negativo para acercar a mensaje anterior */
-}
-
-/* Botones de opciones */
-.options-container .btn {
-    background: rgba(255, 255, 255, 0.1); /* Fondo blanco muy sutil */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco sutil */
-    color: #f1f1f1; /* Texto claro */
-    border-radius: 15px; /* Bordes redondeados */
-    padding: 8px 15px; /* Espaciado interno */
-    margin: 5px; /* Margen alrededor */
-    transition: background 0.3s, transform 0.2s; /* Transiciones suaves */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque de fondo */
-}
-
-/* Hover effect en botones de opciones */
-.options-container .btn:hover {
-    background: rgba(255, 255, 255, 0.25); /* Fondo más opaco */
-    transform: translateY(-2px); /* Elevación sutil */
-}
-
-/* ======================== */
-/* INDICADOR DE ESCRITURA   */
-/* ======================== */
-
-/* Puntos del indicador de que el chatbot está escribiendo */
-.typing-indicator span {
-    display: inline-block; /* Comportamiento de bloque en línea */
-    width: 8px; /* Ancho del punto */
-    height: 8px; /* Alto del punto */
-    border-radius: 50%; /* Circular */
-    background-color: #c4cf22; /* Color verde lima */
-    animation: typing 1s infinite; /* Animación continua */
-}
-
-/* Retrasos escalonados para los puntos */
-.typing-indicator span:nth-child(2) { 
-    animation-delay: 0.2s; /* Segundo punto con retraso */
-}
-.typing-indicator span:nth-child(3) { 
-    animation-delay: 0.4s; /* Tercer punto con más retraso */
-}
-
-/* Animación keyframes para el indicador de escritura */
-@keyframes typing {
+@keyframes ai-float {
     0%, 100% { 
-        opacity: 0.3; /* Opacidad baja al inicio y final */
-        transform: scale(0.8); /* Ligeramente más pequeño */
+        transform: translateY(0) rotate(0deg); 
+        filter: hue-rotate(0deg);
     }
-    50% { 
-        opacity: 1; /* Opacidad completa en el medio */
-        transform: scale(1); /* Tamaño normal */
+    33% { 
+        transform: translateY(-15px) rotate(2deg); 
+        filter: hue-rotate(60deg);
+    }
+    66% { 
+        transform: translateY(-5px) rotate(-2deg); 
+        filter: hue-rotate(120deg);
     }
 }
 
 /* ======================== */
-/* CAMPO DE ENTRADA         */
+/* MODAL CHATBOT AI         */
 /* ======================== */
 
-/* Input de texto del grupo de entrada */
+.modal-content {
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.95) 0%, rgba(10, 10, 15, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid var(--border-glow);
+    border-radius: 20px;
+    box-shadow: 
+        0 25px 50px rgba(0, 245, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-glow);
+    background: linear-gradient(90deg, rgba(0, 245, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+    border-radius: 20px 20px 0 0;
+}
+
+.modal-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    color: var(--primary-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.chatbox-style {
+    height: 400px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid var(--border-glow);
+    backdrop-filter: blur(10px);
+}
+
+/* Mensajes del chatbot AI */
+.message-wrapper {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-end;
+}
+
+.chatbot-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    background-size: cover;
+    border: 2px solid var(--primary-cyan);
+    box-shadow: 0 0 15px var(--shadow-neon);
+    flex-shrink: 0;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 15px 20px;
+    border-radius: 20px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.chatbot-message .message-content {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(138, 43, 226, 0.1) 100%);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+}
+
+.user-message .message-content {
+    background: linear-gradient(135deg, var(--accent-neon) 0%, var(--primary-cyan) 100%);
+    color: var(--dark-bg);
+    font-weight: 500;
+}
+
+/* ======================== */
+/* FORMULARIO FUTURÍSTICO   */
+/* ======================== */
+
 .input-group input {
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-    color: #f1f1f1; /* Texto claro */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco sutil */
-    border-radius: 10px 0 0 10px; /* Redondeado solo en el lado izquierdo */
+    background: rgba(26, 26, 46, 0.8);
+    color: var(--text-primary);
+    border: 1px solid var(--border-glow);
+    border-radius: 15px 0 0 15px;
+    padding: 12px 15px;
+    font-family: 'Rajdhani', sans-serif;
 }
 
-/* Estado focus del input */
 .input-group input:focus {
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo más opaco en focus */
-    color: #f1f1f1; /* Mantiene color del texto */
-    border-color: #c4cf22; /* Borde verde lima en focus */
-    box-shadow: none; /* Sin sombra por defecto de Bootstrap */
+    background: rgba(26, 26, 46, 0.9);
+    border-color: var(--primary-cyan);
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+    color: var(--text-primary);
 }
 
-/* Botón de envío del grupo de entrada */
+.input-group input::placeholder {
+    color: var(--text-secondary);
+}
+
 .input-group .btn-primary {
-    background: #c4cf22; /* Fondo verde lima */
-    border-color: #c4cf22; /* Borde del mismo color */
-    color: #1e0561; /* Texto morado oscuro */
-    border-radius: 0 10px 10px 0; /* Redondeado solo en el lado derecho */
-    transition: background-color 0.3s; /* Transición suave del color */
+    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    border-color: var(--primary-cyan);
+    color: var(--dark-bg);
+    border-radius: 0 15px 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Hover effect del botón de envío */
 .input-group .btn-primary:hover {
-    background-color: #a8b01e; /* Verde lima más oscuro */
-    border-color: #a8b01e; /* Borde del mismo color */
+    background: linear-gradient(135deg, var(--accent-neon) 0%, var(--primary-cyan) 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+/* ======================== */
+/* RESPONSIVE FUTURÍSTICO   */
+/* ======================== */
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+    
+    .card {
+        margin-bottom: 2rem;
+    }
+    
+    .chatbot-image img {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ======================== */
+/* EFECTOS ADICIONALES      */
+/* ======================== */
+
+/* Efecto de partículas flotantes */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Animación de texto que aparece gradualmente */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efecto de escaneo futurístico */
+.scan-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 245, 255, 0.2) 50%, 
+        transparent 100%);
+    animation: scan 3s ease-in-out infinite;
+}
+
+@keyframes scan {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Footer futurístico */
+footer {
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(10, 10, 15, 0.9) 100%);
+    color: var(--primary-cyan);
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-glow);
+    font-family: 'Orbitron', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Indicadores de progreso futurísticos */
+.progress {
+    height: 8px;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 10px;
+    border: 1px solid var(--border-glow);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--accent-neon) 100%);
+    border-radius: 10px;
+    animation: progress-glow 2s ease-in-out infinite;
+}
+
+@keyframes progress-glow {
+    0%, 100% { box-shadow: 0 0 5px var(--primary-cyan); }
+    50% { box-shadow: 0 0 15px var(--primary-cyan), 0 0 25px var(--primary-cyan); }
 }
