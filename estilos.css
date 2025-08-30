@@ -1,14 +1,11 @@
 /* ===================================== */
-/* ESTILOS PRINCIPALES DEL PORTAFOLIO   */
+/* PORTAFOLIO FUTURÍSTICO OPTIMIZADO    */
 /* ===================================== */
-/* ==================== */
-/* CONFIGURACIÓN GLOBAL */
-/* ==================== */
 
-/* Importar fuente futurística */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+/* Fuentes optimizadas - solo pesos necesarios */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Rajdhani:wght@400;500;600&display=swap');
 
-/* Variables CSS para colores consistentes */
+/* Variables CSS consolidadas */
 :root {
     --primary-cyan: #00f5ff;
     --secondary-purple: #8a2be2;
@@ -19,54 +16,54 @@
     --text-secondary: #a0a0a0;
     --border-glow: rgba(0, 245, 255, 0.3);
     --shadow-neon: rgba(0, 245, 255, 0.2);
+    --gradient-bg: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    --gradient-card: linear-gradient(145deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.6) 100%);
+    --gradient-btn: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    --transition-fast: all 0.3s ease;
+    --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Estilos base del body con tema AI futurístico */
+/* Reset y estilos base optimizados */
+*,*::before,*::after{box-sizing:border-box}
+body,h1,h2,h3,p,ul{margin:0;padding:0}
+
 body {
-    font-family: 'Rajdhani', 'Orbitron', monospace;
-    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-    background-attachment: fixed;
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--gradient-bg) fixed;
     color: var(--text-primary);
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
 }
 
-/* Efecto de partículas animadas en el fondo */
+/* Fondo con efectos simplificados */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: 
         radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
     z-index: -2;
     animation: pulse-bg 6s ease-in-out infinite alternate;
+    will-change: opacity;
 }
 
-/* Patrón de líneas de circuito */
+/* Patrón de circuito optimizado */
 body::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
+    inset: 0;
+    background: 
         linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
         linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: -1;
     animation: grid-move 20s linear infinite;
+    will-change: transform;
 }
 
-/* Animaciones keyframes */
+/* Animaciones optimizadas */
 @keyframes pulse-bg {
     0% { opacity: 0.3; }
     100% { opacity: 0.7; }
@@ -78,32 +75,18 @@ body::after {
 }
 
 @keyframes glow-pulse {
-    0%, 100% { 
-        box-shadow: 0 0 5px var(--primary-cyan),
-                    0 0 10px var(--primary-cyan),
-                    0 0 15px var(--primary-cyan); 
-    }
-    50% { 
-        box-shadow: 0 0 10px var(--primary-cyan),
-                    0 0 20px var(--primary-cyan),
-                    0 0 30px var(--primary-cyan); 
-    }
+    0%, 100% { box-shadow: 0 0 5px var(--primary-cyan), 0 0 10px var(--primary-cyan); }
+    50% { box-shadow: 0 0 10px var(--primary-cyan), 0 0 20px var(--primary-cyan); }
 }
 
 @keyframes text-glow {
     0%, 100% { text-shadow: 0 0 5px var(--primary-cyan); }
-    50% { text-shadow: 0 0 10px var(--primary-cyan), 0 0 15px var(--primary-cyan); }
+    50% { text-shadow: 0 0 10px var(--primary-cyan); }
 }
 
 @keyframes slide-in {
-    from { 
-        opacity: 0; 
-        transform: translateX(-30px); 
-    }
-    to { 
-        opacity: 1; 
-        transform: translateX(0); 
-    }
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 /* ======================== */
@@ -120,25 +103,22 @@ body::after {
     backdrop-filter: blur(15px);
     border-right: 2px solid var(--border-glow);
     padding-top: 30px;
-    color: var(--text-primary);
     box-shadow: 5px 0 20px rgba(0, 245, 255, 0.1);
     z-index: 1000;
 }
 
-/* Logo o título en la sidebar */
 .sidebar .logo {
     text-align: center;
     padding: 20px;
     font-family: 'Orbitron', monospace;
     font-size: 1.5rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--primary-cyan);
     text-transform: uppercase;
     letter-spacing: 3px;
     animation: text-glow 3s ease-in-out infinite;
 }
 
-/* Enlaces de navegación */
 .sidebar a {
     display: block;
     padding: 15px 25px;
@@ -146,7 +126,7 @@ body::after {
     text-decoration: none;
     font-weight: 500;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     border-left: 3px solid transparent;
     animation: slide-in 0.5s ease-out;
 }
@@ -158,18 +138,16 @@ body::after {
     color: var(--primary-cyan);
 }
 
-.sidebar a:hover {
+.sidebar a:hover, .sidebar a.active {
     background: linear-gradient(90deg, rgba(0, 245, 255, 0.1) 0%, transparent 100%);
     color: var(--primary-cyan);
-    border-left: 3px solid var(--primary-cyan);
+    border-left-color: var(--primary-cyan);
     transform: translateX(10px);
     text-shadow: 0 0 10px var(--primary-cyan);
 }
 
 .sidebar a.active {
     background: linear-gradient(90deg, rgba(0, 245, 255, 0.2) 0%, rgba(138, 43, 226, 0.1) 100%);
-    color: var(--primary-cyan);
-    border-left: 3px solid var(--primary-cyan);
 }
 
 /* ======================== */
@@ -182,17 +160,12 @@ body::after {
     min-height: 100vh;
 }
 
-/* Estilos para secciones principales */
-#hero,
-#about,
-#projects,
-#contact,
-#profile {
+#hero, #about, #projects, #contact, #profile {
     padding: 5rem 0;
     position: relative;
 }
 
-/* Títulos principales con efecto futurístico */
+/* Títulos optimizados */
 h1, h2, h3 {
     font-family: 'Orbitron', monospace;
     font-weight: 700;
@@ -210,29 +183,29 @@ h1::after, h2::after {
     left: 0;
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--accent-neon) 100%);
+    background: var(--gradient-btn);
     animation: glow-pulse 2s ease-in-out infinite;
 }
 
 /* ======================== */
-/* TARJETAS DE PROYECTOS    */
+/* TARJETAS OPTIMIZADAS     */
 /* ======================== */
 
 .card {
-    background: linear-gradient(145deg, rgba(26, 26, 46, 0.8) 0%, rgba(22, 33, 62, 0.6) 100%);
+    background: var(--gradient-card);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-glow);
     border-radius: 15px;
     color: var(--text-primary);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: var(--transition-smooth);
     min-height: 450px;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
+    will-change: transform;
 }
 
-/* Efecto de brillo en las esquinas */
 .card::before {
     content: "";
     position: absolute;
@@ -240,25 +213,18 @@ h1::after, h2::after {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--primary-cyan) 30%, 
-        var(--accent-neon) 70%, 
-        transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, var(--primary-cyan) 30%, var(--accent-neon) 70%, transparent 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
 
-.card:hover::before {
-    opacity: 1;
-}
+.card:hover::before { opacity: 1; }
 
 .card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 
-        0 20px 40px rgba(0, 245, 255, 0.2),
-        0 0 30px rgba(0, 245, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 20px 40px var(--shadow-neon),
+        0 0 30px rgba(0, 245, 255, 0.1);
     border-color: var(--primary-cyan);
 }
 
@@ -266,13 +232,13 @@ h1::after, h2::after {
     height: 220px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
-    transition: all 0.4s ease;
+    transition: var(--transition-fast);
     filter: brightness(0.8) contrast(1.2);
 }
 
 .card:hover .card-img-top {
     transform: scale(1.1);
-    filter: brightness(1) contrast(1.3) saturate(1.2);
+    filter: brightness(1) contrast(1.3);
 }
 
 .card-body {
@@ -289,7 +255,7 @@ h1::after, h2::after {
     color: var(--primary-cyan);
     font-size: 1.3rem;
     margin-bottom: 15px;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
 }
 
 .card-title:hover {
@@ -304,7 +270,7 @@ h1::after, h2::after {
     max-height: 120px;
     overflow: hidden;
     position: relative;
-    transition: all 0.4s ease;
+    transition: var(--transition-fast);
     font-size: 0.95rem;
 }
 
@@ -313,27 +279,17 @@ h1::after, h2::after {
     color: var(--text-primary);
 }
 
-/* Scrollbar personalizada para las tarjetas */
-.card-text::-webkit-scrollbar {
-    width: 4px;
-}
-
-.card-text::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-}
-
-.card-text::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
-    border-radius: 10px;
-}
+/* Scrollbar personalizada compacta */
+.card-text::-webkit-scrollbar { width: 4px; }
+.card-text::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+.card-text::-webkit-scrollbar-thumb { background: var(--gradient-btn); border-radius: 10px; }
 
 /* ======================== */
-/* BOTONES FUTURÍSTICOS     */
+/* BOTONES OPTIMIZADOS      */
 /* ======================== */
 
 .btn-custom-primary {
-    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    background: var(--gradient-btn);
     color: var(--dark-bg);
     border: none;
     padding: 12px 25px;
@@ -343,7 +299,7 @@ h1::after, h2::after {
     border-radius: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     position: relative;
     overflow: hidden;
 }
@@ -351,18 +307,13 @@ h1::after, h2::after {
 .btn-custom-primary::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
 }
 
-.btn-custom-primary:hover::before {
-    left: 100%;
-}
-
+.btn-custom-primary:hover::before { transform: translateX(100%); }
 .btn-custom-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
@@ -376,7 +327,7 @@ h1::after, h2::after {
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -389,28 +340,22 @@ h1::after, h2::after {
 }
 
 /* ======================== */
-/* SECCIÓN PERFIL           */
+/* PERFIL OPTIMIZADO        */
 /* ======================== */
 
 .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    max-width: 150px; /* o el tamaño que quieras */
+    height: auto;
     margin-bottom: 2rem;
-    border: 3px solid var(--primary-cyan);
-    box-shadow: 
-        0 0 20px var(--shadow-neon),
-        inset 0 0 20px rgba(0, 245, 255, 0.1);
     transition: all 0.4s ease;
     object-fit: cover;
 }
 
+
 .profile-img:hover {
     transform: scale(1.1);
     border-color: var(--accent-neon);
-    box-shadow: 
-        0 0 30px rgba(0, 255, 65, 0.4),
-        inset 0 0 30px rgba(0, 255, 65, 0.1);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
 }
 
 .social-links a {
@@ -418,7 +363,7 @@ h1::after, h2::after {
     font-size: 1.8rem;
     margin: 0 15px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     position: relative;
 }
 
@@ -430,7 +375,7 @@ h1::after, h2::after {
     width: 0;
     height: 2px;
     background: var(--accent-neon);
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     transform: translateX(-50%);
 }
 
@@ -440,12 +385,10 @@ h1::after, h2::after {
     transform: translateY(-3px);
 }
 
-.social-links a:hover::after {
-    width: 100%;
-}
+.social-links a:hover::after { width: 100%; }
 
 /* ======================== */
-/* CHATBOT FLOTANTE AI      */
+/* CHATBOT AI OPTIMIZADO    */
 /* ======================== */
 
 .chatbot-image img {
@@ -456,36 +399,25 @@ h1::after, h2::after {
     bottom: 30px;
     right: 30px;
     cursor: pointer;
-   
+
     animation: ai-float 4s ease-in-out infinite;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
+    will-change: transform;
 }
 
 .chatbot-image img:hover {
     transform: scale(1.2);
-    box-shadow: 
-        0 0 30px var(--accent-neon),
-        0 0 60px rgba(0, 255, 65, 0.4);
+    box-shadow: 0 0 30px var(--accent-neon);
     border-color: var(--accent-neon);
 }
 
 @keyframes ai-float {
-    0%, 100% { 
-        transform: translateY(0) rotate(0deg); 
-        filter: hue-rotate(0deg);
-    }
-    33% { 
-        transform: translateY(-15px) rotate(2deg); 
-        filter: hue-rotate(60deg);
-    }
-    66% { 
-        transform: translateY(-5px) rotate(-2deg); 
-        filter: hue-rotate(120deg);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 /* ======================== */
-/* MODAL CHATBOT AI         */
+/* MODAL OPTIMIZADO         */
 /* ======================== */
 
 .modal-content {
@@ -493,9 +425,7 @@ h1::after, h2::after {
     backdrop-filter: blur(20px);
     border: 2px solid var(--border-glow);
     border-radius: 20px;
-    box-shadow: 
-        0 25px 50px rgba(0, 245, 255, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px var(--shadow-neon);
 }
 
 .modal-header {
@@ -522,7 +452,6 @@ h1::after, h2::after {
     backdrop-filter: blur(10px);
 }
 
-/* Mensajes del chatbot AI */
 .message-wrapper {
     display: flex;
     margin-bottom: 20px;
@@ -534,8 +463,7 @@ h1::after, h2::after {
     height: 45px;
     border-radius: 50%;
     margin-right: 15px;
-    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
-    background-size: cover;
+    background: var(--gradient-btn);
     border: 2px solid var(--primary-cyan);
     box-shadow: 0 0 15px var(--shadow-neon);
     flex-shrink: 0;
@@ -562,7 +490,7 @@ h1::after, h2::after {
 }
 
 /* ======================== */
-/* FORMULARIO FUTURÍSTICO   */
+/* FORMULARIOS OPTIMIZADOS  */
 /* ======================== */
 
 .input-group input {
@@ -581,12 +509,10 @@ h1::after, h2::after {
     color: var(--text-primary);
 }
 
-.input-group input::placeholder {
-    color: var(--text-secondary);
-}
+.input-group input::placeholder { color: var(--text-secondary); }
 
 .input-group .btn-primary {
-    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--secondary-purple) 100%);
+    background: var(--gradient-btn);
     border-color: var(--primary-cyan);
     color: var(--dark-bg);
     border-radius: 0 15px 15px 0;
@@ -601,7 +527,7 @@ h1::after, h2::after {
 }
 
 /* ======================== */
-/* RESPONSIVE FUTURÍSTICO   */
+/* RESPONSIVE OPTIMIZADO    */
 /* ======================== */
 
 @media (max-width: 768px) {
@@ -610,18 +536,14 @@ h1::after, h2::after {
         transition: transform 0.3s ease;
     }
     
-    .sidebar.active {
-        transform: translateX(0);
-    }
+    .sidebar.active { transform: translateX(0); }
     
     .content {
         margin-left: 0;
         padding: 30px 20px;
     }
     
-    .card {
-        margin-bottom: 2rem;
-    }
+    .card { margin-bottom: 2rem; }
     
     .chatbot-image img {
         width: 60px;
@@ -632,57 +554,16 @@ h1::after, h2::after {
 }
 
 /* ======================== */
-/* EFECTOS ADICIONALES      */
+/* ELEMENTOS ADICIONALES    */
 /* ======================== */
 
-/* Efecto de partículas flotantes */
-.particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Animación de texto que aparece gradualmente */
-.fade-in {
-    animation: fadeIn 1s ease-in;
-}
+.fade-in { animation: fadeIn 1s ease-in; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Efecto de escaneo futurístico */
-.scan-effect {
-    position: relative;
-    overflow: hidden;
-}
-
-.scan-effect::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(0, 245, 255, 0.2) 50%, 
-        transparent 100%);
-    animation: scan 3s ease-in-out infinite;
-}
-
-@keyframes scan {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-/* Footer futurístico */
 footer {
     background: linear-gradient(135deg, rgba(26, 26, 46, 0.8) 0%, rgba(10, 10, 15, 0.9) 100%);
     color: var(--primary-cyan);
@@ -694,7 +575,6 @@ footer {
     letter-spacing: 1px;
 }
 
-/* Indicadores de progreso futurísticos */
 .progress {
     height: 8px;
     background: rgba(26, 26, 46, 0.8);
@@ -703,12 +583,12 @@ footer {
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--accent-neon) 100%);
+    background: var(--gradient-btn);
     border-radius: 10px;
     animation: progress-glow 2s ease-in-out infinite;
 }
 
 @keyframes progress-glow {
     0%, 100% { box-shadow: 0 0 5px var(--primary-cyan); }
-    50% { box-shadow: 0 0 15px var(--primary-cyan), 0 0 25px var(--primary-cyan); }
+    50% { box-shadow: 0 0 15px var(--primary-cyan); }
 }
