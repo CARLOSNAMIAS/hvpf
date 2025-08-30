@@ -63,15 +63,27 @@ body::after {
     will-change: transform;
 }
 
+
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+body::after {
+    overflow: hidden;
+}
+
 /* Animaciones optimizadas */
 @keyframes pulse-bg {
     0% { opacity: 0.3; }
     100% { opacity: 0.7; }
 }
 
+
+
 @keyframes grid-move {
     0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+    100% { transform: translate(50px, 0); } /* solo se mueve en X */
 }
 
 @keyframes glow-pulse {
