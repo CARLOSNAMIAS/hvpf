@@ -65,14 +65,6 @@ body::after {
 
 
 
-html, body {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-body::after {
-    overflow: hidden;
-}
-
 /* Animaciones optimizadas */
 @keyframes pulse-bg {
     0% { opacity: 0.3; }
@@ -603,4 +595,15 @@ footer {
 @keyframes progress-glow {
     0%, 100% { box-shadow: 0 0 5px var(--primary-cyan); }
     50% { box-shadow: 0 0 15px var(--primary-cyan); }
+}
+/* Estilos para el mensaje de éxito del formulario */
+
+
+
+
+.mensaje-exito {
+    display: none; /* Oculto por defecto */
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
 }
