@@ -166,6 +166,7 @@ body::after {
     margin-left: 280px;
     padding: 60px 40px;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 #hero, #about, #projects, #contact, #profile {
