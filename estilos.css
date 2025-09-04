@@ -27,8 +27,10 @@
 *,*::before,*::after{box-sizing:border-box}
 body,h1,h2,h3,p,ul{margin:0;padding:0}
 
+/* CORRECCIÓN PRINCIPAL - HTML y Body */
 html {
     overflow-x: hidden;
+    height: 100%; /* Cambio de overflow a height fijo */
 }
 
 body {
@@ -38,9 +40,11 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     position: relative;
+    /* NUEVO: Asegurar que el body cubra completamente la pantalla */
+    width: 100%;
 }
 
-/* Fondo con efectos simplificados */
+/* Fondo con efectos simplificados - CORREGIDO para móviles */
 body::before {
     content: "";
     position: fixed;
@@ -51,9 +55,12 @@ body::before {
     z-index: -2;
     animation: pulse-bg 6s ease-in-out infinite alternate;
     will-change: opacity;
+    /* NUEVO: Forzar cobertura completa en móviles */
+    width: 100vw;
+    height: 100vh;
 }
 
-/* Patrón de circuito optimizado */
+/* Patrón de circuito optimizado - CORREGIDO */
 body::after {
     content: "";
     position: fixed;
@@ -65,17 +72,16 @@ body::after {
     z-index: -1;
     animation: grid-move 20s linear infinite;
     will-change: transform;
+    /* NUEVO: Cobertura completa garantizada */
+    width: 100vw;
+    height: 100vh;
 }
-
-
 
 /* Animaciones optimizadas */
 @keyframes pulse-bg {
     0% { opacity: 0.3; }
     100% { opacity: 0.7; }
 }
-
-
 
 @keyframes grid-move {
     0% { transform: translate(0, 0); }
@@ -159,7 +165,7 @@ body::after {
 }
 
 /* ======================== */
-/* CONTENIDO PRINCIPAL      */
+/* CONTENIDO PRINCIPAL - CORREGIDO */
 /* ======================== */
 
 .content {
@@ -167,6 +173,9 @@ body::after {
     padding: 60px 40px;
     min-height: 100vh;
     overflow: hidden;
+    /* NUEVO: Asegurar ancho correcto */
+    width: calc(100% - 280px);
+    position: relative;
 }
 
 #hero, #about, #projects, #contact, #profile {
@@ -353,13 +362,12 @@ h1::after, h2::after {
 /* ======================== */
 
 .profile-img {
-    max-width: 150px; /* o el tamaño que quieras */
+    max-width: 150px;
     height: auto;
     margin-bottom: 2rem;
     transition: all 0.4s ease;
     object-fit: cover;
 }
-
 
 .profile-img:hover {
     transform: scale(1.1);
@@ -408,7 +416,6 @@ h1::after, h2::after {
     bottom: 30px;
     right: 30px;
     cursor: pointer;
-
     animation: ai-float 4s ease-in-out infinite;
     transition: var(--transition-fast);
     will-change: transform;
@@ -536,20 +543,55 @@ h1::after, h2::after {
 }
 
 /* ======================== */
-/* RESPONSIVE OPTIMIZADO    */
+/* RESPONSIVE CORREGIDO - SOLUCIÓN PRINCIPAL */
 /* ======================== */
 
 @media (max-width: 768px) {
+    /* CORRECCIÓN: Mantener cuadrícula pero simplificada en móviles */
+    body::before {
+        /* Mantener gradiente pero sin animación */
+        animation: none;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.08) 0%, transparent 40%),
+            radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 40%);
+        position: absolute; /* Cambiar de fixed a absolute */
+        width: 100%;
+        height: 100%;
+    }
+    
+    body::after {
+        /* Cuadrícula simplificada sin animación */
+        animation: none;
+        position: absolute; /* Cambiar de fixed a absolute */
+        width: 100%;
+        height: 100%;
+        background: 
+            linear-gradient(90deg, rgba(0, 245, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(rgba(0, 245, 255, 0.02) 1px, transparent 1px);
+        background-size: 40px 40px; /* Cuadrícula más pequeña */
+    }
+    
+    /* CORRECCIÓN: Fondo base mejorado */
+    body {
+        background: var(--gradient-bg);
+        background-attachment: scroll; /* Cambiar de fixed a scroll */
+        position: relative; /* Asegurar contexto para absolute */
+    }
+    
     .sidebar {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
+        width: 100vw; /* Ocupar todo el ancho en móvil */
+        max-width: 300px; /* Pero con un máximo */
     }
     
     .sidebar.active { transform: translateX(0); }
     
     .content {
-        margin-left: 0;
+        margin-left: 0; /* CORRECCIÓN CLAVE */
         padding: 30px 20px;
+        width: 100%; /* CORRECCIÓN: Ancho completo */
+        min-height: calc(100vh - 60px); /* Ajustar altura */
     }
     
     .card { margin-bottom: 2rem; }
@@ -559,6 +601,28 @@ h1::after, h2::after {
         height: 60px;
         bottom: 20px;
         right: 20px;
+    }
+    
+    /* NUEVO: Asegurar que no haya overflow horizontal */
+    * {
+        max-width: 100%;
+    }
+    
+    /* NUEVO: Contenedores responsive */
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* NUEVA CORRECCIÓN: Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .content {
+        padding: 20px 15px;
+    }
+    
+    #hero, #about, #projects, #contact, #profile {
+        padding: 3rem 0;
     }
 }
 
@@ -582,6 +646,9 @@ footer {
     font-family: 'Orbitron', monospace;
     text-transform: uppercase;
     letter-spacing: 1px;
+    /* NUEVO: Asegurar que el footer no cause scroll extra */
+    width: 100%;
+    margin-top: auto;
 }
 
 .progress {
@@ -601,13 +668,10 @@ footer {
     0%, 100% { box-shadow: 0 0 5px var(--primary-cyan); }
     50% { box-shadow: 0 0 15px var(--primary-cyan); }
 }
+
 /* Estilos para el mensaje de éxito del formulario */
-
-
-
-
 .mensaje-exito {
-    display: none; /* Oculto por defecto */
+    display: none;
     color: green;
     font-weight: bold;
     margin-top: 10px;
