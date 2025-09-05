@@ -12,7 +12,7 @@
  * - Soporte para enlaces externos
  * - Respuestas de fallback para consultas no reconocidas
  * 
- * @author Carlos
+ * @author Carlos Gómnez
  * @version 2.0
  */
 

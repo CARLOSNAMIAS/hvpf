@@ -4,7 +4,7 @@
  * Este módulo maneja la validación y envío del formulario de contacto
  * de forma asíncrona (AJAX) para una mejor experiencia de usuario.
  * 
- * @author Carlos (con mejoras de IA)
+ * @author Carlos Gómez
  * @version 2.0
  */
 
