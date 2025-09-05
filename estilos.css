@@ -55,29 +55,25 @@ body {
 
 /* Fondo con efectos simplificados */
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
+    /* Todo en un solo pseudo-elemento = un solo compositing layer */
     background:
+        /* Gradientes radiales */
         radial-gradient(circle at 20% 80%, rgba(0, 245, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
-    z-index: -2;
-    animation: pulse-bg 6s ease-in-out infinite alternate;
-    will-change: opacity;
+        radial-gradient(circle at 80% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+        /* Grid pattern integrado */
+        linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+    z-index: var(--z-bg);
 }
 
 /* Patrón de circuito optimizado */
 body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
+    /* Segundo pseudo-elemento solo para grid = doble compositing */
     background:
         linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px),
         linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
     z-index: -1;
-    animation: grid-move 20s linear infinite;
-    will-change: transform;
 }
 
 
