@@ -1,115 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Próximamente - Un Nuevo Proyecto de Carlos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="estilos.css">
+    <title>Próximamente</title>
     <style>
         body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
-            min-height: 100vh;
         }
-
-        .coming-soon-container {
-            max-width: 600px;
+        .container {
+            border: 1px solid #2f3336;
             padding: 40px;
-            background-color: rgba(15, 15, 15, 0.7);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            border-radius: 16px;
         }
-
-        .coming-soon-container h1 {
-            font-size: 2.8rem;
-            font-weight: bold;
-            color: #c4cf22;
+        h1 {
+            font-size: 2.5em;
+            color: #1D9BF0;
         }
-
-        .coming-soon-container p {
-            font-size: 1.2rem;
-            color: #e0e0e0;
+        p {
+            font-size: 1.2em;
         }
-
-        #countdown {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 30px 0;
-            color: #fff;
-        }
-
-        .btn-back {
-            background-color: #c4cf22;
-            color: #1e0561;
-            font-weight: bold;
-            padding: 12px 30px;
-            border-radius: 8px;
+        a {
+            color: #1D9BF0;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .btn-back:hover {
-            background-color: #a8b01e;
-            transform: scale(1.05);
-        }
-
-
-
-        .icono-grande {
-            font-size: 4rem;
-            color: #c4cf22;
+            font-weight: bold;
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-    <div class="coming-soon-container">
-        <i class="bi bi-tools icono-grande"></i>
-
-        <h1 class="mt-3">Algo increíble está en camino</h1>
-        <p class="mt-3">Estoy trabajando en un nuevo proyecto para ampliar mi portafolio y demostrar nuevas habilidades.
-            ¡Vuelve pronto para descubrirlo!</p>
-
-        <div id="countdown"></div>
-
-        <a href="index.html" class="btn-back">Volver al Portafolio</a>
+    <div class="container">
+        <h1>Próximamente</h1>
+        <p>Un nuevo proyecto increíble está en construcción.</p>
+        <p><a href="index.html">Volver al inicio</a></p>
     </div>
-
-    <script>
-        // --- SCRIPT DEL CONTADOR REGRESIVO ---
-        function startCountdown() {
-            const countdownElement = document.getElementById('countdown');
-
-            // Fecha de finalización (puedes cambiarla a la fecha que desees)
-            const countDownDate = new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).getTime(); // 15 días desde ahora
-
-            const interval = setInterval(function () {
-                const now = new Date().getTime();
-                const distance = countDownDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-                if (distance < 0) {
-                    clearInterval(interval);
-                    countdownElement.innerHTML = "¡Lanzamiento inminente!";
-                }
-            }, 1000);
-        }
-
-        startCountdown();
-    </script>
-
 </body>
-
 </html>
