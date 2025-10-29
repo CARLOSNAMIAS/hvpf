@@ -14,7 +14,7 @@
         "link": "https://x-clone-rust-zeta.vercel.app/"
     },
     {
-        "images": ["./img/TikTok1.png", "./img/tiktok2.png"],
+        "images": ["./img/Tiktok1.png", "./img/tiktok2.png"],
         "alt": "Clon TikTok",
         "title": "Clon TikTok",
         "text": "Clon de TikTok con interfaz moderna. Implementa una API externa para cargar videos automáticamente, mostrando contenido dinámico y variado. Adaptado a dispositivos móviles.",
