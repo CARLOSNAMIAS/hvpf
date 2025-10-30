@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="project-card-footer">
                             <div class="action"><i class="bi bi-chat"></i> <span></span></div>
                             <div class="action"><i class="bi bi-arrow-repeat"></i> <span></span></div>
-                            <div class="action"><i class="bi bi-heart"></i> <span></span></div>
+                            <div class="action like-action"><i class="bi bi-heart"></i><i class="bi bi-heart-fill"></i> <span></span></div>
                             <div class="action"><i class="bi bi-upload"></i></div>
                         </div>
                     </div>
@@ -230,6 +230,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // Re-inicializar AOS para las nuevas tarjetas de proyecto si es necesario
         AOS.refresh();
+    }
+
+    // Lógica para la animación de "like"
+    if (projectsContainer) {
+        projectsContainer.addEventListener('click', (e) => {
+            const likeAction = e.target.closest('.like-action');
+            if (likeAction) {
+                likeAction.classList.toggle('liked');
+            }
+        });
     }
 
     // Lógica para controlar el chatbot

@@ -33,12 +33,5 @@
         "title": "Spotify Deezer",
         "text": "Clon de Spotify desarrollado con HTML, CSS, JavaScript y Bootstrap. Integra la API de Deezer para buscar canciones y reproducir fragmentos de 30 segundos. Presenta una interfaz moderna, intuitiva y totalmente responsive.",
         "link": "https://musics-plum.vercel.app/"
-    },
-    {
-        "images": [],
-        "alt": "En construcción",
-        "title": "En construcción",
-        "text": "Próximamente un nuevo proyecto increíble. Mantente atento a las actualizaciones.",
-        "link": "./comingsoon.html"
     }
 ]

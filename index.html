@@ -7,6 +7,41 @@
       name="description"
       content="Portafolio de Carlos, desarrollador web y cloud."
     />
+
+    <!-- SEO Optimizado -->
+    <title>
+      Carlos Gómez | Telecommunications Engineer → Frontend Developer
+    </title>
+    <meta
+      name="description"
+      content="Telecommunications Engineer con 3+ años en sistemas satelitales, ahora Frontend Developer. JavaScript, Firebase, MongoDB. Disponible remoto."
+    />
+    <meta name="author" content="Carlos Gomez" />
+    <meta
+      name="keywords"
+      content="Frontend Developer, JavaScript, Firebase, MongoDB, Telecommunications Engineer, Web Developer Colombia, Remote Developer"
+    />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Carlos Gómez - Frontend Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Telecommunications Engineer → Frontend Developer. Building web apps with JavaScript."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hvpf.vercel.app" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Carlos Gómez - Frontend Developer" />
+    <meta
+      name="twitter:description"
+      content="Engineer transitioning to Frontend Development"
+    />
+
     <meta name="author" content="Carlos Gomez" />
     <title>Carlos Gómez - Desarrollador Frontend y Cloud</title>
     <link rel="icon" href="img/favicon (2).svg" type="image/x-icon" />
@@ -56,6 +91,10 @@
         <i class="bi bi-info-circle-fill"></i>
         <span>Sobre mí</span>
       </a>
+      <a href="#experience">
+        <i class="bi bi-briefcase-fill"></i>
+        <span>Experiencia</span>
+      </a>
       <a href="#projects">
         <i class="bi bi-folder-fill"></i>
         <span>Proyectos</span>
@@ -83,7 +122,7 @@
             <a href="#projects" class="btn btn-x">Ver Proyectos</a>
           </div>
           <img
-            src="./img/carlosjose.PNG"
+            src="./img/perfil.png"
             alt="Carlos Gómez"
             class="profile-img"
             loading="lazy"
@@ -119,20 +158,78 @@
         </div>
       </section>
 
-      <!-- ====== SECCIÓN: SOBRE MÍ (ABOUT) ====== -->
+      <!-- SECCIÓN: SOBRE MÍ -->
       <section id="about" class="tweet-card" data-aos="fade-up" data-title="Sobre mí">
-        <h2 class="section-title">Sobre mí</h2>
+        <h2 class="section-title">Mi historia</h2>
         <p>
-          Soy un Desarrollador Frontend enfocado en crear experiencias digitales
-          que generen impacto real. Me especializo en JavaScript, HTML, CSS y
-          tecnologías cloud para transformar ideas complejas en interfaces
-          intuitivas y funcionales.
+          <strong class="highlight">De la ingeniería satelital al desarrollo web.</strong>
         </p>
+        <p>
+          Trabajé 3+ años como <strong>técnico de transmisión satelital (Flyaway Banda C)</strong> para televisión en vivo - sistemas donde un error significa millones de personas sin señal. Esa experiencia me enseñó a:
+        </p>
+        <ul>
+          <li>Trabajar bajo presión extrema con cero margen de error</li>
+          <li>Diagnosticar y resolver problemas técnicos complejos rápidamente</li>
+          <li>Mantener sistemas críticos funcionando 24/7</li>
+          <li>Documentar procesos técnicos con precisión</li>
+        </ul>
+        <p>
+          Tras migrar a Colombia, decidí pivotar mi carrera hacia el desarrollo de software - un campo que comparte muchos principios con la ingeniería de telecomunicaciones: <strong>sistemas complejos, resolución de problemas y atención al detalle.</strong>
+        </p>
+        <p>
+          Comencé a aprender <strong>desarrollo web de forma autodidacta</strong>, aplicando la misma disciplina y estándares técnicos de mi formación como ingeniero. He construido múltiples proyectos funcionales que demuestran mi capacidad para crear aplicaciones web completas.
+        </p>
+        <p>
+          <em>Busco un equipo donde pueda aportar mi perspectiva de ingeniero al desarrollo frontend, y seguir creciendo como developer profesional.</em>
+        </p>
+      </section>
+
+      <!-- SECCIÓN: EXPERIENCIA TÉCNICA -->
+      <section id="experience" class="tweet-card" data-aos="fade-up" data-title="Experiencia">
+        <h2 class="section-title">Experiencia Técnica</h2>
+        
+        <div class="timeline-item">
+          <strong>🛰️ Técnico de Transmisión Satelital | Flyaway C-Band</strong>
+          <br>
+          <em>2012 - 2015 | Venezuela</em>
+          <ul>
+            <li>Configuración y mantenimiento de sistemas de uplink satelital para transmisiones en vivo</li>
+            <li>Troubleshooting de sistemas complejos bajo presión (0 downtime tolerance)</li>
+            <li>Coordinación técnica con equipos de producción y broadcasting</li>
+            <li>Trabajo con equipamiento técnico de alto valor ($100K+ systems)</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <strong>💻 Frontend Developer (Autodidacta)</strong>
+          <br>
+          <em>2023 - Presente | Colombia</em>
+          <ul>
+            <li>Desarrollo de aplicaciones web con JavaScript, HTML5, CSS3 y Bootstrap</li>
+            <li>Implementación de sistemas de autenticación con Firebase</li>
+            <li>Integración de APIs externas (Deezer, News APIs)</li>
+            <li>Deployment y gestión de proyectos en Vercel</li>
+            <li>Control de versiones con Git/GitHub</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <strong>🎓 Formación</strong>
+          <ul>
+            <li><strong>Ingeniería en Telecomunicaciones</strong> - Universidad del Zulia, Venezuela</li>
+            <li><strong>Desarrollo Web Autodacta</strong> - freeCodeCamp, MDN Web Docs, proyectos prácticos</li>
+          </ul>
+        </div>
       </section>
 
       <!-- ====== SECCIÓN: PROYECTOS (PROJECTS) ====== -->
       <!-- El contenido de esta sección se genera dinámicamente desde scripts.js -->
-      <section id="projects" class="tweet-card" data-aos="fade-up" data-title="Proyectos">
+      <section
+        id="projects"
+        class="tweet-card"
+        data-aos="fade-up"
+        data-title="Proyectos"
+      >
         <h2 class="section-title">Proyectos</h2>
         <div id="projects-container">
           <!-- Los proyectos se insertarán aquí dinámicamente -->
@@ -140,7 +237,12 @@
       </section>
 
       <!-- ====== SECCIÓN: CONTACTO (CONTACT) ====== -->
-      <section id="contact" class="tweet-card" data-aos="fade-up" data-title="Contacto">
+      <section
+        id="contact"
+        class="tweet-card"
+        data-aos="fade-up"
+        data-title="Contacto"
+      >
         <h2 class="section-title">Contacto</h2>
         <form
           action="https://formsubmit.co/carlosjose13975@gmail.com"
@@ -214,9 +316,7 @@
           type="button"
           class="btn-close btn-close-white"
           id="chatbot-close"
-        >
-          
-        </button>
+        ></button>
       </div>
       <div class="chatbot-body">
         <div class="chatbox">
