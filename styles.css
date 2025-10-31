@@ -36,7 +36,6 @@
     --scrollbar-thumb-hover: #AAB8C2;
     --logo-color: #0F1419;
     --btn-text-color: #FFFFFF;
-    --btn-close-filter: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -53,7 +52,10 @@
         --scrollbar-thumb: #2F3336;
         --scrollbar-thumb-hover: #71767B;
         --logo-color: #FFFFFF;
-        --btn-close-filter: invert(1);
+    }
+
+    .chatbot-header .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
     }
 }
 
@@ -190,7 +192,7 @@ body {
     background-image: url('./img/fondo-p.jpeg');
     background-size: cover;
     background-position: center;
-    height: 200px;
+    height: 190px;
     position: relative;
 }
 
@@ -303,7 +305,7 @@ body {
     width: 100%;
     height: auto;
     border-radius: 16px;
-    border: 1px solid var(--border-color);
+    border: 3px solid var(--border-color);
     margin-bottom: 12px;
     object-fit: cover;
 }
@@ -314,7 +316,7 @@ body {
     gap: 2px;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid var(--border-color);
+    border: 3px solid var(--border-color);
     margin-bottom: 12px;
 }
 
@@ -466,6 +468,12 @@ body {
     z-index: 1000;
 }
 
+.chatbot-icon.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
 .chatbot-icon:hover {
     transform: scale(1.1);
     background-color: var(--accent-color-hover);
@@ -575,8 +583,8 @@ footer {
     color: var(--btn-text-color);
     border: none;
     border-radius: 9999px;
-    padding: 12px 24px;
-    font-size: 15px;
+    padding: 11px 22px;
+    font-size: 10px;
     font-weight: 700;
     transition: background-color 0.2s;
 }
@@ -703,4 +711,26 @@ footer {
         min-height: 300px;
         /* Aseguramos una altura mínima razonable */
     }
+}
+
+/* Notification Style */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    color: var(--btn-text-color);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translate(-50%, 20px);
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }

@@ -201,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function renderProjects(projectsToRender) {
         projectsContainer.innerHTML = ''; // Limpiar el contenedor
-        projectsToRender.forEach(project => {
+        projectsToRender.forEach((project, index) => { //Añadido index
             const imageGridHtml = createImageGrid(project.images, project.alt);
             const projectCard = `
-                <div class="project-card" data-aos="fade-up">
+                <div class="project-card" data-aos="fade-up" data-project-index="${index}">
                     <img src="./img/carlosjose.PNG" alt="Carlos Gómez" class="project-avatar" loading="lazy">
                     <div class="project-card-content">
                         <div class="project-card-header">
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="action"><i class="bi bi-chat"></i> <span></span></div>
                             <div class="action"><i class="bi bi-arrow-repeat"></i> <span></span></div>
                             <div class="action like-action"><i class="bi bi-heart"></i><i class="bi bi-heart-fill"></i> <span></span></div>
-                            <div class="action"><i class="bi bi-upload"></i></div>
+                            <div class="action share-action"><i class="bi bi-upload"></i></div>
                         </div>
                     </div>
                 </div>
@@ -232,14 +232,71 @@ document.addEventListener('DOMContentLoaded', () => {
         AOS.refresh();
     }
 
-    // Lógica para la animación de "like"
+    // Lógica para la animación de "like" y "compartir"
     if (projectsContainer) {
-        projectsContainer.addEventListener('click', (e) => {
+        projectsContainer.addEventListener('click', async (e) => {
             const likeAction = e.target.closest('.like-action');
+            const shareAction = e.target.closest('.share-action');
+
             if (likeAction) {
                 likeAction.classList.toggle('liked');
             }
+
+            if (shareAction) {
+                const projectCard = e.target.closest('.project-card');
+                const projectIndex = projectCard.dataset.projectIndex;
+                const project = projects[projectIndex];
+
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: project.title,
+                            text: `Echa un vistazo a este proyecto: "${project.title}"`,
+                            url: project.link,
+                        });
+                    } catch (error) {
+                        console.error('Error al compartir:', error);
+                    }
+                } else {
+                    // Fallback para copiar al portapapeles
+                    try {
+                        await navigator.clipboard.writeText(project.link);
+                        showNotification('¡Enlace copiado al portapapeles!');
+                    } catch (err) {
+                        console.error('Error al copiar el enlace:', err);
+                        showNotification('No se pudo copiar el enlace.', true);
+                    }
+                }
+            }
         });
+    }
+
+    /**
+     * Muestra una notificación temporal en la pantalla.
+     * @param {string} message - El mensaje a mostrar.
+     * @param {boolean} [isError=false] - Si es true, la notificación tendrá un estilo de error.
+     */
+    function showNotification(message, isError = false) {
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        if (isError) {
+            notification.style.backgroundColor = '#E0245E'; // Color de error
+        }
+        document.body.appendChild(notification);
+
+        // Forzar el repintado para aplicar la transición
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+
+        // Ocultar y eliminar la notificación después de 3 segundos
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 500);
+        }, 3000);
     }
 
     // Lógica para controlar el chatbot
@@ -266,6 +323,29 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotClose.addEventListener('click', closeChatbot);
         chatbotOverlay.addEventListener('click', closeChatbot);
     }
+
+    // Lógica para ocultar/mostrar el botón del chatbot al hacer scroll
+    let lastScrollTop = 0;
+    let scrollTimeout;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Scroll hacia abajo
+            chatbotToggle.classList.add('hidden');
+        } else {
+            // Scroll hacia arriba
+            chatbotToggle.classList.remove('hidden');
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
+        // Detectar si el scroll se ha detenido
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            chatbotToggle.classList.remove('hidden');
+        }, 250); // El botón reaparece tras 250ms de inactividad
+    });
 
     // Manejo de botones de acceso rápido del chatbot
     const quickButtons = document.querySelectorAll('.chatbot-body .btn-x.btn-sm');
