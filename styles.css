@@ -212,7 +212,7 @@ body {
     height: 120px;
     border-radius: 50%;
     border: 1px solid var(--profile-img-border);
-    margin-top: -80px ;
+    margin-top: -80px;
     box-sizing: border-box;
     padding: 4px;
     object-fit: cover;
@@ -395,33 +395,41 @@ body {
 
 /* Like Animation */
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
 }
 
 .like-action .bi-heart-fill {
-  display: none;
+    display: none;
 }
 
 .like-action .bi-heart {
-  display: inline-block;
+    display: inline-block;
 }
 
 .like-action.liked .bi-heart {
-  display: none;
+    display: none;
 }
 
 .like-action.liked .bi-heart-fill {
-  display: inline-block;
-  color: #E0245E; /* Twitter's like color */
-  animation: bounce 1s ease;
+    display: inline-block;
+    color: #E0245E;
+    /* Twitter's like color */
+    animation: bounce 1s ease;
 }
 
 /* Form Style */
