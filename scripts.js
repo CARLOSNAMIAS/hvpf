@@ -201,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function renderProjects(projectsToRender) {
         projectsContainer.innerHTML = ''; // Limpiar el contenedor
-        projectsToRender.forEach(project => {
+        projectsToRender.forEach((project, index) => { //Añadido index
             const imageGridHtml = createImageGrid(project.images, project.alt);
             const projectCard = `
-                <div class="project-card" data-aos="fade-up">
+                <div class="project-card" data-aos="fade-up" data-project-index="${index}">
                     <img src="./img/carlosjose.PNG" alt="Carlos Gómez" class="project-avatar" loading="lazy">
                     <div class="project-card-content">
                         <div class="project-card-header">
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class="action"><i class="bi bi-chat"></i> <span></span></div>
                             <div class="action"><i class="bi bi-arrow-repeat"></i> <span></span></div>
                             <div class="action like-action"><i class="bi bi-heart"></i><i class="bi bi-heart-fill"></i> <span></span></div>
-                            <div class="action"><i class="bi bi-upload"></i></div>
+                            <div class="action share-action"><i class="bi bi-upload"></i></div>
                         </div>
                     </div>
                 </div>
@@ -232,112 +232,971 @@ document.addEventListener('DOMContentLoaded', () => {
         AOS.refresh();
     }
 
-    // Lógica para la animación de "like"
-    if (projectsContainer) {
-        projectsContainer.addEventListener('click', (e) => {
-            const likeAction = e.target.closest('.like-action');
-            if (likeAction) {
-                likeAction.classList.toggle('liked');
+        // =============================================
+
+        // ============ LÓGICA DEL MODAL Y PROYECTOS ===
+
+        // =============================================
+
+        const modal = document.getElementById('project-modal');
+
+        const modalOverlay = document.getElementById('project-modal-overlay');
+
+        const modalContent = document.getElementById('project-modal-content');
+
+        const closeModalBtn = document.getElementById('project-modal-close');
+
+        let scrollY = 0; // Para guardar la posición del scroll
+
+    
+
+        function openModal(project) {
+
+            // 1. Guardar posición de scroll y congelar el body
+
+            scrollY = window.scrollY;
+
+            document.body.style.position = 'fixed';
+
+            document.body.style.width = '100%';
+
+            document.body.style.top = `-${scrollY}px`;
+
+    
+
+            // 2. Llenar el modal con el contenido del proyecto
+
+            modalContent.innerHTML = '';
+
+            const imageGridHtml = createImageGrid(project.images, project.alt);
+
+            const projectDetailHtml = `
+
+                <div class="project-card">
+
+                    <img src="./img/carlosjose.PNG" alt="Carlos Gómez" class="project-avatar" loading="lazy">
+
+                    <div class="project-card-content">
+
+                        <div class="project-card-header">
+
+                            <span class="name">Carlos Gómez</span>
+
+                            <span class="username">@carlosgomez</span>
+
+                        </div>
+
+                        <div class="project-card-body">
+
+                            <p class="project-card-text"><strong>${project.title}</strong>: ${project.text}</p>
+
+                            <a href="${project.link}" target="_blank" rel="noopener">
+
+                                ${imageGridHtml}
+
+                            </a>
+
+                        </div>
+
+                        <div class="project-card-footer">
+
+                            <div class="action"><i class="bi bi-chat"></i> <span></span></div>
+
+                            <div class="action"><i class="bi bi-arrow-repeat"></i> <span></span></div>
+
+                            <div class="action like-action"><i class="bi bi-heart"></i><i class="bi bi-heart-fill"></i> <span></span></div>
+
+                            <div class="action share-action"><i class="bi bi-upload"></i></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            modalContent.innerHTML = projectDetailHtml;
+
+    
+
+            // 3. Mostrar el modal
+
+            modalOverlay.classList.add('show');
+
+            modal.classList.add('show');
+
+        }
+
+    
+
+        function closeModal() {
+
+            // 1. Liberar el body y restaurar la posición del scroll
+
+            document.body.style.position = '';
+
+            document.body.style.width = '';
+
+            document.body.style.top = '';
+
+            window.scrollTo(0, scrollY);
+
+    
+
+            // 2. Ocultar el modal
+
+            modalOverlay.classList.remove('show');
+
+            modal.classList.remove('show');
+
+        }
+
+    
+
+        // Listener unificado y corregido para el contenedor de proyectos
+
+        if (projectsContainer) {
+
+            projectsContainer.addEventListener('click', async (e) => {
+
+                const target = e.target;
+
+    
+
+                // Acción 1: Click en el botón 'like'
+
+                const likeAction = target.closest('.like-action');
+
+                if (likeAction) {
+
+                    likeAction.classList.toggle('liked');
+
+                    return; // Termina la ejecución aquí
+
+                }
+
+    
+
+                // Acción 2: Click en el botón 'share'
+
+                const shareAction = target.closest('.share-action');
+
+                if (shareAction) {
+
+                    const projectCard = target.closest('.project-card');
+
+                    const projectIndex = projectCard.dataset.projectIndex;
+
+                    const project = projects[projectIndex];
+
+                    // ... (lógica para compartir) ...
+
+                    return; // Termina la ejecución aquí
+
+                }
+
+    
+
+                // Acción 3: Click en un enlace (ej. la imagen que lleva al proyecto)
+
+                // Si el clic fue en cualquier enlace, no hacemos nada y dejamos que el navegador siga la URL.
+
+                if (target.closest('a')) {
+
+                    return;
+
+                }
+
+    
+
+                // Acción 4: Click en cualquier otra parte de la tarjeta para abrir el modal
+
+                const projectCard = target.closest('.project-card');
+
+                if (projectCard) {
+
+                    const projectIndex = projectCard.dataset.projectIndex;
+
+                    if (projectIndex !== null && projects[projectIndex]) {
+
+                        openModal(projects[projectIndex]);
+
+                    }
+
+                }
+
+            });
+
+        }
+
+    
+
+            // Listeners para cerrar el modal
+
+    
+
+            if (closeModalBtn) {
+
+    
+
+                closeModalBtn.addEventListener('click', closeModal);
+
+    
+
             }
-        });
-    }
 
-    // Lógica para controlar el chatbot
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbotOverlay = document.getElementById('chatbot-overlay');
-    const userInput = document.getElementById('userInput');
-    const sendButton = document.querySelector('.chatbot-body .btn-x');
+    
 
-    function openChatbot() {
-        chatbotOverlay.classList.add('show');
-        chatbotWindow.classList.add('show');
-        userInput.focus();
-    }
+            if (modalOverlay) {
 
-    function closeChatbot() {
-        chatbotOverlay.classList.remove('show');
-        chatbotWindow.classList.remove('show');
-    }
+    
 
-    if (chatbotToggle && chatbotWindow && chatbotClose && chatbotOverlay) {
-        chatbotToggle.addEventListener('click', openChatbot);
-        chatbotClose.addEventListener('click', closeChatbot);
-        chatbotOverlay.addEventListener('click', closeChatbot);
-    }
+                modalOverlay.addEventListener('click', closeModal);
 
-    // Manejo de botones de acceso rápido del chatbot
-    const quickButtons = document.querySelectorAll('.chatbot-body .btn-x.btn-sm');
-    quickButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const buttonText = e.target.textContent.trim();
+    
 
-            if (buttonText === 'Ver proyectos') {
-                addMessage('Ver proyectos', true);
-                addMessage('¡Genial! Te llevaré a la sección de proyectos. 🚀');
-                setTimeout(() => scrollToSection('#projects'), 800);
-            } else if (buttonText === 'Saber más sobre Carlos') {
-                addMessage('Saber más sobre Carlos', true);
-                addMessage(getRandomResponse(chatbotResponses.about));
-            } else if (buttonText === 'Contactarlo') {
-                addMessage('Contactarlo', true);
-                addMessage('¡Perfecto! Te dirijo al formulario de contacto. 📧');
-                setTimeout(() => scrollToSection('#contact'), 800);
             }
-        });
-    });
 
-    // Lógica para enviar mensajes
-    function sendMessage() {
-        const message = userInput.value.trim();
-        if (message === '') return;
+    
 
-        addMessage(message, true);
-        userInput.value = '';
+        
 
-        setTimeout(() => {
-            const response = getBotResponse(message);
-            addMessage(response);
-        }, 500);
-    }
+    
 
-    if (sendButton) {
-        sendButton.addEventListener('click', sendMessage);
-    }
+        
 
-    if (userInput) {
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
+    
+
+            // =============================================
+
+    
+
+            // ============ LÓGICA DEL CHATBOT =============
+
+    
+
+            // =============================================
+
+    
+
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+
+    
+
+            const chatbotWindow = document.getElementById('chatbot-window');
+
+    
+
+            const chatbotClose = document.getElementById('chatbot-close');
+
+    
+
+            const chatbotOverlay = document.getElementById('chatbot-overlay');
+
+    
+
+            const userInput = document.getElementById('userInput');
+
+    
+
+        
+
+    
+
+            function openChatbot() {
+
+    
+
+                chatbotOverlay.classList.add('show');
+
+    
+
+                chatbotWindow.classList.add('show');
+
+    
+
+                userInput.focus();
+
+    
+
             }
-        });
-    }
 
-    // ====== DYNAMIC HEADER TITLE LOGIC ======
-    const headerTitle = document.querySelector('.header-title');
-    const sections = document.querySelectorAll('main section[data-title]');
+    
 
-    const observerOptions = {
-        root: null, // Observa intersecciones relativas al viewport
-        rootMargin: '0px 0px -85% 0px', // Activa cuando el 15% superior de la sección es visible
-        threshold: 0
-    };
+        
 
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                headerTitle.textContent = entry.target.dataset.title;
+    
+
+            function closeChatbot() {
+
+    
+
+                chatbotOverlay.classList.remove('show');
+
+    
+
+                chatbotWindow.classList.remove('show');
+
+    
+
             }
-        });
-    };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-});
+        
+
+    
+
+                        if (chatbotToggle && chatbotWindow && chatbotClose && chatbotOverlay) {
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                            chatbotToggle.addEventListener('click', openChatbot);
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                            chatbotClose.addEventListener('click', closeChatbot);
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                            chatbotOverlay.addEventListener('click', closeChatbot);
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                        }
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                        // Lógica para ocultar/mostrar el botón del chatbot al hacer scroll
+
+    
+
+        
+
+    
+
+                let lastScrollTop = 0;
+
+    
+
+        
+
+    
+
+                let scrollTimeout;
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                window.addEventListener('scroll', () => {
+
+    
+
+        
+
+    
+
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                    if (scrollTop > lastScrollTop) {
+
+    
+
+        
+
+    
+
+                        // Scroll hacia abajo
+
+    
+
+        
+
+    
+
+                        chatbotToggle.classList.add('hidden');
+
+    
+
+        
+
+    
+
+                    } else {
+
+    
+
+        
+
+    
+
+                        // Scroll hacia arriba
+
+    
+
+        
+
+    
+
+                        chatbotToggle.classList.remove('hidden');
+
+    
+
+        
+
+    
+
+                    }
+
+    
+
+        
+
+    
+
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                    // Detectar si el scroll se ha detenido
+
+    
+
+        
+
+    
+
+                    clearTimeout(scrollTimeout);
+
+    
+
+        
+
+    
+
+                    scrollTimeout = setTimeout(() => {
+
+    
+
+        
+
+    
+
+                        chatbotToggle.classList.remove('hidden');
+
+    
+
+        
+
+    
+
+                    }, 250); // El botón reaparece tras 250ms de inactividad
+
+    
+
+        
+
+    
+
+                });
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                // Manejo de botones de acceso rápido del chatbot
+
+    
+
+        
+
+    
+
+                const quickButtons = document.querySelectorAll('.chatbot-body .btn-x.btn-sm');
+
+    
+
+        
+
+    
+
+                quickButtons.forEach(button => {
+
+    
+
+        
+
+    
+
+                    button.addEventListener('click', (e) => {
+
+    
+
+        
+
+    
+
+                        const buttonText = e.target.textContent.trim();
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                        if (buttonText === 'Ver proyectos') {
+
+    
+
+        
+
+    
+
+                            addMessage('Ver proyectos', true);
+
+    
+
+        
+
+    
+
+                            addMessage('¡Genial! Te llevaré a la sección de proyectos. 🚀');
+
+    
+
+        
+
+    
+
+                            setTimeout(() => scrollToSection('#projects'), 800);
+
+    
+
+        
+
+    
+
+                        } else if (buttonText === 'Saber más sobre Carlos') {
+
+    
+
+        
+
+    
+
+                            addMessage('Saber más sobre Carlos', true);
+
+    
+
+        
+
+    
+
+                            addMessage(getRandomResponse(chatbotResponses.about));
+
+    
+
+        
+
+    
+
+                        } else if (buttonText === 'Contactarlo') {
+
+    
+
+        
+
+    
+
+                            addMessage('Contactarlo', true);
+
+    
+
+        
+
+    
+
+                            addMessage('¡Perfecto! Te dirijo al formulario de contacto. 📧');
+
+    
+
+        
+
+    
+
+                            setTimeout(() => scrollToSection('#contact'), 800);
+
+    
+
+        
+
+    
+
+                        }
+
+    
+
+        
+
+    
+
+                    });
+
+    
+
+        
+
+    
+
+                });
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                // Lógica para enviar mensajes
+
+    
+
+        
+
+    
+
+                const sendButton = document.querySelector('.chatbot-body .btn-x');
+
+    
+
+        
+
+    
+
+                function sendMessage() {
+
+    
+
+        
+
+    
+
+                    const message = userInput.value.trim();
+
+    
+
+        
+
+    
+
+                    if (message === '') return;
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                    addMessage(message, true);
+
+    
+
+        
+
+    
+
+                    userInput.value = '';
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                    setTimeout(() => {
+
+    
+
+        
+
+    
+
+                        const response = getBotResponse(message);
+
+    
+
+        
+
+    
+
+                        addMessage(response);
+
+    
+
+        
+
+    
+
+                    }, 500);
+
+    
+
+        
+
+    
+
+                }
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                if (sendButton) {
+
+    
+
+        
+
+    
+
+                    sendButton.addEventListener('click', sendMessage);
+
+    
+
+        
+
+    
+
+                }
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                if (userInput) {
+
+    
+
+        
+
+    
+
+                    userInput.addEventListener('keypress', (e) => {
+
+    
+
+        
+
+    
+
+                        if (e.key === 'Enter') {
+
+    
+
+        
+
+    
+
+                            sendMessage();
+
+    
+
+        
+
+    
+
+                        }
+
+    
+
+        
+
+    
+
+                    });
+
+    
+
+        
+
+    
+
+                }
+
+    
+
+        
+
+    
+
+            
+
+    
+
+        
+
+    
+
+                    });
 
 /**
  * Asegura que la página se cargue desde el principio.
