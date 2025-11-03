@@ -156,8 +156,8 @@ body {
 }
 
 .section-title {
-    font-size: 23px;
-    font-weight: 800;
+    font-size: 22px;
+    font-weight: 600;
     margin-bottom: 20px;
     color: var(--accent-color);
 }
@@ -192,7 +192,7 @@ body {
     background-image: url('./img/fondo-p.jpeg');
     background-size: cover;
     background-position: center;
-    height: 190px;
+    height: 180px;
     position: relative;
 }
 
@@ -316,7 +316,7 @@ body {
     gap: 2px;
     border-radius: 16px;
     overflow: hidden;
-    border: 3px solid var(--border-color);
+    border: 1px solid var(--border-color);
     margin-bottom: 12px;
 }
 
@@ -583,8 +583,8 @@ footer {
     color: var(--btn-text-color);
     border: none;
     border-radius: 9999px;
-    padding: 11px 22px;
-    font-size: 10px;
+    padding: 10px 20px;
+    font-size: 12px;
     font-weight: 700;
     transition: background-color 0.2s;
 }
@@ -733,4 +733,79 @@ footer {
 .notification.show {
     opacity: 1;
     transform: translate(-50%, 0);
+}
+
+/* ==========================================================================
+   9. Modal Vista Proyecto
+   ========================================================================== */
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(91, 112, 122, 0.4);
+    z-index: 1040;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+.project-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 80%;
+    max-width: 600px;
+    max-height: 90vh;
+    background-color: var(--bg-color);
+    border-radius: 16px;
+    z-index: 1050;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-modal.show {
+    display: flex;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.project-modal-header {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    min-height: 53px;
+}
+
+.project-modal-header .btn-close {
+    margin-left: 8px;
+    background-color: rgba(15, 20, 25, 0.75);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23E7E9EA'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+}
+
+.project-modal-content {
+    overflow-y: auto;
+    padding: 0 16px 16px 16px;
+}
+
+/* Forzamos que la tarjeta dentro del modal no tenga borde inferior */
+.project-modal .project-card {
+    border-bottom: none;
+    padding: 0;
 }
