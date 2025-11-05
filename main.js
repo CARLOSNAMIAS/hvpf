@@ -187,7 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotOverlay.addEventListener('click', closeChatbot);
     }
 
-    // Lógica para ocultar/mostrar el botón del chatbot al hacer scroll
+    // Lógica para ocultar/mostrar elementos con el scroll
+    const header = document.querySelector('.header');
     let lastScrollTop = 0;
     const handleScroll = debounce(() => {
         if (chatbotToggle) {
@@ -196,18 +197,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 250);
 
     window.addEventListener('scroll', () => {
-        if (!chatbotToggle) return;
-        
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop > lastScrollTop) {
-            chatbotToggle.classList.add('hidden');
-        } else {
-            chatbotToggle.classList.remove('hidden');
+        // Lógica para el header
+        if (header) {
+            // Ocultar al bajar, mostrar al subir
+            if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+        }
+
+        // Lógica para el botón del chatbot
+        if (chatbotToggle) {
+            if (scrollTop > lastScrollTop) {
+                chatbotToggle.classList.add('hidden');
+            } else {
+                chatbotToggle.classList.remove('hidden');
+            }
+            handleScroll();
         }
 
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        handleScroll();
     });
 
     // Manejo de botones de acceso rápido del chatbot

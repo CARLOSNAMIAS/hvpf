@@ -106,7 +106,7 @@ body {
 .sidebar a {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
+    padding: 14px 16px;
     color: var(--text-color-primary);
     text-decoration: none;
     font-size: 20px;
@@ -146,6 +146,11 @@ body {
     border-bottom: 1px solid var(--border-color);
     padding: 16px;
     z-index: 999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header.hidden {
+    transform: translateY(-100%);
 }
 
 .header .header-title {
@@ -250,9 +255,14 @@ body {
 }
 
 .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px; /* Aumenta el área de clic */
     color: var(--text-color-secondary);
     font-size: 20px;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    border-radius: 50%;
 }
 
 .social-links a:hover {
@@ -381,7 +391,10 @@ body {
     color: var(--text-color-secondary);
     font-size: 14px;
     cursor: pointer;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    padding: 8px; /* Aumenta el área de clic */
+    margin: -8px; /* Compensa el padding para no afectar el layout */
+    border-radius: 50%;
 }
 
 .project-card-footer .action i {
@@ -391,6 +404,7 @@ body {
 
 .project-card-footer .action:hover {
     color: var(--accent-color);
+    background-color: rgba(29, 155, 240, 0.1);
 }
 
 /* Like Animation */
@@ -591,7 +605,7 @@ footer {
     color: var(--btn-text-color);
     border: none;
     border-radius: 9999px;
-    padding: 10px 20px;
+    padding: 12px 22px;
     font-size: 12px;
     font-weight: 700;
     transition: background-color 0.2s;

@@ -33,5 +33,12 @@
         "title": "Spotify Deezer",
         "text": "Clon de Spotify desarrollado con HTML, CSS, JavaScript y Bootstrap. Integra la API de Deezer para buscar canciones y reproducir fragmentos de 30 segundos. Presenta una interfaz moderna, intuitiva y totalmente responsive.",
         "link": "https://musics-plum.vercel.app/"
+    },
+    {
+        "images": ["./img/temu-destok.png", "./img/movil-temu.png"],
+        "alt": "Clon de Temu",
+        "title": "Clon de Temu",
+        "text": "Clon de la popular tienda en línea Temu, enfocado en replicar su interfaz y experiencia de usuario. Desarrollado con HTML, CSS, JavaScript y Bootstrap para lograr un diseño moderno y responsivo.",
+        "link": "https://clone-temu-five.vercel.app/"
     }
 ]
