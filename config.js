@@ -20,8 +20,8 @@ const SELECTORS = {
     CHATBOT_SEND_BTN: '#chatbot-send-btn'
 };
 
-const AVATAR_IMAGE = './img/carlosjose.PNG';
-const AVATAR_ALT = 'Carlos Gómez';
+const AVATAR_IMAGE = './img/avatar.jpg';
+const AVATAR_ALT = 'Carlos Gómez ';
 const USERNAME = '@carlosgomez';
 const DISPLAY_NAME = 'Carlos Gómez';
 
