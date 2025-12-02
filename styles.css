@@ -144,7 +144,7 @@ body {
     background-color: var(--header-bg-color);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    padding: 16px;
+    padding: 8px;
     z-index: 999;
     transition: transform 0.3s ease-in-out;
 }
@@ -216,7 +216,7 @@ body {
     width: 110px;
     height: 110px;
     border-radius: 50%;
-    border: 1px solid var(--profile-img-border);
+    border: none;
     margin-top: -80px;
     box-sizing: border-box;
     padding: 4px;
@@ -278,10 +278,10 @@ body {
 }
 
 .project-avatar {
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 .project-card-content {
