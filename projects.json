@@ -1,5 +1,12 @@
 [
     {
+        "images": ["./img/sonicwave1.png", "./img/soniwave2.png"],
+        "alt": "SonicWave Radio - Aplicación de radio online",
+        "title": "SonicWave Radio",
+        "text": "Aplicación web de radio online desarrollada con Vite, TypeScript, React y tecnologías modernas. Interfaz moderna y responsive que permite escuchar música y estaciones de radio en tiempo real. Implementa arquitectura escalable, tipado estático y optimización de rendimiento. Diseño intuitivo y centrado en la experiencia del usuario.",
+        "link": "https://sonicwave-radio.vercel.app/"
+    },
+    {
         "images": ["./img/corral1.png", "./img/corral2.png"],
         "alt": "Restaurante El Corral",
         "title": "Restaurante El Corral",

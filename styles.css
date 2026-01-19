@@ -25,8 +25,8 @@
     --text-color-primary: #0F1419;
     --text-color-secondary: #536471;
     --border-color: #EFF3F4;
-    --accent-color: #1D9BF0;
-    --accent-color-hover: #1A8CD8;
+    --accent-color: #0071C2;
+    --accent-color-hover: #005FA3;
     --hover-color: rgba(0, 0, 0, 0.03);
     --header-bg-color: rgba(255, 255, 255, 0.85);
     --profile-img-border: #FFFFFF;
@@ -235,10 +235,12 @@ body {
 }
 
 .verification-badge {
-  color: var(--accent-color);
-  font-size: 18px; /* Adjust size as needed */
-  margin-left: 5px;
-  vertical-align: middle; /* Align badge with text */
+    color: var(--accent-color);
+    font-size: 18px;
+    /* Adjust size as needed */
+    margin-left: 5px;
+    vertical-align: middle;
+    /* Align badge with text */
 }
 
 .profile-username {
@@ -265,7 +267,8 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px; /* Aumenta el área de clic */
+    padding: 8px;
+    /* Aumenta el área de clic */
     color: var(--text-color-secondary);
     font-size: 20px;
     transition: all 0.2s;
@@ -400,8 +403,10 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.2s;
-    padding: 8px; /* Aumenta el área de clic */
-    margin: -8px; /* Compensa el padding para no afectar el layout */
+    padding: 8px;
+    /* Aumenta el área de clic */
+    margin: -8px;
+    /* Compensa el padding para no afectar el layout */
     border-radius: 50%;
 }
 
@@ -614,8 +619,9 @@ footer {
     border: none;
     border-radius: 9999px;
     padding: 12px 22px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
+    letter-spacing: 0.2px;
     transition: background-color 0.2s;
 }
 
@@ -661,6 +667,19 @@ footer {
 .timeline-item strong {
     font-weight: 700;
     color: var(--text-color-primary);
+}
+
+.timeline-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color-primary);
+    margin-bottom: 8px;
+}
+
+.timeline-item time,
+.timeline-item span[itemprop="jobLocation"] {
+    font-size: 14px;
+    color: var(--text-color-secondary);
 }
 
 .timeline-item em {
