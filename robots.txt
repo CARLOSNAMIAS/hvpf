@@ -1,11 +1,11 @@
 # robots.txt para Portafolio Carlos Gómez
-# https://hvpf.vercel.app/robots.txt
+# https://carlosnamias.vercel.app/robots.txt
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hvpf.vercel.app/sitemap.xml
+Sitemap: https://carlosnamias.vercel.app/sitemap.xml
 
 # Deshabilitar acceso a archivos de configuración y scripts
 Disallow: /config.js

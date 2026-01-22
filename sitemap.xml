@@ -6,7 +6,7 @@
   
   <!-- Página principal -->
   <url>
-    <loc>https://hvpf.vercel.app/</loc>
+    <loc>https://carlosnamias.vercel.app/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
   
   <!-- Sección de perfil -->
   <url>
-    <loc>https://hvpf.vercel.app/#profile</loc>
+    <loc>https://carlosnamias.vercel.app/#profile</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
   
   <!-- Sección sobre mí -->
   <url>
-    <loc>https://hvpf.vercel.app/#about</loc>
+    <loc>https://carlosnamias.vercel.app/#about</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
   
   <!-- Sección de experiencia -->
   <url>
-    <loc>https://hvpf.vercel.app/#experience</loc>
+    <loc>https://carlosnamias.vercel.app/#experience</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
   
   <!-- Sección de proyectos -->
   <url>
-    <loc>https://hvpf.vercel.app/#projects</loc>
+    <loc>https://carlosnamias.vercel.app/#projects</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -46,7 +46,7 @@
   
   <!-- Sección de contacto -->
   <url>
-    <loc>https://hvpf.vercel.app/#contact</loc>
+    <loc>https://carlosnamias.vercel.app/#contact</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
