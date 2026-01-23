@@ -52,6 +52,8 @@
         --scrollbar-thumb: #2F3336;
         --scrollbar-thumb-hover: #71767B;
         --logo-color: #FFFFFF;
+        --accent-color: #1D9BF0;
+        --accent-color-hover: #1A8CD8;
     }
 
     .chatbot-header .btn-close {
