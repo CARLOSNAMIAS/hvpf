@@ -39,9 +39,9 @@ function createImageGrid(images, alt) {
  */
 function renderProjects(projectsToRender, container) {
     if (!container) return;
-    
+
     container.innerHTML = '';
-    
+
     projectsToRender.forEach((project, index) => {
         if (!isValidProject(project)) {
             console.warn(`Proyecto en índice ${index} tiene estructura inválida:`, project);
@@ -54,7 +54,7 @@ function renderProjects(projectsToRender, container) {
         const escapedLink = escapeHtml(project.link);
         const escapedTitle = escapeHtml(project.title);
         const escapedText = escapeHtml(project.text);
-        
+
         const projectCard = `
             <div class="project-card" data-aos="fade-up" data-project-index="${index}">
                 <img src="${AVATAR_IMAGE}" alt="${AVATAR_ALT}" class="project-avatar" loading="lazy">
@@ -88,7 +88,7 @@ function renderProjects(projectsToRender, container) {
         `;
         container.insertAdjacentHTML('beforeend', projectCard);
     });
-    
+
     AOS.refresh();
 }
 
@@ -106,7 +106,7 @@ function openModal(project) {
     const modal = document.querySelector(SELECTORS.MODAL);
     const modalOverlay = document.querySelector(SELECTORS.MODAL_OVERLAY);
     const modalContent = document.querySelector(SELECTORS.MODAL_CONTENT);
-    
+
     if (!modal || !modalOverlay || !modalContent) return;
 
     // Guardar posición de scroll y congelar el body
@@ -123,7 +123,7 @@ function openModal(project) {
     const escapedLink = escapeHtml(project.link);
     const escapedTitle = escapeHtml(project.title);
     const escapedText = escapeHtml(project.text);
-    
+
     const projectDetailHtml = `
         <div class="project-card">
             <img src="${AVATAR_IMAGE}" alt="${AVATAR_ALT}" class="project-avatar" loading="lazy">
@@ -155,7 +155,7 @@ function openModal(project) {
             </div>
         </div>
     `;
-    
+
     modalContent.innerHTML = projectDetailHtml;
 
     // Mostrar el modal con atributos ARIA
@@ -171,7 +171,7 @@ function closeModal() {
     const modal = document.querySelector(SELECTORS.MODAL);
     const modalOverlay = document.querySelector(SELECTORS.MODAL_OVERLAY);
     const modalContent = document.querySelector(SELECTORS.MODAL_CONTENT);
-    
+
     if (!modal || !modalOverlay) return;
 
     // Liberar el body y restaurar la posición del scroll
@@ -185,7 +185,7 @@ function closeModal() {
     modal.setAttribute('aria-hidden', 'true');
     modalOverlay.classList.remove('show');
     modal.classList.remove('show');
-    
+
     // Limpiar el contenido del modal para evitar conflictos
     if (modalContent) {
         setTimeout(() => {

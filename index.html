@@ -1,419 +1,552 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" itemscope itemtype="https://schema.org/WebPage">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="google25187a1c7a066ad1" />
 
-  <meta name="google-site-verification" content="google25187a1c7a066ad1" />
+    <!-- Primary Meta Tags -->
+    <title>
+      Carlos Gómez | Telecommunications Engineer → Cloud Developer | Portafolio
+    </title>
+    <meta
+      name="title"
+      content="Carlos Gómez | Telecommunications Engineer → Cloud Applications & Services Developer"
+    />
+    <meta
+      name="description"
+      content="Ingeniero de Telecomunicaciones y Programador de Aplicaciones y Servicios para Nube. Especializado en AWS, MongoDB Atlas, JavaScript y diseño de APIs REST. Soluciones escalables y arquitectura cloud."
+    />
+    <meta name="author" content="Carlos Gomez" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+    <meta
+      name="keywords"
+      content="Cloud Developer, Backend Developer, AWS, MongoDB Atlas, REST APIs, JavaScript, Telecommunications Engineer, Web Services, Arquitectura Cloud, Desarrollador Web"
+    />
+    <link rel="canonical" href="https://carlosnamias.vercel.app" />
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://carlosnamias.vercel.app" />
+    <meta
+      property="og:title"
+      content="Carlos Gómez - Cloud Applications & Services Developer"
+    />
+    <meta
+      property="og:description"
+      content="Ingeniero en Telecomunicaciones → Programador Cloud. Especializado en AWS, MongoDB Atlas, JavaScript y APIs REST."
+    />
+    <meta
+      property="og:image"
+      content="https://carlosnamias.vercel.app/img/favicon.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Favicon del portafolio de Carlos Gómez"
+    />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Portafolio Carlos Gómez" />
 
-  <!-- Primary Meta Tags -->
-  <title>Carlos Gómez | Telecommunications Engineer → Cloud Developer | Portafolio</title>
-  <meta name="title" content="Carlos Gómez | Telecommunications Engineer → Cloud Applications & Services Developer" />
-  <meta name="description"
-    content="Ingeniero de Telecomunicaciones y Programador de Aplicaciones y Servicios para Nube. Especializado en AWS, MongoDB Atlas, JavaScript y diseño de APIs REST. Soluciones escalables y arquitectura cloud." />
-  <meta name="author" content="Carlos Gomez" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="language" content="Spanish" />
-  <meta name="revisit-after" content="7 days" />
-  <meta name="keywords"
-    content="Cloud Developer, Backend Developer, AWS, MongoDB Atlas, REST APIs, JavaScript, Telecommunications Engineer, Web Services, Arquitectura Cloud, Desarrollador Web" />
-  <link rel="canonical" href="https://carlosnamias.vercel.app" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://carlosnamias.vercel.app" />
+    <meta name="twitter:title" content="Carlos Gómez - Cloud Developer" />
+    <meta
+      name="twitter:description"
+      content="Ingeniero en Telecomunicaciones → Programador de Aplicaciones Cloud. AWS, MongoDB Atlas, APIs REST, JavaScript."
+    />
+    <meta
+      name="twitter:image"
+      content="https://carlosnamias.vercel.app/img/favicon.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Favicon del portafolio de Carlos Gómez"
+    />
+    <meta name="twitter:creator" content="@carlosgomez" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://carlosnamias.vercel.app" />
-  <meta property="og:title" content="Carlos Gómez - Cloud Applications & Services Developer" />
-  <meta property="og:description"
-    content="Ingeniero en Telecomunicaciones → Programador Cloud. Especializado en AWS, MongoDB Atlas, JavaScript y APIs REST." />
-  <meta property="og:image" content="https://carlosnamias.vercel.app/img/favicon.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Favicon del portafolio de Carlos Gómez" />
-  <meta property="og:locale" content="es_CO" />
-  <meta property="og:site_name" content="Portafolio Carlos Gómez" />
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1DA1F2" />
+    <meta name="msapplication-TileColor" content="#1DA1F2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Carlos Gómez" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="geo.region" content="CO" />
+    <meta name="geo.placename" content="Colombia" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://carlosnamias.vercel.app" />
-  <meta name="twitter:title" content="Carlos Gómez - Cloud Developer" />
-  <meta name="twitter:description"
-    content="Ingeniero en Telecomunicaciones → Programador de Aplicaciones Cloud. AWS, MongoDB Atlas, APIs REST, JavaScript." />
-  <meta name="twitter:image" content="https://carlosnamias.vercel.app/img/favicon.png" />
-  <meta name="twitter:image:alt" content="Favicon del portafolio de Carlos Gómez" />
-  <meta name="twitter:creator" content="@carlosgomez" />
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="img/avatar.jpg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS -->
 
-  <!-- Additional SEO Meta Tags -->
-  <meta name="theme-color" content="#1DA1F2" />
-  <meta name="msapplication-TileColor" content="#1DA1F2" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Carlos Gómez" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="geo.region" content="CO" />
-  <meta name="geo.placename" content="Colombia" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="img/avatar.jpg" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
-  <!-- Bootstrap CSS -->
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
-
-  <!-- AOS Animation -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Carlos Gómez",
-      "alternateName": "Carlos Gomez",
-      "url": "https://carlosnamias.vercel.app",
-      "image": "https://carlosnamias.vercel.app/img/favicon.png",
-      "jobTitle": "Cloud Applications & Services Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Freelance"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "Universidad Nacional Experimental Politécnica de la Fuerza Armada UNEFA Zulia"
-      },
-      "knowsAbout": [
-        "Cloud Computing",
-        "AWS (Amazon Web Services)",
-        "MongoDB Atlas",
-        "REST APIs",
-        "JavaScript",
-        "Backend Development",
-        "Database Architecture",
-        "Telecommunications",
-        "Web Services"
-      ],
-      "sameAs": [
-        "https://github.com/CARLOSNAMIAS"
-      ],
-      "description": "Ingeniero de Telecomunicaciones y Programador de Aplicaciones Cloud. Especializado en AWS, MongoDB Atlas y desarrollo de APIs REST eficientes.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "CO"
-      }
-    }
-    </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Portafolio Carlos Gómez",
-      "url": "https://carlosnamias.vercel.app",
-      "description": "Portafolio profesional de Carlos Gómez - Cloud Applications & Services Developer",
-      "author": {
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Carlos Gómez"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://carlosnamias.vercel.app/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+        "name": "Carlos Gómez",
+        "alternateName": "Carlos Gomez",
+        "url": "https://carlosnamias.vercel.app",
+        "image": "https://carlosnamias.vercel.app/img/favicon.png",
+        "jobTitle": "Cloud Applications & Services Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Universidad Nacional Experimental Politécnica de la Fuerza Armada UNEFA Zulia"
+        },
+        "knowsAbout": [
+          "Cloud Computing",
+          "AWS (Amazon Web Services)",
+          "MongoDB Atlas",
+          "REST APIs",
+          "JavaScript",
+          "Backend Development",
+          "Database Architecture",
+          "Telecommunications",
+          "Web Services"
+        ],
+        "sameAs": ["https://github.com/CARLOSNAMIAS"],
+        "description": "Ingeniero de Telecomunicaciones y Programador de Aplicaciones Cloud. Especializado en AWS, MongoDB Atlas y desarrollo de APIs REST eficientes.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CO"
+        }
       }
-    }
     </script>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Portfolio",
-      "name": "Portafolio de Proyectos - Carlos Gómez",
-      "url": "https://carlosnamias.vercel.app",
-      "description": "Colección de proyectos web desarrollados por Carlos Gómez",
-      "creator": {
-        "@type": "Person",
-        "name": "Carlos Gómez"
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portafolio Carlos Gómez",
+        "url": "https://carlosnamias.vercel.app",
+        "description": "Portafolio profesional de Carlos Gómez - Cloud Applications & Services Developer",
+        "author": {
+          "@type": "Person",
+          "name": "Carlos Gómez"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://carlosnamias.vercel.app/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
       }
-    }
     </script>
-</head>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Portfolio",
+        "name": "Portafolio de Proyectos - Carlos Gómez",
+        "url": "https://carlosnamias.vercel.app",
+        "description": "Colección de proyectos web desarrollados por Carlos Gómez",
+        "creator": {
+          "@type": "Person",
+          "name": "Carlos Gómez"
+        }
+      }
+    </script>
+  </head>
 
-<body>
-  <!-- ============================================= -->
-  <!-- ============== SIDEBAR (NAV) ================ -->
-  <!-- ============================================= -->
-  <!-- Menú de navegación fijo en el lateral, inspirado en la interfaz de X/Twitter. -->
-  <nav class="sidebar">
-    <div class="sidebar-logo">
-      <i class="bi bi-code-slash"></i>
+  <body>
+    <!-- ============================================= -->
+    <!-- ============== SIDEBAR (NAV) ================ -->
+    <!-- ============================================= -->
+    <!-- Menú de navegación fijo en el lateral, inspirado en la interfaz de X/Twitter. -->
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <i class="bi bi-code-slash"></i>
+      </div>
+      <a href="#profile">
+        <i class="bi bi-house-door-fill"></i>
+        <span>Inicio</span>
+      </a>
+      <a href="#profile">
+        <i class="bi bi-person-fill"></i>
+        <span>Perfil</span>
+      </a>
+      <a href="#about">
+        <i class="bi bi-info-circle-fill"></i>
+        <span>Sobre mí</span>
+      </a>
+      <a href="#experience">
+        <i class="bi bi-briefcase-fill"></i>
+        <span>Experiencia</span>
+      </a>
+      <a href="#projects">
+        <i class="bi bi-folder-fill"></i>
+        <span>Proyectos</span>
+      </a>
+      <a href="#contact">
+        <i class="bi bi-envelope-fill"></i>
+        <span>Contacto</span>
+      </a>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- ============= MAIN CONTENT ================== -->
+    <!-- ============================================= -->
+    <main class="main-content">
+      <!-- Header fijo con título -->
+      <header class="header" role="banner">
+        <div class="header-title" aria-label="Portafolio">Portafolio</div>
+      </header>
+
+      <!-- ====== SECCIÓN: PERFIL (PROFILE) ====== -->
+      <section
+        id="profile"
+        data-aos="fade-up"
+        data-title="Inicio"
+        itemscope
+        itemtype="https://schema.org/Person"
+      >
+        <div class="profile-header"></div>
+        <div class="profile-info">
+          <div class="profile-actions">
+            <a href="#projects" class="btn btn-x">Ver Proyectos</a>
+          </div>
+          <img
+            src="./img/avatar.jpg"
+            alt="Carlos Gómez - Frontend Developer e Ingeniero en Telecomunicaciones"
+            class="profile-img"
+            loading="lazy"
+            width="200"
+            height="200"
+            itemprop="image"
+          />
+          <h1 class="profile-name">
+            Carlos Gómez
+            <i class="bi bi-patch-check-fill verification-badge"></i>
+          </h1>
+          <div class="profile-username">@carlosgomez</div>
+          <div class="profile-bio">
+                          Ingeniero de Telecomunicaciones y Desarrollador Web. Me especializo en la creación de <strong>aplicaciones interactivas</strong> y en la infraestructura que las respalda. Mi experiencia abarca desde el diseño de <strong>interfaces de usuario responsivas</strong> con HTML, CSS, JavaScript y React, hasta la integración con <strong>APIs y servicios en la nube</strong>. Mi objetivo es construir soluciones digitales completas, escalables y eficientes.
+                        </div>          <div class="social-links">
+            <a
+              href="https://github.com/CARLOSNAMIAS"
+              target="_blank"
+              rel="noopener"
+              title="GitHub"
+            >
+              <i class="bi bi-github"></i>
+            </a>
+            <a href="#" target="_blank" title="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="#" target="_blank" title="X (Twitter)">
+              <i class="bi bi-twitter-x"></i>
+            </a>
+            <a href="#contact" title="Contacto">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: SOBRE MÍ -->
+      <section
+                  id="about"
+                  class="tweet-card"
+                  data-aos="fade-up"
+                  data-title="Sobre mí"
+                >
+                  <h2 class="section-title">Sobre mí</h2>
+                  <p>
+                    Soy un <strong>Ingeniero de Telecomunicaciones y desarrollador web</strong> dedicado a la creación de soluciones digitales completas. Mi experiencia se centra en el <strong>desarrollo Frontend</strong>, donde utilizo <strong>HTML, CSS, JavaScript y frameworks como React</strong> para construir interfaces interactivas y responsivas, como puedes ver en mis proyectos.
+                  </p>
+                  <p>
+                    Combino estas habilidades con mis conocimientos en <strong>arquitecturas en la nube (AWS) y bases de datos (MongoDB)</strong> para asegurar que las aplicaciones no solo se vean bien, sino que también sean escalables, rápidas y seguras. Me dedico a conectar de forma eficiente la experiencia del usuario con la lógica del servidor.
+                  </p>
+                  <p>
+                    <em>Mi prioridad es la excelencia técnica: código limpio, arquitecturas bien estructuradas y soluciones que resuelvan problemas reales, garantizando siempre el mejor rendimiento y experiencia.</em>
+                  </p>
+                </section>
+      <!-- SECCIÓN: EXPERIENCIA TÉCNICA -->
+      <section
+        id="experience"
+        class="tweet-card"
+        data-aos="fade-up"
+        data-title="Experiencia"
+      >
+        <h2 class="section-title">Experiencia Técnica</h2>
+
+        <article class="timeline-item">
+          <time itemprop="datePosted" datetime="2015">2015 - 2018</time> |
+          <span
+            itemprop="jobLocation"
+            itemscope
+            itemtype="https://schema.org/Place"
+            ><span itemprop="addressCountry">Venezuela</span></span
+          >
+          <ul>
+            <li>
+              Configuración y mantenimiento de sistemas de uplink satelital para
+              transmisiones en vivo
+            </li>
+            <li>
+              Troubleshooting de sistemas complejos bajo presión (0 downtime
+              tolerance)
+            </li>
+            <li>
+              Coordinación técnica con equipos de producción y broadcasting
+            </li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <h3 itemprop="title">☁️ Programador de Servicios Cloud & Apps</h3>
+          <time itemprop="datePosted" datetime="2024">2024 - Presente</time> |
+          <span
+            itemprop="jobLocation"
+            itemscope
+            itemtype="https://schema.org/Place"
+            ><span itemprop="addressCountry">Colombia</span></span
+          >
+          <ul>
+            <li>
+              Desarrollo y despliegue de infraestructura en la nube con
+              <strong>AWS</strong>
+            </li>
+            <li>
+              Gestión y modelado de bases de datos NoSQL con
+              <strong>MongoDB Atlas</strong>
+            </li>
+            <li>
+              Diseño e implementación de
+              <strong>APIs RESTful</strong> escalables
+            </li>
+            <li>
+              Desarrollo de lógica de backend eficiente con
+              <strong>JavaScript</strong>
+            </li>
+            <li>Integración de servicios y optimización de rendimiento</li>
+          </ul>
+        </article>
+
+        <article
+          class="timeline-item"
+          itemscope
+          itemtype="https://schema.org/EducationalOccupationalCredential"
+        >
+          <h3>🎓 Formación</h3>
+          <ul>
+            <li>
+              <strong>Ingeniería en Telecomunicaciones</strong> - Universidad
+              Nacional Experimental Politecnida de la Fuerza Armada UNEFA Zulia,
+              Venezuela
+            </li>
+            <li>
+              <strong>Desarrollo Web Autodidacta</strong> - freeCodeCamp, MDN
+              Web Docs, proyectos prácticos
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ====== SECCIÓN: PROYECTOS (PROJECTS) ====== -->
+      <!-- El contenido de esta sección se genera dinámicamente desde scripts.js -->
+      <section
+        id="projects"
+        class="tweet-card"
+        data-aos="fade-up"
+        data-title="Proyectos"
+      >
+        <h2 class="section-title">Proyectos</h2>
+        <div id="projects-container">
+          <!-- Los proyectos se insertarán aquí dinámicamente -->
+        </div>
+      </section>
+
+      <!-- ====== SECCIÓN: CONTACTO (CONTACT) ====== -->
+      <section
+        id="contact"
+        class="tweet-card"
+        data-aos="fade-up"
+        data-title="Contacto"
+      >
+        <h2 class="section-title">Contacto</h2>
+        <form
+          action="https://formsubmit.co/carlosjose13975@gmail.com"
+          method="POST"
+          id="contactForm"
+        >
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              required
+              placeholder="Escribe tu nombre"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+              placeholder="ejemplo@gmail.com"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <textarea
+              class="form-control"
+              id="mensaje"
+              name="mensaje"
+              maxlength="200"
+              required
+              placeholder="Escribe tu mensaje aquí"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <input type="hidden" name="_captcha" value="false" />
+          <button type="submit" class="btn btn-x">Enviar</button>
+        </form>
+      </section>
+
+      <!-- ====== FOOTER ====== -->
+      <footer role="contentinfo">
+        <p>&copy; 2025 Carlos Gómez. Todos los derechos reservados.</p>
+        <p>
+          <small>
+            Programador de Aplicaciones y Servicios Cloud | Especializado en
+            AWS, MongoDB Atlas y JavaScript |
+            <a
+              href="https://github.com/CARLOSNAMIAS"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub de Carlos Gómez"
+              >GitHub</a
+            >
+            | Disponible para proyectos
+          </small>
+        </p>
+      </footer>
+    </main>
+
+    <!-- ============================================= -->
+    <!-- ================= CHATBOT =================== -->
+    <!-- ============================================= -->
+    <!-- Icono flotante para activar el chatbot -->
+    <div class="chatbot-icon" id="chatbot-toggle">
+      <i class="bi bi-feather"></i>
     </div>
-    <a href="#profile">
-      <i class="bi bi-house-door-fill"></i>
-      <span>Inicio</span>
-    </a>
-    <a href="#profile">
-      <i class="bi bi-person-fill"></i>
-      <span>Perfil</span>
-    </a>
-    <a href="#about">
-      <i class="bi bi-info-circle-fill"></i>
-      <span>Sobre mí</span>
-    </a>
-    <a href="#experience">
-      <i class="bi bi-briefcase-fill"></i>
-      <span>Experiencia</span>
-    </a>
-    <a href="#projects">
-      <i class="bi bi-folder-fill"></i>
-      <span>Proyectos</span>
-    </a>
-    <a href="#contact">
-      <i class="bi bi-envelope-fill"></i>
-      <span>Contacto</span>
-    </a>
-  </nav>
 
-  <!-- ============================================= -->
-  <!-- ============= MAIN CONTENT ================== -->
-  <!-- ============================================= -->
-  <main class="main-content">
-    <!-- Header fijo con título -->
-    <header class="header" role="banner">
-      <h2 class="header-title" style="display: none;">Portafolio de Carlos Gómez</h2>
-      <div class="header-title" aria-label="Portafolio">Portafolio</div>
-    </header>
+    <!-- Overlay para el fondo oscuro cuando el chatbot está activo -->
+    <div class="chatbot-overlay" id="chatbot-overlay"></div>
 
-    <!-- ====== SECCIÓN: PERFIL (PROFILE) ====== -->
-    <section id="profile" data-aos="fade-up" data-title="Inicio" itemscope itemtype="https://schema.org/Person">
-      <div class="profile-header"></div>
-      <div class="profile-info">
-        <div class="profile-actions">
-          <a href="#projects" class="btn btn-x">Ver Proyectos</a>
+    <!-- Ventana del chatbot (inicialmente oculta) -->
+    <div class="chatbot-window" id="chatbot-window">
+      <div class="chatbot-header">
+        <h5 class="chatbot-title">Chatbot</h5>
+        <button type="button" class="btn-close" id="chatbot-close"></button>
+      </div>
+      <div class="chatbot-body">
+        <div class="chatbox">
+          <div class="message-content">
+            <strong>Chatbot:</strong> ¡Hola! Soy el asistente de Carlos. ¿En qué
+            puedo ayudarte?
+          </div>
+          <div class="mt-3">
+            <button class="btn btn-x btn-sm me-2 mb-2">Ver proyectos</button>
+            <button class="btn btn-x btn-sm me-2 mb-2">
+              Saber más sobre Carlos
+            </button>
+            <button class="btn btn-x btn-sm mb-2">Contactarlo</button>
+          </div>
         </div>
-        <img src="./img/avatar.jpg" alt="Carlos Gómez - Frontend Developer e Ingeniero en Telecomunicaciones"
-          class="profile-img" loading="lazy" width="200" height="200" itemprop="image" />
-        <h1 class="profile-name">Carlos Gómez <i class="bi bi-patch-check-fill verification-badge"></i></h1>
-        <div class="profile-username">@carlosgomez</div>
-        <div class="profile-bio">
-          Ingeniero de Telecomunicaciones evolucionado a <strong>Programador de Aplicaciones y Servicios para
-            Nube</strong>.
-          Especializado en el diseño y despliegue de soluciones escalables utilizando <strong>AWS, MongoDB Atlas y
-            JavaScript</strong>.
-          Mi enfoque se centra en la arquitectura de datos eficiente, el desarrollo de <strong>APIs REST</strong>
-          robustas y la optimización de
-          servicios en la nube para entornos de alto rendimiento.
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/CARLOSNAMIAS" target="_blank" rel="noopener" title="GitHub">
-            <i class="bi bi-github"></i>
-          </a>
-          <a href="#" target="_blank" title="LinkedIn">
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a href="#" target="_blank" title="X (Twitter)">
-            <i class="bi bi-twitter-x"></i>
-          </a>
-          <a href="#contact" title="Contacto">
-            <i class="bi bi-envelope"></i>
-          </a>
+        <div class="input-group mt-3">
+          <input
+            type="text"
+            id="userInput"
+            class="form-control"
+            placeholder="Escribe tu mensaje..."
+          />
+          <button class="btn btn-x" id="chatbot-send-btn">Enviar</button>
         </div>
       </div>
-    </section>
-
-    <!-- SECCIÓN: SOBRE MÍ -->
-    <section id="about" class="tweet-card" data-aos="fade-up" data-title="Sobre mí">
-      <h2 class="section-title">Sobre mí</h2>
-      <p>
-        Soy un <strong>ingeniero especializado en infraestructura digital</strong>.
-        Mi formación en telecomunicaciones me permite comprender profundamente la transmisión de datos y la latencia,
-        conocimientos que aplico para diseñar <strong>arquitecturas en la nube eficientes y resilientes</strong>.
-      </p>
-      <p>
-        Me dedico a construir el "motor" que impulsa las aplicaciones modernas.
-        Utilizando tecnologías como <strong>AWS y MongoDB Atlas</strong>, desarrollo servicios
-        backend y APIs que gestionan grandes volúmenes de datos con seguridad y velocidad.
-        No solo escribo código; diseño ecosistemas digitales que soportan el crecimiento del negocio.
-      </p>
-      <p>
-        <em>Mi prioridad es la excelencia técnica: código limpio, arquitecturas escalables y soluciones
-          que resuelvan problemas reales, garantizando siempre la continuidad y el rendimiento del servicio.</em>
-      </p>
-    </section>
-
-    <!-- SECCIÓN: EXPERIENCIA TÉCNICA -->
-    <section id="experience" class="tweet-card" data-aos="fade-up" data-title="Experiencia">
-      <h2 class="section-title">Experiencia Técnica</h2>
-
-      <article class="timeline-item">
-        <time itemprop="datePosted" datetime="2015">2015 - 2018</time> | <span itemprop="jobLocation" itemscope
-          itemtype="https://schema.org/Place"><span itemprop="addressCountry">Venezuela</span></span>
-        <ul>
-          <li>
-            Configuración y mantenimiento de sistemas de uplink satelital para
-            transmisiones en vivo
-          </li>
-          <li>
-            Troubleshooting de sistemas complejos bajo presión (0 downtime
-            tolerance)
-          </li>
-          <li>
-            Coordinación técnica con equipos de producción y broadcasting
-          </li>
-        </ul>
-      </article>
-
-      <article class="timeline-item">
-        <h3 itemprop="title">☁️ Programador de Servicios Cloud & Apps</h3>
-        <time itemprop="datePosted" datetime="2024">2024 - Presente</time> | <span itemprop="jobLocation" itemscope
-          itemtype="https://schema.org/Place"><span itemprop="addressCountry">Colombia</span></span>
-        <ul>
-          <li>
-            Desarrollo y despliegue de infraestructura en la nube con <strong>AWS</strong>
-          </li>
-          <li>Gestión y modelado de bases de datos NoSQL con <strong>MongoDB Atlas</strong></li>
-          <li>Diseño e implementación de <strong>APIs RESTful</strong> escalables</li>
-          <li>Desarrollo de lógica de backend eficiente con <strong>JavaScript</strong></li>
-          <li>Integración de servicios y optimización de rendimiento</li>
-        </ul>
-      </article>
-
-      <article class="timeline-item" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
-        <h3>🎓 Formación</h3>
-        <ul>
-          <li>
-            <strong>Ingeniería en Telecomunicaciones</strong> - Universidad
-            Nacional Experimental Politecnida de la Fuerza Armada UNEFA Zulia,
-            Venezuela
-          </li>
-          <li>
-            <strong>Desarrollo Web Autodidacta</strong> - freeCodeCamp, MDN Web
-            Docs, proyectos prácticos
-          </li>
-        </ul>
-      </article>
-    </section>
-
-    <!-- ====== SECCIÓN: PROYECTOS (PROJECTS) ====== -->
-    <!-- El contenido de esta sección se genera dinámicamente desde scripts.js -->
-    <section id="projects" class="tweet-card" data-aos="fade-up" data-title="Proyectos">
-      <h2 class="section-title">Proyectos</h2>
-      <div id="projects-container">
-        <!-- Los proyectos se insertarán aquí dinámicamente -->
-      </div>
-    </section>
-
-    <!-- ====== SECCIÓN: CONTACTO (CONTACT) ====== -->
-    <section id="contact" class="tweet-card" data-aos="fade-up" data-title="Contacto">
-      <h2 class="section-title">Contacto</h2>
-      <form action="https://formsubmit.co/carlosjose13975@gmail.com" method="POST" id="contactForm">
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Escribe tu nombre" />
-        </div>
-
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email" name="email" required placeholder="ejemplo@gmail.com" />
-        </div>
-
-        <div class="mb-3">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="mensaje" name="mensaje" maxlength="200" required
-            placeholder="Escribe tu mensaje aquí" rows="4"></textarea>
-        </div>
-
-        <input type="hidden" name="_captcha" value="false" />
-        <button type="submit" class="btn btn-x">Enviar</button>
-      </form>
-    </section>
-
-    <!-- ====== FOOTER ====== -->
-    <footer role="contentinfo">
-      <p>&copy; 2025 Carlos Gómez. Todos los derechos reservados.</p>
-      <p>
-        <small>
-          Programador de Aplicaciones y Servicios Cloud | Especializado en AWS, MongoDB Atlas y JavaScript |
-          <a href="https://github.com/CARLOSNAMIAS" target="_blank" rel="noopener noreferrer"
-            aria-label="GitHub de Carlos Gómez">GitHub</a> |
-          Disponible para proyectos
-        </small>
-      </p>
-    </footer>
-  </main>
-
-  <!-- ============================================= -->
-  <!-- ================= CHATBOT =================== -->
-  <!-- ============================================= -->
-  <!-- Icono flotante para activar el chatbot -->
-  <div class="chatbot-icon" id="chatbot-toggle">
-    <i class="bi bi-feather"></i>
-  </div>
-
-  <!-- Overlay para el fondo oscuro cuando el chatbot está activo -->
-  <div class="chatbot-overlay" id="chatbot-overlay"></div>
-
-  <!-- Ventana del chatbot (inicialmente oculta) -->
-  <div class="chatbot-window" id="chatbot-window">
-    <div class="chatbot-header">
-      <h5 class="chatbot-title">Chatbot</h5>
-      <button type="button" class="btn-close" id="chatbot-close"></button>
     </div>
-    <div class="chatbot-body">
-      <div class="chatbox">
-        <div class="message-content">
-          <strong>Chatbot:</strong> ¡Hola! Soy el asistente de Carlos. ¿En qué
-          puedo ayudarte?
-        </div>
-        <div class="mt-3">
-          <button class="btn btn-x btn-sm me-2 mb-2">Ver proyectos</button>
-          <button class="btn btn-x btn-sm me-2 mb-2">
-            Saber más sobre Carlos
-          </button>
-          <button class="btn btn-x btn-sm mb-2">Contactarlo</button>
-        </div>
+
+    <!-- ============================================= -->
+    <!-- ============ NOTIFICATION ELEMENT =========== -->
+    <!-- ============================================= -->
+    <div class="notification" id="notification"></div>
+
+    <!-- ============================================= -->
+    <!-- ================= SCRIPTS =================== -->
+    <!-- ============================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="config.js"></script>
+    <script src="utils.js"></script>
+    <script src="projects.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="main.js"></script>
+    <!-- 100% privacy-first analytics -->
+    <script
+      async
+      src="https://scripts.simpleanalyticscdn.com/latest.js"
+    ></script>
+
+    <!-- ============================================= -->
+    <!-- ============ MODAL VISTA PROYECTO =========== -->
+    <!-- ============================================= -->
+    <div class="modal-overlay" id="project-modal-overlay"></div>
+    <div class="project-modal" id="project-modal">
+      <div class="project-modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          id="project-modal-close"
+        ></button>
       </div>
-      <div class="input-group mt-3">
-        <input type="text" id="userInput" class="form-control" placeholder="Escribe tu mensaje..." />
-        <button class="btn btn-x" id="chatbot-send-btn">Enviar</button>
+      <div class="project-modal-content" id="project-modal-content">
+        <!-- El contenido del proyecto se insertará aquí dinámicamente -->
       </div>
     </div>
-  </div>
-
-  <!-- ============================================= -->
-  <!-- ============ NOTIFICATION ELEMENT =========== -->
-  <!-- ============================================= -->
-  <div class="notification" id="notification"></div>
-
-  <!-- ============================================= -->
-  <!-- ================= SCRIPTS =================== -->
-  <!-- ============================================= -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="config.js"></script>
-  <script src="utils.js"></script>
-  <script src="projects.js"></script>
-  <script src="chatbot.js"></script>
-  <script src="main.js"></script>
-
-  <!-- ============================================= -->
-  <!-- ============ MODAL VISTA PROYECTO =========== -->
-  <!-- ============================================= -->
-  <div class="modal-overlay" id="project-modal-overlay"></div>
-  <div class="project-modal" id="project-modal">
-    <div class="project-modal-header">
-      <button type="button" class="btn-close" id="project-modal-close"></button>
-    </div>
-    <div class="project-modal-content" id="project-modal-content">
-      <!-- El contenido del proyecto se insertará aquí dinámicamente -->
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
