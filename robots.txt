@@ -1,0 +1,25 @@
+# robots.txt para Portafolio Carlos Gómez
+# https://hvpf.vercel.app/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hvpf.vercel.app/sitemap.xml
+
+# Deshabilitar acceso a archivos de configuración y scripts
+Disallow: /config.js
+Disallow: /utils.js
+Disallow: /projects.js
+Disallow: /chatbot.js
+Disallow: /main.js
+Disallow: /projects.json
+
+# Permitir acceso a recursos estáticos
+Allow: /img/
+Allow: /styles.css
+Allow: /index.html
+
+# Crawl-delay (opcional, para ser amigable con los servidores)
+Crawl-delay: 1
+
