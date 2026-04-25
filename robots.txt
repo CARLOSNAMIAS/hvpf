@@ -7,13 +7,10 @@ Allow: /
 # Sitemap
 Sitemap: https://carlosnamias.vercel.app/sitemap.xml
 
-# Deshabilitar acceso a archivos de configuración y scripts
-Disallow: /config.js
-Disallow: /utils.js
-Disallow: /projects.js
-Disallow: /chatbot.js
-Disallow: /main.js
-Disallow: /projects.json
+# Permitir acceso completo a scripts y recursos para asegurar correcto renderizado por Googlebot
+Allow: /*.js
+Allow: /*.css
+Allow: /*.json
 
 # Permitir acceso a recursos estáticos
 Allow: /img/

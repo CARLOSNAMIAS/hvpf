@@ -860,3 +860,123 @@ footer {
     border-bottom: none;
     padding: 0;
 }
+
+/* ==========================================================================
+   10. Reposicionamiento AI-Native
+   ========================================================================== */
+
+/* Botones del perfil más compactos */
+.profile-actions .btn-x,
+.profile-actions .btn-x-outline {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+}
+
+/* CTA outline (Hire me) */
+.btn-x-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 1.5px solid var(--text-color-primary);
+    color: var(--text-color-primary);
+    background: transparent;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-x-outline:hover {
+    background: var(--text-color-primary);
+    color: var(--bg-color);
+}
+
+/* Pill de disponibilidad */
+.profile-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    color: var(--text-color-secondary);
+    margin-bottom: 10px;
+}
+.availability-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+    animation: pulse-availability 2s infinite;
+}
+@keyframes pulse-availability {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* Stack chips */
+.stack-group {
+    margin-bottom: 16px;
+}
+.stack-group-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-color-primary);
+    margin-bottom: 8px;
+}
+.stack-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.chip {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    border: 1px solid var(--text-color-secondary);
+    color: var(--text-color-primary);
+    background: transparent;
+}
+.chip-ai {
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15));
+    border-color: rgba(139,92,246,0.6);
+    color: #a78bfa;
+}
+.stack-note {
+    font-size: 0.78rem;
+    color: var(--text-color-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* Intro de contacto */
+.contact-intro {
+    color: var(--text-color-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+    .profile-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .profile-actions .btn-x-outline {
+        display: none;
+    }
+    .stack-chips {
+        gap: 6px;
+    }
+    .chip {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+}

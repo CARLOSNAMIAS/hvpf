@@ -48,7 +48,7 @@ function renderProjects(projectsToRender, container) {
             return;
         }
 
-        const imageGridHtml = createImageGrid(project.images, project.alt);
+        const imageGridHtml = createImageGrid(project.images.slice(0, 2), project.alt);
         const isExternal = project.link.startsWith('http');
         const linkAttrs = isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
         const escapedLink = escapeHtml(project.link);
