@@ -13,33 +13,33 @@
  */
 const chatbotResponses = {
     greetings: [
-        "¡Hola! 👋 Soy el asistente virtual de Carlos. ¿En qué puedo ayudarte?",
-        "¡Hola! Bienvenido. ¿Qué te gustaría saber sobre Carlos?",
-        "¡Hey! ¿En qué puedo asistirte hoy?"
+        "¡Hola! 👋 Soy el asistente de Carlos. ¿Quieres saber sobre sus proyectos, su stack o cómo contratarlo?",
+        "¡Hey! Bienvenido al portafolio de Carlos. ¿En qué puedo ayudarte?",
+        "¡Hola! ¿Qué te gustaría saber sobre Carlos?"
     ],
     about: [
-        "Carlos es un Desarrollador Frontend especializado en crear aplicaciones web y servicios cloud. Domina HTML, CSS, JavaScript y Bootstrap. 💻",
-        "Carlos se enfoca en desarrollar interfaces responsivas y funcionales que optimizan la experiencia del usuario. También trabaja con tecnologías cloud. ☁️"
+        "Carlos es un AI-Native Full-Stack Developer basado en Colombia. Fundó Emergencia Colombia S.A.S. — una plataforma civic-tech con 3 apps en producción. Trabaja en solitario usando Claude Code, Cursor y Figma MCP. 🚀",
+        "Carlos es desarrollador full-stack con workflow AI-native. Su stack principal es Next.js 15 + TypeScript + Supabase + Turborepo. También trabaja con clientes freelance como Small Bites English Academy. 💻"
     ],
     projects: (numProjects) => [
-        `Carlos ha trabajado en ${numProjects} proyectos increíbles, incluyendo clones de Nintendo, TikTok, sistemas de facturación y más. ¿Quieres ver alguno específico? 🚀`,
-        "Entre sus proyectos destacan: una app de música con API de Deezer, un clon de TikTok, y sistemas de gestión de restaurantes. ¡Échales un vistazo! 📱"
+        `Carlos tiene ${numProjects} proyectos en el portafolio. El flagship es Emergencia Colombia — monorepo Turborepo con Reporta CO, Paramédicos CO y Admin Panel en producción. ¿Quieres ver alguno? 🚨`,
+        "Sus proyectos destacados: Emergencia Colombia (civic-tech, 3 apps en producción), Small Bites English Academy (mini-LMS freelance) y SonicWave Radio. Todos con Next.js, Supabase y Tailwind. 📱"
     ],
     skills: [
-        "Carlos domina: HTML5, CSS3, JavaScript, Bootstrap, y tecnologías Cloud. También tiene experiencia con APIs y diseño responsive. 🎯",
-        "Sus habilidades principales son Frontend Development, Cloud Computing y creación de interfaces intuitivas y modernas. ⚡"
+        "Stack de Carlos: Next.js 15, TypeScript, Supabase, Tailwind, Zustand, Turborepo, React Native, Leaflet/OSRM. Herramientas AI: Claude Code, Cursor, Figma MCP. Deploy en Vercel. ⚡",
+        "Carlos trabaja con un workflow 100% AI-assisted: Claude Code para arquitectura, Cursor para edición y Figma MCP para diseño-to-code. Stack principal: Next.js 15 + Supabase + TypeScript. 🎯"
     ],
     contact: [
-        "Puedes contactar a Carlos a través del formulario en la sección de Contacto, o por sus redes sociales: GitHub, LinkedIn y Twitter. 📧",
-        "¡Genial! Usa el formulario de contacto en esta página o envíale un mensaje directo por sus redes sociales. 💬"
+        "Puedes escribirle directamente desde el formulario de Contacto en esta página. También está en GitHub como CARLOSNAMIAS. 📧",
+        "Usa el formulario de contacto aquí abajo. Carlos está disponible para proyectos remotos en LATAM y US time zones. 💬"
     ],
     thanks: [
-        "¡De nada! ¿Hay algo más en lo que pueda ayudarte? 😊",
-        "¡Un placer ayudarte! Si tienes más preguntas, aquí estoy. 🤝"
+        "¡De nada! ¿Algo más sobre Carlos o sus proyectos? 😊",
+        "¡Un placer! Si tienes más preguntas, aquí estoy. 🤝"
     ],
     default: [
-        "Interesante pregunta. Te sugiero revisar el portafolio de Carlos o contactarlo directamente para más información. 🤔",
-        "No estoy seguro de cómo responder a eso, pero puedo ayudarte con información sobre Carlos, sus proyectos, habilidades o cómo contactarlo. 💡"
+        "Puedo contarte sobre Carlos, sus proyectos, su stack AI-native o cómo contratarlo. ¿Qué te interesa? 🤔",
+        "No tengo esa info, pero puedo ayudarte con proyectos, habilidades o contacto. ¿Qué necesitas? 💡"
     ]
 };
 
@@ -55,14 +55,14 @@ function getBotResponse(userMessage) {
     if (msg.match(/hola|hi|hey|buenos|saludos|que tal/i)) {
         return getRandomResponse(chatbotResponses.greetings);
     }
-    if (msg.match(/quien es|sobre|acerca de|quien eres|conocer|información|quien|que hace/i)) {
+    if (msg.match(/quien es|sobre|acerca de|quien eres|conocer|información|quien|que hace|founder|emergencia/i)) {
         return getRandomResponse(chatbotResponses.about);
     }
-    if (msg.match(/proyecto|trabajo|portafolio|desarrollado|aplicacion|app|nintendo|tiktok|musica/i)) {
+    if (msg.match(/proyecto|trabajo|portafolio|desarrollado|aplicacion|app|smallbites|sonicwave|lms/i)) {
         const numProjects = projects.length > 0 ? projects.length : 'varios';
         return getRandomResponse(chatbotResponses.projects(numProjects));
     }
-    if (msg.match(/habilidad|tecnologia|lenguaje|sabe|domina|conocimiento|experiencia|stack/i)) {
+    if (msg.match(/habilidad|tecnologia|lenguaje|sabe|domina|conocimiento|experiencia|stack|next|supabase|claude|cursor|ai|typescript/i)) {
         return getRandomResponse(chatbotResponses.skills);
     }
     if (msg.match(/contacto|contactar|email|correo|escribir|mensaje|hablar|comunicar/i)) {
