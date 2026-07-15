@@ -1,0 +1,29 @@
+# Sistema operativo
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# OneDrive (este repo vive en una carpeta sincronizada)
+*.tmp
+*~
+.~lock.*
+
+# Editores
+.vscode/*
+!.vscode/settings.json
+.idea/
+*.swp
+*.code-workspace
+
+# Dependencias / logs (por si algún día se añade tooling)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.env
+.env.local
+
+# Vercel
+.vercel
