@@ -150,10 +150,6 @@
     <div class="sidebar-logo">
       <i class="bi bi-code-slash"></i>
     </div>
-    <a href="#profile" aria-label="Volver arriba">
-      <i class="bi bi-house-door-fill" aria-hidden="true"></i>
-      <span>Inicio</span>
-    </a>
     <a href="#profile" aria-label="Ir al perfil">
       <i class="bi bi-person-fill" aria-hidden="true"></i>
       <span>Perfil</span>
@@ -186,11 +182,12 @@
   <main class="main-content">
     <!-- Header fijo con título -->
     <header class="header" role="banner">
-      <div class="header-title" aria-label="Portafolio">Portafolio</div>
+      <!-- El texto lo actualiza main.js con el data-title de la sección visible. -->
+      <div class="header-title" id="header-title">Perfil</div>
     </header>
 
     <!-- ====== SECCIÓN: PERFIL (PROFILE) ====== -->
-    <section id="profile" data-aos="fade-up" data-title="Inicio" itemscope itemtype="https://schema.org/Person">
+    <section id="profile" data-aos="fade-up" data-title="Perfil" itemscope itemtype="https://schema.org/Person">
       <div class="profile-header"></div>
       <div class="profile-info">
         <div class="profile-actions">
@@ -391,6 +388,35 @@
       </p>
     </footer>
   </main>
+
+  <!-- ============================================= -->
+  <!-- ========== TAB BAR (SOLO MÓVIL) ============= -->
+  <!-- ============================================= -->
+  <!-- Sustituye al sidebar, que se oculta por debajo de 768px. Al alcance del
+       pulgar. La pestaña activa la marca main.js según la sección visible;
+       #about no tiene pestaña propia y mantiene activa la de Perfil. -->
+  <nav class="tabbar" aria-label="Navegación de secciones">
+    <a href="#profile" data-tab-for="profile about">
+      <i class="bi bi-person-fill" aria-hidden="true"></i>
+      <span>Perfil</span>
+    </a>
+    <a href="#stack" data-tab-for="stack">
+      <i class="bi bi-cpu-fill" aria-hidden="true"></i>
+      <span>Stack</span>
+    </a>
+    <a href="#experience" data-tab-for="experience">
+      <i class="bi bi-briefcase-fill" aria-hidden="true"></i>
+      <span>Experiencia</span>
+    </a>
+    <a href="#projects" data-tab-for="projects">
+      <i class="bi bi-folder-fill" aria-hidden="true"></i>
+      <span>Proyectos</span>
+    </a>
+    <a href="#contact" data-tab-for="contact">
+      <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+      <span>Contacto</span>
+    </a>
+  </nav>
 
   <!-- ============================================= -->
   <!-- ================= CHATBOT =================== -->

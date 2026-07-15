@@ -189,11 +189,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lógica para ocultar/mostrar elementos con el scroll
     const header = document.querySelector('.header');
+    const tabbar = document.querySelector('.tabbar');
     let lastScrollTop = 0;
-    const handleScroll = debounce(() => {
-        if (chatbotToggle) {
-            chatbotToggle.classList.remove('hidden');
-        }
+
+    // Se apartan al bajar y vuelven al subir o al detenerse el scroll. Comparten
+    // la lista para que el FAB y la tab bar no se desincronicen.
+    const autoHidingElements = [chatbotToggle, tabbar].filter(Boolean);
+
+    const revealAfterScrollStop = debounce(() => {
+        autoHidingElements.forEach(el => el.classList.remove('hidden'));
     }, 250);
 
     window.addEventListener('scroll', () => {
@@ -209,18 +213,84 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Lógica para el botón del chatbot
-        if (chatbotToggle) {
-            if (scrollTop > lastScrollTop) {
-                chatbotToggle.classList.add('hidden');
-            } else {
-                chatbotToggle.classList.remove('hidden');
-            }
-            handleScroll();
+        if (autoHidingElements.length) {
+            const scrollingDown = scrollTop > lastScrollTop;
+            autoHidingElements.forEach(el => el.classList.toggle('hidden', scrollingDown));
+            revealAfterScrollStop();
         }
 
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
+
+    // =============================================
+    // ===== SECCIÓN ACTUAL (HEADER + TAB BAR) =====
+    // =============================================
+
+    /**
+     * @description Mantiene sincronizados el título del header y la pestaña
+     * activa de la tab bar con la sección visible, leyendo el data-title de
+     * cada <section>.
+     */
+    const headerTitle = document.getElementById('header-title');
+    const sections = [...document.querySelectorAll('section[data-title]')];
+    const tabs = document.querySelectorAll('.tabbar a');
+
+    if (headerTitle && sections.length) {
+        const visibleSections = new Set();
+
+        const setCurrentSection = (section) => {
+            if (headerTitle.textContent !== section.dataset.title) {
+                headerTitle.textContent = section.dataset.title;
+            }
+
+            tabs.forEach(tab => {
+                // Una pestaña puede cubrir varias secciones (Perfil abarca #about).
+                const covers = (tab.dataset.tabFor || '').split(' ').includes(section.id);
+                tab.classList.toggle('active', covers);
+                if (covers) {
+                    tab.setAttribute('aria-current', 'true');
+                } else {
+                    tab.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        const refreshCurrentSection = () => {
+            // Al llegar al final de la página, la última sección ya no puede subir
+            // hasta la banda de detección, así que nunca se activaría por sí sola.
+            const reachedBottom = window.innerHeight + window.scrollY >=
+                document.documentElement.scrollHeight - 4;
+
+            const current = reachedBottom
+                ? sections[sections.length - 1]
+                // Si hay varias en la banda, gana la primera del documento.
+                : sections.find(section => visibleSections.has(section));
+
+            if (current) {
+                setCurrentSection(current);
+            }
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    visibleSections.add(entry.target);
+                } else {
+                    visibleSections.delete(entry.target);
+                }
+            });
+            refreshCurrentSection();
+        }, {
+            // Banda estrecha bajo el header: marca la sección al entrar por arriba.
+            rootMargin: '-10% 0px -75% 0px'
+        });
+
+        sections.forEach(section => sectionObserver.observe(section));
+
+        // El observer no dispara en el último tramo de scroll, donde ya no cambia
+        // ninguna intersección; sin esto, el caso "final de página" no se detecta.
+        window.addEventListener('scroll', refreshCurrentSection, { passive: true });
+    }
 
     // Manejo de botones de acceso rápido del chatbot
     const quickButtons = document.querySelectorAll('.chatbot-body .btn-x.btn-sm');
@@ -258,8 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Asegura que la página se cargue desde el principio.
+ * Asegura que la página se cargue desde el principio, salvo que la URL traiga
+ * un ancla (#projects, #contact…): ahí manda el enlace compartido.
  */
 window.onload = function () {
-    window.scrollTo(0, 0);
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
+    }
 };

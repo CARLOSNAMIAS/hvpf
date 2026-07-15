@@ -731,13 +731,112 @@ footer {
     }
 }
 
+/* Al navegar por anclas, deja aire para el header sticky (~44px). */
+section[id] {
+    scroll-margin-top: 60px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ==========================================================================
+   Tab bar móvil — sustituye al sidebar por debajo de 768px
+   ========================================================================== */
+
+/* Oculta en escritorio: ahí navega el sidebar. */
+.tabbar {
+    display: none;
+}
+
 @media (max-width: 768px) {
     body {
         padding-left: 0;
+        /* Reserva el alto de la tabbar para que el footer no quede debajo. */
+        padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px));
     }
 
     .sidebar {
         display: none;
+    }
+
+    .tabbar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* Mismo material que el header: translúcido + blur. */
+        background-color: var(--header-bg-color);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid var(--border-color);
+        /* Respeta la barra de gestos del iPhone. */
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        z-index: 999;
+        /* Misma curva y duración que el header, para que el chrome se aparte a la vez. */
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    /* Se aparta al bajar; main.js la devuelve al subir o al detenerse el scroll.
+       Baja en vez de encoger: el scale(0.5) del FAB solo funciona en un círculo. */
+    .tabbar.hidden {
+        transform: translateY(100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .tabbar a {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        padding: 8px 2px;
+        min-height: 52px;
+        text-decoration: none;
+        color: var(--text-color-secondary);
+        transition: color 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .tabbar a i {
+        font-size: 1.25rem;
+        line-height: 1;
+    }
+
+    .tabbar a span {
+        font-size: 0.625rem;
+        letter-spacing: -0.1px;
+        line-height: 1;
+    }
+
+    .tabbar a.active {
+        color: var(--accent-color);
+    }
+
+    .tabbar a:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: -2px;
+        border-radius: 4px;
+    }
+
+    /* El FAB del chatbot sube para no solaparse con la tabbar. */
+    .chatbot-icon {
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tabbar,
+    .tabbar a {
+        transition: none;
     }
 }
 
