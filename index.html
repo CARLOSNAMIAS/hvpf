@@ -11,12 +11,12 @@
   <title>Carlos Gómez | AI-Native Full-Stack Developer · Next.js + Supabase + Claude Code</title>
   <meta name="title" content="Carlos Gómez | AI-Native Full-Stack Developer · Next.js + Supabase + Claude Code" />
   <meta name="description"
-    content="Full-Stack AI-native. Founder de Emergencia Colombia — 3 apps en producción con Next.js 15, Supabase y Turborepo. Disponible para proyectos remotos." />
+    content="Full-Stack AI-native. Lead Developer en Emergencia Colombia y Small Bites Academy — LMS multi-tenant en producción y PULSO, ecosistema de 3 apps móviles. Next.js, TypeScript y Supabase. Disponible para proyectos remotos." />
   <meta name="author" content="Carlos Gomez" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="language" content="Spanish" />
 <meta name="keywords"
-    content="AI-Native Developer, Vibe Coding, Claude Code, Cursor, Figma MCP, Next.js 15, TypeScript, Supabase, Turborepo, Tailwind CSS, Zustand, Civic Tech, Full-Stack Developer, Colombia, Remote Developer" />
+    content="AI-Native Developer, Vibe Coding, Claude Code, Cursor, Figma MCP, Next.js, TypeScript, Supabase, PostGIS, Turborepo, Firebase Cloud Messaging, Capacitor, Android, PWA, Tailwind CSS, Zustand, Civic Tech, Full-Stack Developer, Colombia, Remote Developer" />
   <link rel="canonical" href="https://carlosnamias.vercel.app" />
 
   <!-- Open Graph / Facebook -->
@@ -24,7 +24,7 @@
   <meta property="og:url" content="https://carlosnamias.vercel.app" />
   <meta property="og:title" content="Carlos Gómez · AI-Native Full-Stack Developer" />
   <meta property="og:description"
-    content="Founder de Emergencia Colombia S.A.S. 3 apps en producción. Next.js 15 + Supabase + Turborepo. Workflow AI-native con Claude Code y Cursor." />
+    content="Lead Full-Stack Developer. LMS multi-tenant en producción y PULSO, ecosistema de 3 apps móviles. Next.js + Supabase + Capacitor. Workflow AI-native con Claude Code y Cursor." />
   <meta property="og:image" content="https://carlosnamias.vercel.app/img/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -37,7 +37,7 @@
   <meta name="twitter:url" content="https://carlosnamias.vercel.app" />
   <meta name="twitter:title" content="Carlos Gómez · AI-Native Full-Stack Developer" />
   <meta name="twitter:description"
-    content="Founder de Emergencia Colombia. 3 apps en producción. Next.js 15 + Supabase + Turborepo. Workflow Claude Code + Cursor." />
+    content="Lead Full-Stack Developer. LMS multi-tenant en producción y PULSO, ecosistema de 3 apps móviles. Next.js + Supabase + Capacitor. Workflow Claude Code + Cursor." />
   <meta name="twitter:image" content="https://carlosnamias.vercel.app/img/og-image.png" />
   <meta name="twitter:image:alt" content="Portafolio de Carlos Gómez - AI-Native Full-Stack Developer" />
   <meta name="twitter:creator" content="@carlosgomez" />
@@ -55,7 +55,6 @@
   <!-- Favicon -->
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="img/avatar.jpg" />
-  <link rel="stylesheet" href="css/styles.css" />
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,6 +72,11 @@
 
   <!-- AOS Animation -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Va después de Bootstrap a propósito: comparte selectores con él (body,
+       .form-control) con la misma especificidad, así que solo gana si carga
+       al final. Bootstrap no lee prefers-color-scheme, solo [data-bs-theme]. -->
+  <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Scripts con Defer para Performance -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -96,27 +100,33 @@
         "alternateName": "Carlos Namias",
         "url": "https://carlosnamias.vercel.app",
         "image": "https://carlosnamias.vercel.app/img/profile.png",
-        "jobTitle": "AI-Native Full-Stack Developer",
+        "jobTitle": "Lead Full-Stack Developer",
         "worksFor": {
           "@type": "Organization",
-          "name": "Emergencia Colombia S.A.S."
+          "name": "Emergencia Colombia"
         },
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Universidad Nacional Experimental Politécnica de la Fuerza Armada UNEFA Zulia"
-        },
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Servicio Nacional de Aprendizaje SENA"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Universidad Nacional Experimental Politécnica de la Fuerza Armada UNEFA Zulia"
+          }
+        ],
         "knowsAbout": [
-          "Next.js 15", "TypeScript", "Supabase", "Tailwind CSS", "Zustand",
-          "Turborepo", "React Native", "Leaflet", "OSRM",
+          "Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS", "Zustand",
+          "Capacitor", "Android", "PWA", "Leaflet", "OSRM", "Turborepo",
+          "PostGIS", "Firebase Cloud Messaging", "Web Push", "Row Level Security",
           "Claude Code", "Cursor", "Figma MCP",
           "Vibe Coding", "AI-Assisted Development",
-          "Civic Tech", "PostgreSQL", "Vercel"
+          "Civic Tech", "PostgreSQL", "Vercel", "Playwright", "Jest"
         ],
         "sameAs": ["https://github.com/CARLOSNAMIAS"],
-        "description": "AI-Native Full-Stack Developer. Founder de Emergencia Colombia S.A.S. — monorepo Turborepo con 3 apps en producción. Workflow AI-native con Claude Code, Cursor y Figma MCP.",
+        "description": "Lead Full-Stack Developer con enfoque AI-native. Lidero PULSO, un ecosistema de tres apps móviles en prototipo, y el desarrollo de un LMS multi-tenant en producción. Next.js, TypeScript y Supabase con workflow AI-native (Claude Code, Cursor, Figma MCP).",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Colombia",
           "addressCountry": "CO"
         }
       }
@@ -206,9 +216,11 @@
           Disponible para proyectos · Remote · LATAM/US time zones
         </div>
         <div class="profile-bio">
-          <strong>AI-Native Full-Stack Developer.</strong> Founder de <strong>Emergencia Colombia S.A.S.</strong> —
-          monorepo Turborepo con 3 apps en producción (Reporta CO, Paramédicos CO, Admin Panel). Workflow 100%
-          AI-assisted: Claude Code + Cursor + Figma MCP. Ship rápido, code limpio.
+          <strong>Lead Full-Stack Developer con enfoque AI-native.</strong> Lidero <strong>PULSO</strong> en
+          Emergencia Colombia — un ecosistema de 3 apps móviles (prototipo APK) con push de alta prioridad y
+          geolocalización en tiempo real — y el <strong>LMS multi-tenant</strong> de Small Bites Academy, en
+          producción. Next.js + TypeScript + Supabase, con workflow 100% AI-assisted: Claude Code + Cursor +
+          Figma MCP.
         </div>
         <div class="social-links">
           <a href="https://github.com/CARLOSNAMIAS" target="_blank" rel="noopener noreferrer" title="GitHub"
@@ -234,18 +246,21 @@
     <section id="about" class="tweet-card" data-aos="fade-up" data-title="Sobre mí">
       <h2 class="section-title">Sobre mí</h2>
       <p>
-        Full-Stack developer. Construyo y despliego productos reales usando un workflow
-        100% AI-native: <strong>Claude Code</strong> para arquitectura y código, <strong>Cursor</strong> para edición
-        rápida, <strong>Figma MCP</strong> para diseño-to-code directo.
+        Desarrollador Full-Stack con enfoque AI-native, especializado en construir aplicaciones web y móviles con
+        <strong>Next.js</strong>, <strong>TypeScript</strong> y <strong>Supabase</strong>. Combino un sólido dominio
+        del frontend moderno con servicios en la nube y arquitecturas serverless, apoyándome en un workflow asistido
+        por IA (<strong>Claude Code</strong>, <strong>Cursor</strong>, <strong>Figma MCP</strong>) para iterar rápido
+        y con código limpio.
       </p>
       <p>
-        Fundé <strong>Emergencia Colombia S.A.S.</strong> — una plataforma civic-tech con 3 apps en producción
-        (Reporta CO, Paramédicos CO, Admin Panel) en un monorepo Turborepo con Next.js 15, Supabase y Tailwind.
-        Propiedad intelectual registrada en DNDA Colombia.
+        Lidero el desarrollo de <strong>PULSO</strong> en Emergencia Colombia: un ecosistema de tres apps móviles
+        (en fase de prototipo) que diseñé de extremo a extremo, desde el modelo de base de datos hasta la app
+        Android. En paralelo, dirigí la arquitectura del <strong>LMS multi-tenant</strong> de Small Bites Academy,
+        hoy en producción.
       </p>
       <p>
-        <em>Mi background en telecomunicaciones me enseñó a trabajar bajo tolerancia cero al downtime. Ese mindset
-          lo aplico en producción: cada deploy importa, cada segundo de latencia importa.</em>
+        <em>Mi formación en telecomunicaciones me dio una mentalidad de tolerancia cero al downtime que aplico en
+          cada despliegue: cada deploy importa, cada segundo de latencia importa.</em>
       </p>
     </section>
 
@@ -263,24 +278,44 @@
       </div>
 
       <div class="stack-group">
-        <div class="stack-group-title">Frontend & Mobile</div>
+        <div class="stack-group-title">Frontend</div>
         <div class="stack-chips">
-          <span class="chip">Next.js 15</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">React 18</span>
           <span class="chip">TypeScript</span>
+          <span class="chip">JavaScript (ES6+)</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
           <span class="chip">Tailwind CSS</span>
+          <span class="chip">Bootstrap</span>
           <span class="chip">Zustand</span>
-          <span class="chip">React Native</span>
           <span class="chip">Leaflet / OSRM</span>
         </div>
       </div>
 
       <div class="stack-group">
-        <div class="stack-group-title">Backend & Data</div>
+        <div class="stack-group-title">Mobile</div>
+        <div class="stack-chips">
+          <span class="chip">Capacitor (Android / APK)</span>
+          <span class="chip">PWA & Service Workers</span>
+          <span class="chip">Firebase Cloud Messaging</span>
+          <span class="chip">Web Push (VAPID)</span>
+          <span class="chip">Background geolocation</span>
+        </div>
+      </div>
+
+      <div class="stack-group">
+        <div class="stack-group-title">Backend & Cloud</div>
         <div class="stack-chips">
           <span class="chip">Supabase</span>
           <span class="chip">PostgreSQL</span>
+          <span class="chip">PostGIS</span>
+          <span class="chip">Realtime</span>
+          <span class="chip">Auth & Storage</span>
           <span class="chip">Edge Functions</span>
+          <span class="chip">Row Level Security</span>
           <span class="chip">REST APIs</span>
+          <span class="chip">Serverless (Node.js)</span>
         </div>
       </div>
 
@@ -289,8 +324,11 @@
         <div class="stack-chips">
           <span class="chip">Turborepo</span>
           <span class="chip">Vercel</span>
-          <span class="chip">Git</span>
+          <span class="chip">Git & GitHub</span>
+          <span class="chip">Jest</span>
+          <span class="chip">React Testing Library</span>
           <span class="chip">Playwright</span>
+          <span class="chip">VS Code</span>
         </div>
       </div>
 
@@ -301,41 +339,51 @@
       <h2 class="section-title">Experiencia</h2>
 
       <article class="timeline-item">
-        <h3>🚨 Founder & Solo Developer · Emergencia Colombia S.A.S.</h3>
-        <time datetime="2026">2026 – Presente</time> | Colombia
+        <h3>🚨 Lead Full-Stack Developer · Emergencia Colombia</h3>
+        <time datetime="2026">2026 – Presente</time> | Colombia · Remoto
         <ul>
-          <li>Monorepo Turborepo con 3 apps en producción: <strong>Reporta CO</strong>, <strong>Paramédicos CO</strong> y <strong>Admin Panel</strong></li>
-          <li>Stack: Next.js 15, TypeScript, Supabase, Tailwind, Zustand, Leaflet/OSRM</li>
-          <li>Propiedad intelectual registrada en <strong>DNDA Colombia</strong></li>
-          <li>Postulado a convocatorias: iNNpulsa, Apps.co, ANSV</li>
+          <li>Desarrollo <strong>PULSO</strong>, un ecosistema de tres apps móviles en fase de prototipo (APK) integradas en un monorepo con Turborepo: <strong>Paramédicos</strong>, <strong>UserReport</strong> (reportes ciudadanos) y un panel de administración</li>
+          <li>Servicio en segundo plano con <strong>push de alta prioridad</strong> (FCM + Web Push/VAPID) que despierta el dispositivo del paramédico ante un nuevo reporte, incluso con la pantalla apagada o en modo Doze</li>
+          <li>Arquitectura en tiempo real con <strong>Supabase Realtime</strong> (WebSockets) y consultas geoespaciales con <strong>PostGIS</strong> para asignar reportes por radio de cercanía, con rutas y ETA vía Leaflet y OSRM</li>
+          <li>Stack: Next.js, TypeScript (strict), Supabase (PostgreSQL, PostGIS, Auth, Edge Functions, RLS), Tailwind, Zustand, PWA y Capacitor para el APK Android</li>
+          <li>Flujo 100% AI-native (Claude Code, Cursor, Figma MCP) para iterar rápido manteniendo código limpio</li>
         </ul>
       </article>
 
       <article class="timeline-item">
-        <h3>📚 Solo Full-Stack Developer (Freelance) · Small Bites English Academy</h3>
-        <time datetime="2025">2025 – Presente</time> | Remoto
+        <h3>📚 Lead Full-Stack Developer · Small Bites Academy</h3>
+        <time datetime="2026">2026 – Presente</time> | Remoto
         <ul>
-          <li>Mini-LMS a medida con Next.js 15, Supabase y Tailwind</li>
-          <li>Gestión de alumnos, progreso por módulos y panel de administración</li>
-          <li>Phase 2 en curso</li>
+          <li>Arquitectura y desarrollo end-to-end de un <strong>LMS multi-tenant</strong> (smallbitesacademy.com), con aislamiento estricto de datos entre profesores mediante <strong>Row Level Security</strong> en PostgreSQL</li>
+          <li>Lógica de negocio transaccional (créditos de clases, bloqueos por falta de saldo y cancelaciones de 24h) delegada a la base de datos con triggers y funciones RPC (SECURITY DEFINER), previniendo condiciones de carrera</li>
+          <li>Distribución de material educativo con buckets privados y acceso validado en tiempo real vía URLs firmadas temporalmente</li>
+          <li>Suite de pruebas automatizadas: unitarias con Jest + React Testing Library y end-to-end con Playwright sobre flujos críticos (autenticación, agendas)</li>
+          <li>Stack: Next.js 16 (App Router), TypeScript, Supabase (PostgreSQL, Auth, Storage, Edge Functions), Tailwind CSS v4</li>
         </ul>
       </article>
 
       <article class="timeline-item">
-        <h3>📡 Ingeniero de Telecomunicaciones · Broadcasting</h3>
-        <time datetime="2015">2015 – 2018</time> | Venezuela
+        <h3>📡 Ingeniero de Telecomunicaciones · Covetel S.A.</h3>
+        <time datetime="2016-02">Feb 2016 – Ago 2019</time> | Maracaibo, Venezuela
         <ul>
-          <li>Configuración y mantenimiento de sistemas de uplink satelital para transmisiones en vivo</li>
-          <li>Troubleshooting de sistemas complejos bajo tolerancia cero al downtime</li>
-          <li>Coordinación técnica con equipos de producción y broadcasting</li>
+          <li>Operación y supervisión técnica en producción de televisión en vivo: sonido, manejo de cámaras y realización</li>
+          <li>Implementé y gestioné transmisiones con el sistema satelital <strong>FlyAway</strong>, garantizando calidad y continuidad de señal bajo tolerancia cero al downtime</li>
         </ul>
       </article>
 
       <article class="timeline-item" itemscope itemtype="https://schema.org/EducationalOccupationalCredential">
-        <h3>🎓 Formación</h3>
+        <h3>🎓 Educación</h3>
         <ul>
-          <li><strong>Ingeniería en Telecomunicaciones</strong> · UNEFA Zulia, Venezuela</li>
-          <li><strong>Desarrollo Web & AI-Native Workflow</strong> · Autodidacta (freeCodeCamp, MDN, proyectos en producción)</li>
+          <li><strong>Técnico en Programación de Aplicaciones y Servicios para la Nube</strong> · SENA, Colombia · 2023 – Presente (finalizando proyecto de grado)</li>
+          <li><strong>Ingeniería de Telecomunicaciones</strong> · UNEFA, Maracaibo · 2008 – 2014</li>
+        </ul>
+      </article>
+
+      <article class="timeline-item">
+        <h3>📜 Cursos y certificaciones</h3>
+        <ul>
+          <li><strong>Google AI Essentials</strong> · Coursera (2024)</li>
+          <li><strong>Frontend Developer</strong> · Platzi (2025)</li>
         </ul>
       </article>
     </section>
@@ -465,19 +513,6 @@
   <!-- ================= SCRIPTS =================== -->
   <!-- ============================================= -->
   <!-- Los scripts han sido movidos al <head> con atributo 'defer' para mejorar el rendimiento -->
-
-  <!-- ============================================= -->
-  <!-- ============ MODAL VISTA PROYECTO =========== -->
-  <!-- ============================================= -->
-  <div class="modal-overlay" id="project-modal-overlay"></div>
-  <div class="project-modal" id="project-modal">
-    <div class="project-modal-header">
-      <button type="button" class="btn-close" id="project-modal-close"></button>
-    </div>
-    <div class="project-modal-content" id="project-modal-content">
-      <!-- El contenido del proyecto se insertará aquí dinámicamente -->
-    </div>
-  </div>
 </body>
 
 </html>

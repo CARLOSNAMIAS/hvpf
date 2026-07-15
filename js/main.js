@@ -129,35 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return;
             }
-
-            // Acción: Click en cualquier otra parte de la tarjeta para abrir el modal
-            e.preventDefault();
-            openModal(project);
         });
     }
 
-    // =============================================
-    // ========== EVENTOS DEL MODAL ================
-    // =============================================
-    
-    const closeModalBtn = document.querySelector(SELECTORS.MODAL_CLOSE);
-    const modalOverlay = document.querySelector(SELECTORS.MODAL_OVERLAY);
-
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', closeModal);
-    }
-
-    // Cerrar modal con tecla Escape
+    // Cerrar el chatbot con la tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            const modal = document.querySelector(SELECTORS.MODAL);
-            if (modal && modal.classList.contains('show')) {
-                closeModal();
-            }
             const chatbotWindow = document.querySelector(SELECTORS.CHATBOT_WINDOW);
             if (chatbotWindow && chatbotWindow.classList.contains('show')) {
                 closeChatbot();

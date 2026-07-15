@@ -18,16 +18,16 @@ const chatbotResponses = {
         "¡Hola! ¿Qué te gustaría saber sobre Carlos?"
     ],
     about: [
-        "Carlos es un AI-Native Full-Stack Developer basado en Colombia. Fundó Emergencia Colombia S.A.S. — una plataforma civic-tech con 3 apps en producción. Trabaja en solitario usando Claude Code, Cursor y Figma MCP. 🚀",
-        "Carlos es desarrollador full-stack con workflow AI-native. Su stack principal es Next.js 15 + TypeScript + Supabase + Turborepo. También trabaja con clientes freelance como Small Bites English Academy. 💻"
+        "Carlos es un Lead Full-Stack Developer con enfoque AI-native, basado en Colombia. Lidera PULSO en Emergencia Colombia — un ecosistema de 3 apps móviles en prototipo — usando Claude Code, Cursor y Figma MCP. 🚀",
+        "Carlos es desarrollador full-stack con workflow AI-native. Su stack principal es Next.js + TypeScript + Supabase + Turborepo. También lideró el LMS multi-tenant de Small Bites Academy, hoy en producción. 💻"
     ],
     projects: (numProjects) => [
-        `Carlos tiene ${numProjects} proyectos en el portafolio. El flagship es Emergencia Colombia — monorepo Turborepo con Reporta CO, Paramédicos CO y Admin Panel en producción. ¿Quieres ver alguno? 🚨`,
-        "Sus proyectos destacados: Emergencia Colombia (civic-tech, 3 apps en producción), Small Bites English Academy (mini-LMS freelance) y SonicWave Radio. Todos con Next.js, Supabase y Tailwind. 📱"
+        `Carlos tiene ${numProjects} proyectos en el portafolio. El flagship es PULSO — monorepo Turborepo con Paramédicos, UserReport y un panel de administración, en fase de prototipo APK. ¿Quieres ver alguno? 🚨`,
+        "Sus proyectos destacados: PULSO (civic-tech, 3 apps móviles en prototipo), Small Bites Academy (LMS multi-tenant en producción) y SonicWave Radio. Todos con Next.js, Supabase y Tailwind. 📱"
     ],
     skills: [
-        "Stack de Carlos: Next.js 15, TypeScript, Supabase, Tailwind, Zustand, Turborepo, React Native, Leaflet/OSRM. Herramientas AI: Claude Code, Cursor, Figma MCP. Deploy en Vercel. ⚡",
-        "Carlos trabaja con un workflow 100% AI-assisted: Claude Code para arquitectura, Cursor para edición y Figma MCP para diseño-to-code. Stack principal: Next.js 15 + Supabase + TypeScript. 🎯"
+        "Stack de Carlos: Next.js, TypeScript, Supabase (PostgreSQL, PostGIS, Realtime, RLS), Tailwind, Zustand, Turborepo, Capacitor, Leaflet/OSRM. Herramientas AI: Claude Code, Cursor, Figma MCP. Deploy en Vercel. ⚡",
+        "Carlos trabaja con un workflow 100% AI-assisted: Claude Code para arquitectura, Cursor para edición y Figma MCP para diseño-to-code. Stack principal: Next.js + Supabase + TypeScript. 🎯"
     ],
     contact: [
         "Puedes escribirle directamente desde el formulario de Contacto en esta página. También está en GitHub como CARLOSNAMIAS. 📧",
@@ -58,7 +58,7 @@ function getBotResponse(userMessage) {
     if (msg.match(/quien es|sobre|acerca de|quien eres|conocer|información|quien|que hace|founder|emergencia/i)) {
         return getRandomResponse(chatbotResponses.about);
     }
-    if (msg.match(/proyecto|trabajo|portafolio|desarrollado|aplicacion|app|smallbites|sonicwave|lms/i)) {
+    if (msg.match(/proyecto|trabajo|portafolio|desarrollado|aplicacion|app|pulso|smallbites|sonicwave|lms/i)) {
         const numProjects = projects.length > 0 ? projects.length : 'varios';
         return getRandomResponse(chatbotResponses.projects(numProjects));
     }

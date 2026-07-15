@@ -6,10 +6,6 @@
 
 const SELECTORS = {
     PROJECTS_CONTAINER: '#projects-container',
-    MODAL: '#project-modal',
-    MODAL_OVERLAY: '#project-modal-overlay',
-    MODAL_CONTENT: '#project-modal-content',
-    MODAL_CLOSE: '#project-modal-close',
     CHATBOT_TOGGLE: '#chatbot-toggle',
     CHATBOT_WINDOW: '#chatbot-window',
     CHATBOT_CLOSE: '#chatbot-close',
@@ -26,9 +22,17 @@ const USERNAME = '@carlosgomez';
 const DISPLAY_NAME = 'Carlos Gómez';
 
 /**
+ * @typedef {Object} ProjectImage
+ * @property {string} src - Ruta a la imagen.
+ * @property {number} [w] - Ancho real en píxeles.
+ * @property {number} [h] - Alto real en píxeles.
+ */
+
+/**
  * @typedef {Object} Project
- * @property {string[]} images - Array de rutas a las imágenes del proyecto.
- * @property {string} alt - Texto alternativo para las imágenes.
+ * @property {Array<string|ProjectImage>} images - Imágenes del proyecto. Con w/h el
+ * navegador reserva la caja correcta y evita saltos de layout al cargar.
+ * @property {string} alt - Texto alternativo base para las imágenes.
  * @property {string} title - Título del proyecto.
  * @property {string} text - Descripción del proyecto.
  * @property {string} link - URL al proyecto desplegado o a una página de "próximamente".
