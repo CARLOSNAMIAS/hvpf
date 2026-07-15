@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =============================================
     
     if (projectsContainer) {
-        fetch('projects.json')
+        fetch('data/projects.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

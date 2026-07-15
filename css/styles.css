@@ -196,7 +196,7 @@ body {
 
 /* Profile Section */
 .profile-header {
-    background-image: url('./img/fondo-p.jpeg');
+    background-image: url('../img/fondo-p.jpeg');
     background-size: cover;
     background-position: center;
     height: 160px;
