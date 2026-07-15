@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #000000;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  /* Resplandor de acento, coherente con --accent-color dark (#1D9BF0) */
+  .glow {
+    position: absolute;
+    width: 900px; height: 900px;
+    right: -280px; top: -260px;
+    background: radial-gradient(circle, rgba(29,155,240,0.22) 0%, rgba(29,155,240,0.06) 45%, transparent 68%);
+    pointer-events: none;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(47,51,54,0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47,51,54,0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 30% 50%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 30% 50%, #000 30%, transparent 75%);
+  }
+  .content {
+    position: relative;
+    padding: 0 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 56px;
+  }
+  .left { max-width: 700px; }
+
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    color: #71767B;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 26px;
+  }
+  .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: #00BA7C;
+    box-shadow: 0 0 12px rgba(0,186,124,0.9);
+  }
+  .name {
+    font-size: 82px;
+    font-weight: 800;
+    color: #E7E9EA;
+    letter-spacing: -2.5px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .badge { color: #1D9BF0; font-size: 46px; line-height: 1; }
+  .role {
+    font-size: 35px;
+    font-weight: 700;
+    color: #1D9BF0;
+    margin-top: 16px;
+    letter-spacing: -0.8px;
+  }
+  .tagline {
+    font-size: 21px;
+    color: #71767B;
+    margin-top: 18px;
+    line-height: 1.45;
+  }
+  .tagline strong { color: #E7E9EA; font-weight: 700; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: #E7E9EA;
+    border: 1px solid #2F3336;
+    border-radius: 999px;
+    padding: 8px 16px;
+    background: #16181C;
+  }
+  .chip-ai {
+    border-color: rgba(29,155,240,0.45);
+    color: #1D9BF0;
+    background: rgba(29,155,240,0.09);
+  }
+  .right { position: relative; flex-shrink: 0; }
+  .avatar-ring {
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(145deg, #1D9BF0, rgba(29,155,240,0.15));
+  }
+  .avatar {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    background: #16181C;
+    display: block;
+  }
+  .url {
+    position: absolute;
+    left: 72px;
+    bottom: 44px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: #536471;
+  }
+  .url span { color: #1D9BF0; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="grid"></div>
+
+  <div class="content">
+    <div class="left">
+      <div class="availability"><span class="dot"></span>Disponible · Remote · LATAM/US</div>
+      <div class="name">Carlos Gómez <span class="badge">✔</span></div>
+      <div class="role">AI-Native Full-Stack Developer</div>
+      <div class="tagline">
+        Founder de <strong>Emergencia Colombia</strong> — 3 apps en producción<br />
+        en un monorepo Turborepo.
+      </div>
+      <div class="chips">
+        <span class="chip chip-ai">Claude Code</span>
+        <span class="chip chip-ai">Cursor</span>
+        <span class="chip">Next.js 15</span>
+        <span class="chip">TypeScript</span>
+        <span class="chip">Supabase</span>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="avatar-ring">
+        <img class="avatar" src="../img/profile.png" alt="Carlos Gómez" />
+      </div>
+    </div>
+  </div>
+
+  <div class="url">carlosnamias.vercel.app<span> ↗</span></div>
+</body>
+</html>
