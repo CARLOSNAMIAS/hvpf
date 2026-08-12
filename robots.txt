@@ -17,6 +17,3 @@ Allow: /img/
 Allow: /styles.css
 Allow: /index.html
 
-# Crawl-delay (opcional, para ser amigable con los servidores)
-Crawl-delay: 1
-

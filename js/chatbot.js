@@ -30,7 +30,7 @@ const chatbotResponses = {
         "Carlos trabaja con un workflow 100% AI-assisted: Claude Code para arquitectura, Cursor para edición y Figma MCP para diseño-to-code. Stack principal: Next.js + Supabase + TypeScript. 🎯"
     ],
     contact: [
-        "Puedes escribirle directamente desde el formulario de Contacto en esta página. También está en GitHub como CARLOSNAMIAS. 📧",
+        "Puedes escribirle directamente desde el formulario de Contacto en esta página. También está en GitHub como CARLOSNAMIAS y en LinkedIn como carlosgomeznamias. 📧",
         "Usa el formulario de contacto aquí abajo. Carlos está disponible para proyectos remotos en LATAM y US time zones. 💬"
     ],
     thanks: [

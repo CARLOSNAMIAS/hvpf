@@ -1,8 +1,16 @@
 [
     {
         "images": [
-            { "src": "./img/emergencia-1.jpg", "w": 385, "h": 791 },
-            { "src": "./img/emergencia-2.jpg", "w": 378, "h": 793 }
+            {
+                "src": "./img/emergencia-1.webp",
+                "w": 385,
+                "h": 791
+            },
+            {
+                "src": "./img/emergencia-2.webp",
+                "w": 378,
+                "h": 793
+            }
         ],
         "alt": "PULSO - Ecosistema de apps móviles para reportes y coordinación de emergencias",
         "title": "PULSO · Ecosistema de apps móviles (prototipo)",
@@ -11,8 +19,16 @@
     },
     {
         "images": [
-            { "src": "./img/smallbites1.png", "w": 1891, "h": 861 },
-            { "src": "./img/smallbites2.png", "w": 366, "h": 778 }
+            {
+                "src": "./img/smallbites1.webp",
+                "w": 800,
+                "h": 364
+            },
+            {
+                "src": "./img/smallbites2.webp",
+                "w": 366,
+                "h": 778
+            }
         ],
         "alt": "Small Bites Academy - LMS multi-tenant para academia de inglés online",
         "title": "Small Bites Academy",
@@ -21,8 +37,16 @@
     },
     {
         "images": [
-            { "src": "./img/sonicwave-1.png", "w": 1590, "h": 863 },
-            { "src": "./img/sonicwave-2.png", "w": 408, "h": 797 }
+            {
+                "src": "./img/sonicwave-1.webp",
+                "w": 800,
+                "h": 434
+            },
+            {
+                "src": "./img/sonicwave-2.webp",
+                "w": 408,
+                "h": 797
+            }
         ],
         "alt": "SonicWave Radio - Aplicación de radio online",
         "title": "SonicWave Radio",
@@ -31,8 +55,16 @@
     },
     {
         "images": [
-            { "src": "./img/xclone-1.png", "w": 398, "h": 804 },
-            { "src": "./img/xclone-2.png", "w": 403, "h": 802 }
+            {
+                "src": "./img/xclone-1.webp",
+                "w": 398,
+                "h": 804
+            },
+            {
+                "src": "./img/xclone-2.webp",
+                "w": 403,
+                "h": 802
+            }
         ],
         "alt": "Clon X (Twitter) - UI Sandbox",
         "title": "X Clone · UI Sandbox",
@@ -41,8 +73,16 @@
     },
     {
         "images": [
-            { "src": "./img/tiktok-1.png", "w": 445, "h": 871 },
-            { "src": "./img/tiktok-2.png", "w": 441, "h": 861 }
+            {
+                "src": "./img/tiktok-1.webp",
+                "w": 445,
+                "h": 871
+            },
+            {
+                "src": "./img/tiktok-2.webp",
+                "w": 441,
+                "h": 861
+            }
         ],
         "alt": "Clon TikTok - UI Sandbox",
         "title": "TikTok Clone · UI Sandbox",
